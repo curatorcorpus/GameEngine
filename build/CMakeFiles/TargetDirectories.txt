@@ -1,0 +1,3 @@
+/home/curator/Repositories/rasterization/build/CMakeFiles/rebuild_cache.dir
+/home/curator/Repositories/rasterization/build/CMakeFiles/edit_cache.dir
+/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir
