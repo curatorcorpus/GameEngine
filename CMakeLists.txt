@@ -2,6 +2,22 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT(render_engine)
 
+# Enable C++11 compiler
+INCLUDE(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+  IF(COMPILER_SUPPORTS_CXX11)
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    SET(LIBFREENECT2_WITH_CXX11_SUPPORT 1)
+    SET(HAVE_CXX11 yes)
+  ELSEIF(COMPILER_SUPPORTS_CXX0X)
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+    SET(HAVE_CXX11 c++0x)
+  ELSE()
+    SET(HAVE_CXX11 no)
+    MESSAGE(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+ENDIF()
+
 SET(src_code
 	
 	render_engine.cpp
