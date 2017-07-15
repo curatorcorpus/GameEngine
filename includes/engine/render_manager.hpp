@@ -26,7 +26,7 @@ public:
 	~RenderManager();
 
 	void setup_gl_states();
-	void update();
+	void update(GLFWwindow* window);
 };
 
 #endif

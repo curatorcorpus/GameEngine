@@ -13,6 +13,7 @@
 	External Libraries
 */
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 /*
 	Internal Headers
@@ -20,7 +21,7 @@
 #include <display_manager.hpp>
 #include <render_manager.hpp>
 #include <input_manager.hpp>
-	
+
 /*
 	Gloabl Variables
 */
@@ -33,13 +34,19 @@ int main(int argc, char *argv[]) {
 	RenderManager  renderer = RenderManager();
 	InputManager   inputs   = InputManager();
 
+	// display settings
+
+
+	// render settings
+	renderer.setup_gl_states();
+
+	// input settings
+
+
 	while(glfwGetKey(display.window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display.window)) 
 	{
 		inputs.poll();
-
-		renderer.update();
-
-		glfwSwapBuffers(display.window);
+		renderer.update(display.window);
 	}
 
 	return EXIT_SUCCESS;
