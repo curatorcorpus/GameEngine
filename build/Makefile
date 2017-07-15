@@ -150,6 +150,33 @@ render_engine.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/render_engine.cpp.s
 .PHONY : render_engine.cpp.s
 
+sources/engine/display_manager.o: sources/engine/display_manager.cpp.o
+
+.PHONY : sources/engine/display_manager.o
+
+# target to build an object file
+sources/engine/display_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o
+.PHONY : sources/engine/display_manager.cpp.o
+
+sources/engine/display_manager.i: sources/engine/display_manager.cpp.i
+
+.PHONY : sources/engine/display_manager.i
+
+# target to preprocess a source file
+sources/engine/display_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.i
+.PHONY : sources/engine/display_manager.cpp.i
+
+sources/engine/display_manager.s: sources/engine/display_manager.cpp.s
+
+.PHONY : sources/engine/display_manager.s
+
+# target to generate assembly for a file
+sources/engine/display_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s
+.PHONY : sources/engine/display_manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... render_engine.o"
 	@echo "... render_engine.i"
 	@echo "... render_engine.s"
+	@echo "... sources/engine/display_manager.o"
+	@echo "... sources/engine/display_manager.i"
+	@echo "... sources/engine/display_manager.s"
 .PHONY : help
 
 

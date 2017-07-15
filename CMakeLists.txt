@@ -5,12 +5,6 @@ IF(UNIX)
   FIND_PACKAGE(PkgConfig REQUIRED)
 ENDIF(UNIX)
 
-# Location of cmake modules
-#LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SRC_DIR}/cmake_modules)
-
-# Include Cmake macro for finding binaries
-#INCLUDE(FindDependency)
-
 # Enable C++11 compiler
 INCLUDE(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
@@ -29,16 +23,20 @@ ENDIF()
 
 # GLFW Libraries
 PKG_SEARCH_MODULE(GLFW REQUIRED glfw3)
+FIND_PACKAGE(OpenGL REQUIRED)
 SET(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 SET(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 SET(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 INCLUDE_DIRECTORIES(
+  ${OPENGL_INCLUDE_DIRS}
   ${GLFW_INCLUDE_DIRS}
+  ${CMAKE_CURRENT_SOURCE_DIR}/includes
+  ${CMAKE_CURRENT_SOURCE_DIR}/includes/engine
   )
 
 SET(SRC_CODE
-	
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/engine/display_manager.cpp
 	render_engine.cpp
 )
 
@@ -47,6 +45,6 @@ ADD_EXECUTABLE(render_engine
 )
 
 TARGET_LINK_LIBRARIES(render_engine 
-
+  ${OPENGL_LIBRARIES}
   ${GLFW_LIBRARIES}
   )

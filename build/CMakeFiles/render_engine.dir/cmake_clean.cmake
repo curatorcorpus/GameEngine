@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o"
   "CMakeFiles/render_engine.dir/render_engine.cpp.o"
   "render_engine.pdb"
   "render_engine"

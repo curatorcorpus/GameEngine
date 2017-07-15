@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/libdrm 
+CXX_INCLUDES = -I/usr/include/libdrm -I/home/curator/Repositories/rasterization/includes -I/home/curator/Repositories/rasterization/includes/engine 
 

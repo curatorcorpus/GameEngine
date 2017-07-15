@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+../includes/engine/display_manager.hpp
+iostream
+-
+stdlib.h
+-
+stdio.h
+-
+GLFW/glfw3.h
+-
+
 /home/curator/Repositories/rasterization/render_engine.cpp
 iostream
 -
@@ -14,5 +24,11 @@ stdlib.h
 stdio.h
 -
 GLFW/glfw3.h
+-
+display_manager.hpp
+-
+
+/home/curator/Repositories/rasterization/sources/engine/display_manager.cpp
+display_manager.hpp
 -
 

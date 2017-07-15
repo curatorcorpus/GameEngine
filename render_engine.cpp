@@ -15,39 +15,28 @@
 #include <GLFW/glfw3.h>
 
 /*
+	Internal Headers
+*/
+#include <display_manager.hpp>
+
+/*
 	Gloabl Variables
 */
-GLFWwindow* create_window(std::string title) {
 
-	// initialize GLFW window
-	if(!glfwInit()) {
-		std::cerr << "[DEBUJG::RENDER_ENGINE] " 
-				  << "Failed to intialize GLFW Context" 
-				  << 
-		std::endl;
-
-		exit(EXIT_FAILURE);
-	}
-
-	// open window and create opengl context
-	GLFWwindow* window = glfwCreateWindow(1280, 900, title.c_str(), NULL, NULL);
-	if(window == NULL) {
-		glfwTerminate();
-
-		exit(EXIT_FAILURE);
-	}
-	glfwMakeContextCurrent(window);
-
-	return window;
-}
 
 int main(int argc, char *argv[]) {
 
-	GLFWwindow* window = create_window("Test");
+	DisplayManager display = DisplayManager("testing");
 
-	while(!glfwWindowShouldClose(window)) 
+	// opengl settings
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+	while(glfwGetKey(display.window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display.window)) 
 	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		glfwSwapBuffers(display.window);
+        glfwPollEvents();
 	}
 
 	return EXIT_SUCCESS;
