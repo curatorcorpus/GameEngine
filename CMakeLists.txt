@@ -1,6 +1,15 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-
 PROJECT(render_engine)
+
+IF(UNIX)
+  FIND_PACKAGE(PkgConfig REQUIRED)
+ENDIF(UNIX)
+
+# Location of cmake modules
+#LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SRC_DIR}/cmake_modules)
+
+# Include Cmake macro for finding binaries
+#INCLUDE(FindDependency)
 
 # Enable C++11 compiler
 INCLUDE(CheckCXXCompilerFlag)
@@ -18,11 +27,26 @@ CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
     MESSAGE(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 ENDIF()
 
-SET(src_code
+# GLFW Libraries
+PKG_SEARCH_MODULE(GLFW REQUIRED glfw3)
+SET(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+SET(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+SET(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+
+INCLUDE_DIRECTORIES(
+  ${GLFW_INCLUDE_DIRS}
+  )
+
+SET(SRC_CODE
 	
 	render_engine.cpp
 )
 
 ADD_EXECUTABLE(render_engine
-	${src_code}
+	${SRC_CODE}
 )
+
+TARGET_LINK_LIBRARIES(render_engine 
+
+  ${GLFW_LIBRARIES}
+  )

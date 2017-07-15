@@ -7,10 +7,12 @@
 #IncludeRegexTransform: 
 
 /home/curator/Repositories/rasterization/render_engine.cpp
+iostream
+-
 stdlib.h
 -
 stdio.h
 -
-iostream
+GLFW/glfw3.h
 -
 
