@@ -177,6 +177,60 @@ sources/engine/display_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s
 .PHONY : sources/engine/display_manager.cpp.s
 
+sources/engine/input_manager.o: sources/engine/input_manager.cpp.o
+
+.PHONY : sources/engine/input_manager.o
+
+# target to build an object file
+sources/engine/input_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o
+.PHONY : sources/engine/input_manager.cpp.o
+
+sources/engine/input_manager.i: sources/engine/input_manager.cpp.i
+
+.PHONY : sources/engine/input_manager.i
+
+# target to preprocess a source file
+sources/engine/input_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.i
+.PHONY : sources/engine/input_manager.cpp.i
+
+sources/engine/input_manager.s: sources/engine/input_manager.cpp.s
+
+.PHONY : sources/engine/input_manager.s
+
+# target to generate assembly for a file
+sources/engine/input_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.s
+.PHONY : sources/engine/input_manager.cpp.s
+
+sources/engine/render_manager.o: sources/engine/render_manager.cpp.o
+
+.PHONY : sources/engine/render_manager.o
+
+# target to build an object file
+sources/engine/render_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o
+.PHONY : sources/engine/render_manager.cpp.o
+
+sources/engine/render_manager.i: sources/engine/render_manager.cpp.i
+
+.PHONY : sources/engine/render_manager.i
+
+# target to preprocess a source file
+sources/engine/render_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.i
+.PHONY : sources/engine/render_manager.cpp.i
+
+sources/engine/render_manager.s: sources/engine/render_manager.cpp.s
+
+.PHONY : sources/engine/render_manager.s
+
+# target to generate assembly for a file
+sources/engine/render_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.s
+.PHONY : sources/engine/render_manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +246,12 @@ help:
 	@echo "... sources/engine/display_manager.o"
 	@echo "... sources/engine/display_manager.i"
 	@echo "... sources/engine/display_manager.s"
+	@echo "... sources/engine/input_manager.o"
+	@echo "... sources/engine/input_manager.i"
+	@echo "... sources/engine/input_manager.s"
+	@echo "... sources/engine/render_manager.o"
+	@echo "... sources/engine/render_manager.i"
+	@echo "... sources/engine/render_manager.s"
 .PHONY : help
 
 

@@ -3,7 +3,15 @@
 
 CMakeFiles/render_engine.dir/render_engine.cpp.o
  ../includes/engine/display_manager.hpp
+ ../includes/engine/input_manager.hpp
+ ../includes/engine/render_manager.hpp
  /home/curator/Repositories/rasterization/render_engine.cpp
 CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o
  ../includes/engine/display_manager.hpp
  /home/curator/Repositories/rasterization/sources/engine/display_manager.cpp
+CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o
+ ../includes/engine/input_manager.hpp
+ /home/curator/Repositories/rasterization/sources/engine/input_manager.cpp
+CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o
+ ../includes/engine/render_manager.hpp
+ /home/curator/Repositories/rasterization/sources/engine/render_manager.cpp

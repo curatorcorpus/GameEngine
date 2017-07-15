@@ -1,6 +1,6 @@
 #include <display_manager.hpp>
 
-DisplayManager::DisplayManager(std::string title, int width = 1280, int height = 1080) {
+DisplayManager::DisplayManager(std::string title, int width, int height) {
 	// initialize GLFW window
 	if(!glfwInit()) {
 		std::cerr << "[DEBUG::DISPLAY_MANAGER] " 
@@ -32,3 +32,7 @@ DisplayManager::~DisplayManager() {
 
 	std::cerr << "[DEBUG::DISPLAY_MANAGER] Window terminated!" << std::endl;
 }
+/*
+GLFWwindow* DisplayManager::get_window() {
+	return window;
+}*/

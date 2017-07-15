@@ -37,6 +37,8 @@ INCLUDE_DIRECTORIES(
 
 SET(SRC_CODE
 	${CMAKE_CURRENT_SOURCE_DIR}/sources/engine/display_manager.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/engine/render_manager.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/engine/input_manager.cpp
 	render_engine.cpp
 )
 

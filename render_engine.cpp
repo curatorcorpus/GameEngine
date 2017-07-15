@@ -18,25 +18,28 @@
 	Internal Headers
 */
 #include <display_manager.hpp>
-
+#include <render_manager.hpp>
+#include <input_manager.hpp>
+	
 /*
 	Gloabl Variables
 */
 
-
 int main(int argc, char *argv[]) {
 
-	DisplayManager display = DisplayManager("testing");
+	int width, height;
 
-	// opengl settings
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	DisplayManager display  = DisplayManager("testing");
+	RenderManager  renderer = RenderManager();
+	InputManager   inputs   = InputManager();
 
 	while(glfwGetKey(display.window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display.window)) 
 	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		inputs.poll();
+
+		renderer.update();
 
 		glfwSwapBuffers(display.window);
-        glfwPollEvents();
 	}
 
 	return EXIT_SUCCESS;
