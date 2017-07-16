@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/libdrm -I/home/curator/Repositories/rasterization/includes -I/home/curator/Repositories/rasterization/includes/engine 
+CXX_INCLUDES = -I/home/curator/Repositories/rasterization/includes -I/home/curator/Repositories/rasterization/includes/engine -I/home/curator/Repositories/rasterization/externals/glfw-3.2.1/include 
 

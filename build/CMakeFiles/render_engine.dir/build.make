@@ -168,8 +168,16 @@ render_engine: CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o
 render_engine: CMakeFiles/render_engine.dir/render_engine.cpp.o
 render_engine: CMakeFiles/render_engine.dir/build.make
+render_engine: externals/glfw-3.2.1/src/libglfw3.a
 render_engine: /usr/lib/x86_64-linux-gnu/libGLU.so
 render_engine: /usr/lib/x86_64-linux-gnu/libGL.so
+render_engine: /usr/lib/x86_64-linux-gnu/librt.so
+render_engine: /usr/lib/x86_64-linux-gnu/libm.so
+render_engine: /usr/lib/x86_64-linux-gnu/libX11.so
+render_engine: /usr/lib/x86_64-linux-gnu/libXrandr.so
+render_engine: /usr/lib/x86_64-linux-gnu/libXinerama.so
+render_engine: /usr/lib/x86_64-linux-gnu/libXxf86vm.so
+render_engine: /usr/lib/x86_64-linux-gnu/libXcursor.so
 render_engine: CMakeFiles/render_engine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable render_engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/render_engine.dir/link.txt --verbose=$(VERBOSE)
