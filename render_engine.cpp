@@ -38,10 +38,13 @@ int main(int argc, char *argv[]) {
 
 
 	// render settings
-	renderer.setup_gl_states();
+	//renderer.set_bkg_clr(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));	
 
 	// input settings
 
+
+	// setup methods
+	renderer.setup();
 
 	while(glfwGetKey(display.window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display.window)) 
 	{

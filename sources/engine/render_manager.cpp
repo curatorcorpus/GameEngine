@@ -2,15 +2,14 @@
 
 RenderManager::RenderManager() {
 
+	this->bkg_clr = glm::vec4(0.0f, 0.0f, 0.f, 0.0f);
 }
 
-RenderManager::~RenderManager() {
+RenderManager::~RenderManager() {}
 
-}
-
-void RenderManager::setup_gl_states() {
+void RenderManager::setup() {
 	// opengl settings
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(bkg_clr.x, bkg_clr.y, bkg_clr.z, bkg_clr.w);
 }
 
 void RenderManager::update(GLFWwindow* window) { 
@@ -23,3 +22,6 @@ void RenderManager::update(GLFWwindow* window) {
 	glfwSwapBuffers(window);
 }
 
+void RenderManager::set_bkg_clr(glm::vec4 bkg_clr) {
+	this->bkg_clr = bkg_clr;
+}
