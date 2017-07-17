@@ -1,6 +1,6 @@
 #include <display_manager.hpp>
 
-DisplayManager::DisplayManager(std::string title, int width, int height) {
+DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int height) {
 	// initialize GLFW window
 	if(!glfwInit()) {
 		std::cerr << "[DEBUG::DISPLAY_MANAGER] " 
@@ -17,7 +17,11 @@ DisplayManager::DisplayManager(std::string title, int width, int height) {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// open window and create opengl context
-	window = glfwCreateWindow(1280, 900, title.c_str(), glfwGetPrimaryMonitor(), NULL);
+	if(fullscrn)
+		window = glfwCreateWindow(1280, 900, title.c_str(), glfwGetPrimaryMonitor(), NULL);
+	else 
+		window = glfwCreateWindow(1280, 900, title.c_str(), NULL, NULL);
+
 	if(window == NULL) {
 		glfwTerminate();
 

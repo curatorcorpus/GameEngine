@@ -37,31 +37,36 @@ FIND_PACKAGE(OpenGL REQUIRED)
 FIND_PACKAGE(GLM REQUIRED)
 
 INCLUDE_DIRECTORIES(
-  ${OPENGL_INCLUDE_DIRS}
-  #${GLFW_INCLUDE_DIRS}
-  ${GLM_INCLUDE_DIRS}
-  ${CMAKE_CURRENT_SOURCE_DIR}/includes
-  ${CMAKE_CURRENT_SOURCE_DIR}/includes/engine
-  )
+    ${OPENGL_INCLUDE_DIRS}
+    #${GLFW_INCLUDE_DIRS}
+    ${GLM_INCLUDE_DIRS}
+    
+    includes/engine
+    includes/shaders
+)
 
 SET(SRC_CODE
-	${CMAKE_CURRENT_SOURCE_DIR}/sources/engine/display_manager.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/engine/render_manager.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/engine/input_manager.cpp
-	render_engine.cpp
+  	sources/engine/display_manager.cpp
+    sources/engine/render_manager.cpp
+    sources/engine/input_manager.cpp
+
+    sources/shaders/shader.cpp
+
+  	render_engine.cpp
 )
 
 ADD_SUBDIRECTORY(
-  externals/glfw-3.2.1
-  )
+    externals/glfw-3.2.1
+    externals/glew-2.0.0
+)
 
 ADD_EXECUTABLE(render_engine
 	${SRC_CODE}
 )
 
 TARGET_LINK_LIBRARIES(render_engine 
-  glfw
-  ${OPENGL_LIBRARIES}
-  #${GLFW_LIBRARIES}
-  ${GLM_LIBRARIES}
-  )
+    glfw
+    ${OPENGL_LIBRARIES}
+    #${GLFW_LIBRARIES}
+    ${GLM_LIBRARIES}
+)

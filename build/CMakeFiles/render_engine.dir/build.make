@@ -129,9 +129,33 @@ CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o.provides: CMakeF
 CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o
 
 
+CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: CMakeFiles/render_engine.dir/flags.make
+CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../sources/shaders/shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o -c /home/curator/Repositories/rasterization/sources/shaders/shader.cpp
+
+CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/curator/Repositories/rasterization/sources/shaders/shader.cpp > CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.i
+
+CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/curator/Repositories/rasterization/sources/shaders/shader.cpp -o CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.s
+
+CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.requires:
+
+.PHONY : CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.requires
+
+CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.provides: CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.requires
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.provides.build
+.PHONY : CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.provides
+
+CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o
+
+
 CMakeFiles/render_engine.dir/render_engine.cpp.o: CMakeFiles/render_engine.dir/flags.make
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../render_engine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/render_engine.dir/render_engine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/render_engine.dir/render_engine.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/render_engine.cpp.o -c /home/curator/Repositories/rasterization/render_engine.cpp
 
 CMakeFiles/render_engine.dir/render_engine.cpp.i: cmake_force
@@ -158,6 +182,7 @@ render_engine_OBJECTS = \
 "CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o" \
+"CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o" \
 "CMakeFiles/render_engine.dir/render_engine.cpp.o"
 
 # External object files for target render_engine
@@ -166,9 +191,10 @@ render_engine_EXTERNAL_OBJECTS =
 render_engine: CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o
+render_engine: CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o
 render_engine: CMakeFiles/render_engine.dir/render_engine.cpp.o
 render_engine: CMakeFiles/render_engine.dir/build.make
-render_engine: externals/glfw-3.2.1/src/libglfw3.a
+render_engine: externals/glew-2.0.0/src/libglfw3.a
 render_engine: /usr/lib/x86_64-linux-gnu/libGLU.so
 render_engine: /usr/lib/x86_64-linux-gnu/libGL.so
 render_engine: /usr/lib/x86_64-linux-gnu/librt.so
@@ -179,7 +205,7 @@ render_engine: /usr/lib/x86_64-linux-gnu/libXinerama.so
 render_engine: /usr/lib/x86_64-linux-gnu/libXxf86vm.so
 render_engine: /usr/lib/x86_64-linux-gnu/libXcursor.so
 render_engine: CMakeFiles/render_engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable render_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable render_engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/render_engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -190,6 +216,7 @@ CMakeFiles/render_engine.dir/build: render_engine
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o.requires
+CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/render_engine.cpp.o.requires
 
 .PHONY : CMakeFiles/render_engine.dir/requires

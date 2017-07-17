@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 
 	int width, height;
 
-	DisplayManager display  = DisplayManager("testing");
+	DisplayManager display  = DisplayManager("testing", false);
 	RenderManager  renderer = RenderManager();
 	InputManager   inputs   = InputManager();
 
@@ -45,6 +45,13 @@ int main(int argc, char *argv[]) {
 
 	// setup methods
 	renderer.setup();
+
+float vertices[] = {
+    // positions         // colors
+     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
+}; 
 
 	while(glfwGetKey(display.window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display.window)) 
 	{

@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/curator/Repositories/rasterization/build/externals/glfw-3.2.1/cmake_install.cmake")
+  include("/home/curator/Repositories/rasterization/build/externals/glew-2.0.0/cmake_install.cmake")
 
 endif()
 

@@ -177,7 +177,7 @@ uninstall: cmake_check_build_system
 
 # fast build rule for target.
 uninstall/fast:
-	$(MAKE) -f externals/glfw-3.2.1/CMakeFiles/uninstall.dir/build.make externals/glfw-3.2.1/CMakeFiles/uninstall.dir/build
+	$(MAKE) -f externals/glew-2.0.0/CMakeFiles/uninstall.dir/build.make externals/glew-2.0.0/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
 #=============================================================================
@@ -190,7 +190,7 @@ glfw: cmake_check_build_system
 
 # fast build rule for target.
 glfw/fast:
-	$(MAKE) -f externals/glfw-3.2.1/src/CMakeFiles/glfw.dir/build.make externals/glfw-3.2.1/src/CMakeFiles/glfw.dir/build
+	$(MAKE) -f externals/glew-2.0.0/src/CMakeFiles/glfw.dir/build.make externals/glew-2.0.0/src/CMakeFiles/glfw.dir/build
 .PHONY : glfw/fast
 
 render_engine.o: render_engine.cpp.o
@@ -301,6 +301,33 @@ sources/engine/render_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.s
 .PHONY : sources/engine/render_manager.cpp.s
 
+sources/shaders/shader.o: sources/shaders/shader.cpp.o
+
+.PHONY : sources/shaders/shader.o
+
+# target to build an object file
+sources/shaders/shader.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o
+.PHONY : sources/shaders/shader.cpp.o
+
+sources/shaders/shader.i: sources/shaders/shader.cpp.i
+
+.PHONY : sources/shaders/shader.i
+
+# target to preprocess a source file
+sources/shaders/shader.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.i
+.PHONY : sources/shaders/shader.cpp.i
+
+sources/shaders/shader.s: sources/shaders/shader.cpp.s
+
+.PHONY : sources/shaders/shader.s
+
+# target to generate assembly for a file
+sources/shaders/shader.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.s
+.PHONY : sources/shaders/shader.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -328,6 +355,9 @@ help:
 	@echo "... sources/engine/render_manager.o"
 	@echo "... sources/engine/render_manager.i"
 	@echo "... sources/engine/render_manager.s"
+	@echo "... sources/shaders/shader.o"
+	@echo "... sources/shaders/shader.i"
+	@echo "... sources/shaders/shader.s"
 .PHONY : help
 
 
