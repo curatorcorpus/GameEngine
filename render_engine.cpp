@@ -28,6 +28,19 @@
 	Gloabl Variables
 */
 
+/**
+    Simple fps counter.
+*/
+static void fps_counter(double& current_time, double& initial_time, int& frames) {
+    
+    if(current_time - initial_time >= 1.0) {
+        printf("%.1f ms per frame | %d frames\n", 1000.0/double(frames), frames);
+
+        frames = 0;
+        initial_time++;
+    }
+}
+
 int main(int argc, char *argv[]) {
 
 	int width, height;
@@ -49,18 +62,30 @@ int main(int argc, char *argv[]) {
 
 	// setup methods
 	renderer.setup();
+	shader.setup();
 
-float vertices[] = {
-    // positions         // colors
-     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
-    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
-     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
-}; 
+	float vertices[] = {
+	    // positions         // colors
+	     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+	    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+	     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
+	}; 
+
+
+	int frames = 0;
+	double init_time = glfwGetTime();
+	double curr_time, last_time = 0.0;
 
 	while(glfwGetKey(display.window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display.window)) 
 	{
+		curr_time = glfwGetTime();
+		
 		inputs.poll();
 		renderer.update(display.window);
+
+		fps_counter(curr_time, init_time, (++frames));
+
+		last_time = curr_time;
 	}
 
 	return EXIT_SUCCESS;

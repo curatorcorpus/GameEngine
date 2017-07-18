@@ -8,25 +8,23 @@ Shader::Shader(std::string shader_path) {
 	// relative local path to shader res.
 	std::string loc_res_path = "../resources/shaders/";
 
-	std::string vert_shader_path = loc_res_path + shader_path + ".vert";
-	std::string frag_shader_path = loc_res_path + shader_path + ".frag";
-
-	setup(vert_shader_path, frag_shader_path);
+	this->vert_shader_path = loc_res_path + shader_path + ".vert";
+	this->frag_shader_path = loc_res_path + shader_path + ".frag";
 }
 
 Shader::~Shader() {
 	glDeleteProgram(prog_id);
 }
 
-void Shader::setup(std::string& vert_path, std::string& frag_path) {
+void Shader::setup() {
 
 	// read in shader files.
-	std::string vert_shader_code = open_file(vert_path);
-	std::string frag_shader_code = open_file(frag_path);
+	std::string vert_shader_code = open_file(this->vert_shader_path);
+	std::string frag_shader_code = open_file(this->frag_shader_path);
 
 	// compile shader programs.
-	GLuint vert_id = compile(vert_path, vert_shader_code.c_str());
-	GLuint frag_id = compile(frag_path, frag_shader_code.c_str());
+	GLuint vert_id = compile(this->vert_shader_path, vert_shader_code.c_str());
+	GLuint frag_id = compile(this->frag_shader_path, frag_shader_code.c_str());
 
 	// compiled shaders to program
 	this->prog_id = link_shaders(vert_id, frag_id);
