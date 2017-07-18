@@ -12,6 +12,7 @@
 /*
 	External Libraries
 */
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
@@ -21,6 +22,7 @@
 #include <display_manager.hpp>
 #include <render_manager.hpp>
 #include <input_manager.hpp>
+#include <shader.hpp>
 
 /*
 	Gloabl Variables
@@ -33,6 +35,8 @@ int main(int argc, char *argv[]) {
 	DisplayManager display  = DisplayManager("testing", false);
 	RenderManager  renderer = RenderManager();
 	InputManager   inputs   = InputManager();
+
+	Shader shader = Shader("basic");
 
 	// display settings
 

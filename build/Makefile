@@ -177,7 +177,7 @@ uninstall: cmake_check_build_system
 
 # fast build rule for target.
 uninstall/fast:
-	$(MAKE) -f externals/glew-2.0.0/CMakeFiles/uninstall.dir/build.make externals/glew-2.0.0/CMakeFiles/uninstall.dir/build
+	$(MAKE) -f externals/glfw-3.2.1/CMakeFiles/uninstall.dir/build.make externals/glfw-3.2.1/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
 #=============================================================================
@@ -190,7 +190,7 @@ glfw: cmake_check_build_system
 
 # fast build rule for target.
 glfw/fast:
-	$(MAKE) -f externals/glew-2.0.0/src/CMakeFiles/glfw.dir/build.make externals/glew-2.0.0/src/CMakeFiles/glfw.dir/build
+	$(MAKE) -f externals/glfw-3.2.1/src/CMakeFiles/glfw.dir/build.make externals/glfw-3.2.1/src/CMakeFiles/glfw.dir/build
 .PHONY : glfw/fast
 
 render_engine.o: render_engine.cpp.o

@@ -21,7 +21,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/curator/Repositories/rasterization/build/externals/glew-2.0.0/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "/home/curator/Repositories/rasterization/build/externals/glfw-3.2.1/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

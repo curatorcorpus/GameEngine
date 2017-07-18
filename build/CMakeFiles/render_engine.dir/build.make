@@ -194,7 +194,8 @@ render_engine: CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o
 render_engine: CMakeFiles/render_engine.dir/render_engine.cpp.o
 render_engine: CMakeFiles/render_engine.dir/build.make
-render_engine: externals/glew-2.0.0/src/libglfw3.a
+render_engine: externals/glfw-3.2.1/src/libglfw3.a
+render_engine: /usr/lib/x86_64-linux-gnu/libGLEW.so
 render_engine: /usr/lib/x86_64-linux-gnu/libGLU.so
 render_engine: /usr/lib/x86_64-linux-gnu/libGL.so
 render_engine: /usr/lib/x86_64-linux-gnu/librt.so

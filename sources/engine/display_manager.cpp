@@ -28,6 +28,17 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
 		exit(EXIT_FAILURE);
 	}
 	glfwMakeContextCurrent(window);
+
+	// initialize glew opengl extension libraries.
+	//glewExperimental = GL_TRUE;
+
+	GLenum err = glewInit();
+	if(err != GLEW_OK) {
+        fprintf(stderr, "Failed to initialize GLEW\n");
+        getchar();
+        glfwTerminate();
+        exit(EXIT_FAILURE);
+    }
 }
 
 DisplayManager::~DisplayManager() {

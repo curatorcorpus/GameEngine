@@ -30,22 +30,26 @@ SET(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 SET(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 SET(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-# Find OpenGL
-FIND_PACKAGE(OpenGL REQUIRED)
-
-# Find GLM Libraries
-FIND_PACKAGE(GLM REQUIRED)
+FIND_PACKAGE(OpenGL REQUIRED) # 
+FIND_PACKAGE(GLM REQUIRED)    # Find OpenGL
+FIND_PACKAGE(GLEW REQUIRED)   # Find GLM Libraries
 
 INCLUDE_DIRECTORIES(
     ${OPENGL_INCLUDE_DIRS}
     #${GLFW_INCLUDE_DIRS}
     ${GLM_INCLUDE_DIRS}
-    
+    ${GLEW_INCLUDE_DIRS}
+    #includes/depends/GL
     includes/engine
     includes/shaders
 )
 
 SET(SRC_CODE
+
+    #sources/depends/glew.c
+#sources/depends/visualinfo.c
+#sources/depends/glewinfo.c
+
   	sources/engine/display_manager.cpp
     sources/engine/render_manager.cpp
     sources/engine/input_manager.cpp
@@ -57,7 +61,10 @@ SET(SRC_CODE
 
 ADD_SUBDIRECTORY(
     externals/glfw-3.2.1
-    externals/glew-2.0.0
+)
+
+ADD_DEFINITIONS(
+    #-DGLEW_STATIC
 )
 
 ADD_EXECUTABLE(render_engine
@@ -66,6 +73,7 @@ ADD_EXECUTABLE(render_engine
 
 TARGET_LINK_LIBRARIES(render_engine 
     glfw
+    ${GLEW_LIBRARIES}
     ${OPENGL_LIBRARIES}
     #${GLFW_LIBRARIES}
     ${GLM_LIBRARIES}
