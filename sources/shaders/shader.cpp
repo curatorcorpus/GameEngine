@@ -58,14 +58,16 @@ GLuint Shader::compile(std::string& file_name, const char* code) {
 
 	std::cerr << "[DEBUG::SHADER_CPP] Compiling Shader: " << file_name << std::endl;
 
+	int determiner = 0;
+
 	// create empty shader object. [only limited to vert and frag shader]
 	// determines which shader processor should be used for the provided code.
 	GLuint shader_id;
 	if(file_name.find("vert") != std::string::npos) {
-						std::cerr << "working" << std::endl;
 		shader_id = glCreateShader(GL_VERTEX_SHADER);
 	} else {
 		shader_id = glCreateShader(GL_FRAGMENT_SHADER);
+		determiner = 1;
 	}
 
 	glShaderSource(shader_id, 1, &code, NULL); // attach source code to empty shader object.
@@ -76,17 +78,22 @@ GLuint Shader::compile(std::string& file_name, const char* code) {
 
 	// check if shader programs compiled.
 	glGetShaderiv(shader_id, GL_COMPILE_STATUS, &result);
-	std::cerr << result << std::endl;
 	glGetShaderiv(shader_id, GL_INFO_LOG_LENGTH, &info_log_length);
 
 	if(info_log_length > 0) {
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetShaderInfoLog(shader_id, info_log_length, NULL, &err_msg[0]);
 
-		std::cerr << "[DEBUG::SHADER_CPP] " << &err_msg << std::endl;
+		std::cerr << "[DEBUG::SHADER_CPP] " << &err_msg[0] << std::endl;
 		std::cerr << "[DEBUG::SHADER_CPP] Shader Compilation Failed!" << std::endl;
 	}
-		std::cerr << "working" << std::endl;
+
+	if(determiner == 0) {
+		std::cerr << "[DEBUG::SHADER_CPP] Vert Shader Compilation Succeed!" << std::endl;
+	} else {
+		std::cerr << "[DEBUG::SHADER_CPP] Frag Shader Compilation Succeed!" << std::endl;
+	}
+
 	return shader_id;
 }
 
@@ -103,11 +110,15 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id) {
 	// check program is running
 	GLint result = GL_FALSE;
 	GLint info_log_length;
+
+	glGetProgramiv(program, GL_LINK_STATUS, &result);
+	glGetProgramiv(program, GL_INFO_LOG_LENGTH, &info_log_length);
+
 	if(info_log_length > 0) {
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetProgramInfoLog(program, info_log_length, NULL, &err_msg[0]);
 
-		std::cerr << "[DEBUG::SHADER_CPP] " << &err_msg << std::endl;
+		std::cerr << "[DEBUG::SHADER_CPP] " << &err_msg[0] << std::endl;
 		std::cerr << "[DEBUG::SHADER_CPP] Program Linking Failed!" << std::endl;
 	}
 
@@ -118,6 +129,8 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id) {
 	// free shader object memory.
 	glDeleteShader(vert_id);
 	glDeleteShader(vert_id);
+
+	std::cerr << "[DEBUG::SHADER_CPP] Shaders Linked Successfully to Program!" << std::endl;
 
 	return program;
 }
