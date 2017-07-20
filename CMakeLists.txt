@@ -1,6 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 PROJECT(render_engine)
 
+
 IF(UNIX)
   FIND_PACKAGE(PkgConfig REQUIRED)
 ENDIF(UNIX)
@@ -25,21 +26,20 @@ CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 ENDIF()
 
 # GLFW Libraries
-#FIND_PACKAGE(GLFW REQUIRED)
 SET(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 SET(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 SET(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-FIND_PACKAGE(OpenGL REQUIRED) # 
-FIND_PACKAGE(GLM REQUIRED)    # Find OpenGL
-FIND_PACKAGE(GLEW REQUIRED)   # Find GLM Libraries
+FIND_PACKAGE(OpenGL REQUIRED) # Find OpenGL - 
+FIND_PACKAGE(GLM REQUIRED)    # Find GLM Libraries - maths library for graphics
+FIND_PACKAGE(GLEW REQUIRED)   # Find GLEW libraries - 
 
 INCLUDE_DIRECTORIES(
+    
     ${OPENGL_INCLUDE_DIRS}
-    #${GLFW_INCLUDE_DIRS}
     ${GLM_INCLUDE_DIRS}
     ${GLEW_INCLUDE_DIRS}
-    #includes/depends/GL
+    
     includes/engine
     includes/entities
     includes/shaders
@@ -59,7 +59,8 @@ SET(SRC_CODE
 )
 
 ADD_SUBDIRECTORY(
-    externals/glfw-3.2.1
+    
+    externals/glfw-3.2.1 # static library for GLFW added because v3.2 and greater has no memory leak.
 )
 
 ADD_DEFINITIONS(
@@ -67,13 +68,15 @@ ADD_DEFINITIONS(
 )
 
 ADD_EXECUTABLE(render_engine
-	${SRC_CODE}
+	
+    ${SRC_CODE}
 )
 
 TARGET_LINK_LIBRARIES(render_engine 
+    
     glfw
+
     ${GLEW_LIBRARIES}
     ${OPENGL_LIBRARIES}
-    #${GLFW_LIBRARIES}
     ${GLM_LIBRARIES}
 )

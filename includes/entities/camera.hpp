@@ -29,6 +29,9 @@ public:
 	Camera(glm::mat4 view_matrix, glm::mat4 projection_matrix);
 	~Camera();
 
+	glm::mat4 get_view_mat();
+	glm::mat4 get_proj_mat();
+	glm::mat4 get_view_proj_mat();
 };
 
 #endif

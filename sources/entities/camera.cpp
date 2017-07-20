@@ -15,3 +15,15 @@ Camera::Camera() {
  	// generates transformation matirx for frustrum (clipping) space.
 	projection_matrix = glm::perspective(fov, aspect_ratio, near_clip, far_clip);
 }
+
+glm::mat4 Camera::get_view_mat() {
+	return view_matrix;
+}
+
+glm::mat4 Camera::get_proj_mat() {
+	return projection_matrix;
+}
+
+glm::mat4 Camera::get_view_proj_mat() {
+	return view_matrix * projection_matrix;
+}
