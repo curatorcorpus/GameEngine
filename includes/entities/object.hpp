@@ -6,7 +6,7 @@
 #include <shader.hpp>
 
 #include <glm/glm.hpp>
-#include <glm/gtc/transformation_matrix.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 class Object {
 
@@ -16,14 +16,24 @@ protected:
 
 	std::string name;
 
+	// homogenous coordinates
 	glm::mat4 transform;
-	glm::mat4 position;
+	glm::mat4 translation;
 	glm::mat4 rotation;
 	glm::mat4 scale;
 
 public:
 
+	Object();
+	Object(std::string name);
+	~Object();
 
+	void set_transform();
+	void set_translation();
+	void set_rotation();
+	void set_scale();
+
+	void set_shader();
 };
 
 #endif

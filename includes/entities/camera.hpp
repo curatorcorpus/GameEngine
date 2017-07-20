@@ -16,9 +16,9 @@ private:
 	float horizontal_angle; // 
 	float vertical_angle;   // 
 
-	glm::vec3 position = glm::vec3(0.0f, 0.0f, -1.0f);
-	glm::vec3 lookat   = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::vec3 upwards  = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 position;
+	glm::vec3 lookat;
+	glm::vec3 upwards;
 
 	glm::mat4 view_matrix;
 	glm::mat4 projection_matrix;
@@ -26,8 +26,13 @@ private:
 public:
 
 	Camera();
+	Camera(float fov, float aspect_ratio, float near, float far); // with camera intrinsic parameters.
 	Camera(glm::mat4 view_matrix, glm::mat4 projection_matrix);
 	~Camera();
+
+	void set_pos();
+	void set_lookat();
+	void set_upwards();
 
 	glm::mat4 get_view_mat();
 	glm::mat4 get_proj_mat();

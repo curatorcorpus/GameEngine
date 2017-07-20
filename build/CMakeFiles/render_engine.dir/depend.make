@@ -23,6 +23,10 @@ CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o: ../sources/eng
 CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o: ../includes/entities/camera.hpp
 CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o: ../sources/entities/camera.cpp
 
+CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../includes/shaders/shader.hpp
+CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../sources/entities/object.cpp
+
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../sources/shaders/shader.cpp
 

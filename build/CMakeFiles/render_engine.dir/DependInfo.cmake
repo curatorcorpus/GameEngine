@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/curator/Repositories/rasterization/sources/engine/input_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/render_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o"
   "/home/curator/Repositories/rasterization/sources/entities/camera.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/entities/object.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/object.cpp.o"
   "/home/curator/Repositories/rasterization/sources/shaders/shader.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -18,6 +19,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../includes/engine"
   "../includes/entities"
   "../includes/shaders"
+  "../includes/terrains"
+  "../includes/textures"
   "../externals/glfw-3.2.1/include"
   )
 

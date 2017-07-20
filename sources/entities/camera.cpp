@@ -2,6 +2,10 @@
 
 Camera::Camera() {
 
+	position = glm::vec3(0.0f, 0.0f, -1.0f);
+	lookat   = glm::vec3(0.0f, 0.0f, 0.0f);
+	upwards  = glm::vec3(0.0f, 1.0f, 0.0f);
+
 	fov 		 = 45.0f;
 	aspect_ratio = 16.0f/9.0f;
 	near_clip    = 0.1f;
@@ -9,21 +13,43 @@ Camera::Camera() {
 
 	// requires pos, view direction, and up direction. 
 	// generates transformation matrix for camera view space.
-	view_matrix  	  = glm::lookAt(position, lookat, upwards); 
-
 	// requires fov, aspect ratio, near and far clipping plane.
  	// generates transformation matirx for frustrum (clipping) space.
+	view_matrix  	  = glm::lookAt(position, lookat, upwards); 
 	projection_matrix = glm::perspective(fov, aspect_ratio, near_clip, far_clip);
 }
 
+Camera::Camera(float fov, float aspect_ratio, float near, float far) {
+
+	Camera(); // default constructor called first, data fields overwritten.
+
+	this->fov 		   = fov;
+	this->aspect_ratio = aspect_ratio;
+	this->near_clip    = near;
+	this->far_clip     = far;
+}
+
+Camera::Camera(glm::mat4 view_matrix, glm::mat4 projection_matrix) {
+
+	Camera(); // default constructor called first, data fields overwritten.
+
+	this->view_matrix 		= view_matrix;
+	this->projection_matrix = projection_matrix;
+}
+
+Camera::~Camera() {}
+
 glm::mat4 Camera::get_view_mat() {
+
 	return view_matrix;
 }
 
 glm::mat4 Camera::get_proj_mat() {
+
 	return projection_matrix;
 }
 
 glm::mat4 Camera::get_view_proj_mat() {
+
 	return view_matrix * projection_matrix;
 }

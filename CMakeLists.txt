@@ -43,6 +43,8 @@ INCLUDE_DIRECTORIES(
     includes/engine
     includes/entities
     includes/shaders
+    includes/terrains
+    includes/textures
 )
 
 SET(SRC_CODE
@@ -52,6 +54,7 @@ SET(SRC_CODE
     sources/engine/input_manager.cpp
 
     sources/entities/camera.cpp
+    sources/entities/object.cpp
 
     sources/shaders/shader.cpp
 
