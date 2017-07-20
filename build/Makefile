@@ -301,6 +301,33 @@ sources/engine/render_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.s
 .PHONY : sources/engine/render_manager.cpp.s
 
+sources/entities/camera.o: sources/entities/camera.cpp.o
+
+.PHONY : sources/entities/camera.o
+
+# target to build an object file
+sources/entities/camera.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o
+.PHONY : sources/entities/camera.cpp.o
+
+sources/entities/camera.i: sources/entities/camera.cpp.i
+
+.PHONY : sources/entities/camera.i
+
+# target to preprocess a source file
+sources/entities/camera.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/camera.cpp.i
+.PHONY : sources/entities/camera.cpp.i
+
+sources/entities/camera.s: sources/entities/camera.cpp.s
+
+.PHONY : sources/entities/camera.s
+
+# target to generate assembly for a file
+sources/entities/camera.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/camera.cpp.s
+.PHONY : sources/entities/camera.cpp.s
+
 sources/shaders/shader.o: sources/shaders/shader.cpp.o
 
 .PHONY : sources/shaders/shader.o
@@ -355,6 +382,9 @@ help:
 	@echo "... sources/engine/render_manager.o"
 	@echo "... sources/engine/render_manager.i"
 	@echo "... sources/engine/render_manager.s"
+	@echo "... sources/entities/camera.o"
+	@echo "... sources/entities/camera.i"
+	@echo "... sources/entities/camera.s"
 	@echo "... sources/shaders/shader.o"
 	@echo "... sources/shaders/shader.i"
 	@echo "... sources/shaders/shader.s"

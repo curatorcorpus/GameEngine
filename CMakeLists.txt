@@ -41,18 +41,17 @@ INCLUDE_DIRECTORIES(
     ${GLEW_INCLUDE_DIRS}
     #includes/depends/GL
     includes/engine
+    includes/entities
     includes/shaders
 )
 
 SET(SRC_CODE
 
-    #sources/depends/glew.c
-#sources/depends/visualinfo.c
-#sources/depends/glewinfo.c
-
   	sources/engine/display_manager.cpp
     sources/engine/render_manager.cpp
     sources/engine/input_manager.cpp
+
+    sources/entities/camera.cpp
 
     sources/shaders/shader.cpp
 

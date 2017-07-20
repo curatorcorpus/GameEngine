@@ -62,7 +62,6 @@ int main(int argc, char *argv[]) {
 
 	// setup methods
 	renderer.setup();
-	shader.setup();
 
 	float vertices[] = {
 	    // positions         // colors
@@ -70,7 +69,6 @@ int main(int argc, char *argv[]) {
 	    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
 	     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
 	}; 
-
 
 	int frames = 0;
 	double init_time = glfwGetTime();

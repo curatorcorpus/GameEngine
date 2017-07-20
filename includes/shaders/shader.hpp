@@ -15,22 +15,18 @@ class Shader {
 
 protected:
 
-	std::string vert_shader_path;
-	std::string frag_shader_path;
-
 	GLuint prog_id;
 
 	void        bind(GLuint& program);
 	GLuint      compile(std::string& file_name, const char* code);
 	std::string open_file(std::string& shader_path);
 	GLuint 		link_shaders(GLuint& vert_id, GLuint& frag_id);
+	void        setup(std::string& vert, std::string& frag);
 
 public:
 
 	Shader(std::string shader_path);
 	~Shader();
-
-	void setup();
 };
 
 
