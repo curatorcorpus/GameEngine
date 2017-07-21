@@ -15,6 +15,7 @@ Shader::Shader(std::string shader_path) {
 }
 
 Shader::~Shader() {
+
 	glDeleteProgram(prog_id);
 }
 
@@ -30,6 +31,12 @@ void Shader::setup(std::string& vert_path, std::string& frag_path) {
 
 	// compiled shaders to program
 	this->prog_id = link_shaders(vert_id, frag_id);
+
+	// create reference to uniform variables inside prog_id shader program. 
+	this->mvp_id = glGetUniformLocation(prog_id, "MVP");
+	this->m_id   = glGetUniformLocation(prog_id, "M");
+	this->v_id   = glGetUniformLocation(prog_id, "V");
+
 	bind(prog_id);
 }
 
@@ -136,5 +143,18 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id) {
 }
 
 void Shader::bind(GLuint& program) {
+
 	glUseProgram(program);
+}
+
+void Shader::update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp) {
+
+	glUniformMatrix4fv(mvp_id, 1, GL_FALSE, &mvp[0][0]);
+	glUniformMatrix4fv(m_id,   1, GL_FALSE, &m[0][0]);
+	glUniformMatrix4fv(v_id,   1, GL_FALSE, &v[0][0]);	
+}
+
+void Shader::update_mvp(glm::mat4& mvp) {
+
+	glUniformMatrix4fv(mvp_id, 1, GL_FALSE, &mvp[0][0]);
 }
