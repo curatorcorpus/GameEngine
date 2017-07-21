@@ -40,6 +40,51 @@ void Mesh::setup() {
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, norms->size()    * sizeof(norms),    norms,    GL_STATIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, uvs->size() 	   * sizeof(uvs),      uvs, 	 GL_STATIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicies->size() * sizeof(indicies), indicies, GL_STATIC_DRAW);
+
+	// enable VAO attributes
+	glEnableVertexAttribArray(0); // verts
+	glEnableVertexAttribArray(1); // norms
+	glEnableVertexAttribArray(2); // uvs
+	glEnableVertexAttribArray(3); // indicies
+
+	// specifies how the vertex buffer object data should be handled.
+	glVertexAttribPointer( // verts
+							0,        // attribute
+                            3,        // size
+                            GL_FLOAT, // type
+                            GL_FALSE, // normalized?
+                            0,        // stride
+                            (void*)0  // array buffer offset
+                        );
+
+	glVertexAttribPointer( // norms
+							1,        // attribute
+                            3,        // size
+                            GL_FLOAT, // type
+                            GL_FALSE, // normalized?
+                            0,        // stride
+                            (void*)0  // array buffer offset
+                        );
+
+	glVertexAttribPointer( // uvs
+							2,        // attribute
+                            2,        // size
+                            GL_FLOAT, // type
+                            GL_FALSE, // normalized?
+                            0,        // stride
+                            (void*)0  // array buffer offset
+                        );
+
+	glVertexAttribPointer( // indicies
+							3,                 // attribute
+                            3,                 // size
+                            GL_UNSIGNED_SHORT, // type
+                            GL_FALSE,          // normalized?
+                            0,                 // stride
+                            (void*)0           // array buffer offset
+                        );
+
+	glBindVertexArray(0);
 }
 
 void Mesh::set_vertices(std::vector<glm::vec3>* verts) {
@@ -60,4 +105,11 @@ void Mesh::set_uvs(std::vector<glm::vec2>* uvs) {
 void Mesh::set_indicies(std::vector<unsigned short>* indicies) {
 
 	this->indicies = indicies;
+}
+
+void Mesh::render() {
+
+	glBindVertexArray(vao);
+	glDrawElements(GL_TRIANGLES, indicies->size(), GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
 }

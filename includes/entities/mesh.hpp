@@ -38,6 +38,7 @@ public:
 	void set_uvs(std::vector<glm::vec2>* uvs);		 // texture 2D coordinates.
 	void set_indicies(std::vector<unsigned short>* indicies);   // face indicies.
 
+	void render();
 };
 
 #endif
