@@ -328,6 +328,33 @@ sources/entities/camera.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/camera.cpp.s
 .PHONY : sources/entities/camera.cpp.s
 
+sources/entities/mesh.o: sources/entities/mesh.cpp.o
+
+.PHONY : sources/entities/mesh.o
+
+# target to build an object file
+sources/entities/mesh.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o
+.PHONY : sources/entities/mesh.cpp.o
+
+sources/entities/mesh.i: sources/entities/mesh.cpp.i
+
+.PHONY : sources/entities/mesh.i
+
+# target to preprocess a source file
+sources/entities/mesh.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.i
+.PHONY : sources/entities/mesh.cpp.i
+
+sources/entities/mesh.s: sources/entities/mesh.cpp.s
+
+.PHONY : sources/entities/mesh.s
+
+# target to generate assembly for a file
+sources/entities/mesh.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.s
+.PHONY : sources/entities/mesh.cpp.s
+
 sources/entities/object.o: sources/entities/object.cpp.o
 
 .PHONY : sources/entities/object.o
@@ -412,6 +439,9 @@ help:
 	@echo "... sources/entities/camera.o"
 	@echo "... sources/entities/camera.i"
 	@echo "... sources/entities/camera.s"
+	@echo "... sources/entities/mesh.o"
+	@echo "... sources/entities/mesh.i"
+	@echo "... sources/entities/mesh.s"
 	@echo "... sources/entities/object.o"
 	@echo "... sources/entities/object.i"
 	@echo "... sources/entities/object.s"

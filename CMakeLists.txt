@@ -54,6 +54,7 @@ SET(SRC_CODE
     sources/engine/input_manager.cpp
 
     sources/entities/camera.cpp
+    sources/entities/mesh.cpp
     sources/entities/object.cpp
 
     sources/shaders/shader.cpp

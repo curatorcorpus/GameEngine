@@ -22,6 +22,7 @@
 #include <display_manager.hpp>
 #include <render_manager.hpp>
 #include <input_manager.hpp>
+#include <mesh.hpp>
 #include <shader.hpp>
 
 /*
@@ -50,7 +51,8 @@ int main(int argc, char *argv[]) {
 	InputManager   inputs   = InputManager();
 
 	Shader shader = Shader("basic");
-
+	Mesh   mesh = Mesh();
+	mesh.set_shader(&shader);
 	// display settings
 
 

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/curator/Repositories/rasterization/sources/engine/input_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/render_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o"
   "/home/curator/Repositories/rasterization/sources/entities/camera.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/entities/mesh.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o"
   "/home/curator/Repositories/rasterization/sources/entities/object.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/object.cpp.o"
   "/home/curator/Repositories/rasterization/sources/shaders/shader.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
   )
