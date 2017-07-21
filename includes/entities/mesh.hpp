@@ -12,7 +12,7 @@ class Mesh : public Object {
 
 private:
 
-	GLuint vao, vbo;
+	GLuint vao;
 
 	GLuint vert_buff_id;
 	GLuint norm_buff_id;
