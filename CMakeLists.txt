@@ -33,6 +33,7 @@ SET(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 FIND_PACKAGE(OpenGL REQUIRED) # Find OpenGL - 
 FIND_PACKAGE(GLM REQUIRED)    # Find GLM Libraries - maths library for graphics
 FIND_PACKAGE(GLEW REQUIRED)   # Find GLEW libraries - 
+FIND_PACKAGE(assimp REQUIRED) # Find Assimp Libraries
 
 INCLUDE_DIRECTORIES(
     
@@ -52,10 +53,11 @@ SET(SRC_CODE
   	sources/engine/display_manager.cpp
     sources/engine/render_manager.cpp
     sources/engine/input_manager.cpp
+    sources/engine/mesh.cpp
+    sources/engine/model_loader.cpp
+    sources/engine/object.cpp
 
     sources/entities/camera.cpp
-    sources/entities/mesh.cpp
-    sources/entities/object.cpp
 
     sources/shaders/shader.cpp
 
@@ -79,7 +81,7 @@ ADD_EXECUTABLE(render_engine
 TARGET_LINK_LIBRARIES(render_engine 
     
     glfw
-
+    ${ASSIMP_LIBRARIES}
     ${GLEW_LIBRARIES}
     ${OPENGL_LIBRARIES}
     ${GLM_LIBRARIES}

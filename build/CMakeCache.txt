@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//the suffix for the openrave libraries
+ASSIMP_LIBRARY_SUFFIX:STRING=
+
 //Build shared libraries
 BUILD_SHARED_LIBS:BOOL=OFF
 
@@ -421,6 +424,9 @@ X11_xf86misc_INCLUDE_PATH:PATH=X11_xf86misc_INCLUDE_PATH-NOTFOUND
 //Path to a file.
 X11_xf86vmode_INCLUDE_PATH:PATH=/usr/include
 
+//The directory containing a CMake configuration file for assimp.
+assimp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/assimp-3.2
+
 //Dependencies for target
 glfw_LIB_DEPENDS:STATIC=
 
@@ -435,6 +441,8 @@ render_engine_SOURCE_DIR:STATIC=/home/curator/Repositories/rasterization
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: ASSIMP_LIBRARY_SUFFIX
+ASSIMP_LIBRARY_SUFFIX-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created

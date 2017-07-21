@@ -23,6 +23,7 @@
 #include <render_manager.hpp>
 #include <input_manager.hpp>
 #include <mesh.hpp>
+#include <model_loader.hpp>
 #include <shader.hpp>
 
 /*
@@ -51,8 +52,9 @@ int main(int argc, char *argv[]) {
 	InputManager   inputs   = InputManager();
 
 	Shader shader = Shader("basic");
-	Mesh   mesh = Mesh();
-	mesh.set_shader(&shader);
+	
+	ModelLoader loader();
+
 	// display settings
 
 

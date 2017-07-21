@@ -19,6 +19,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../externals/glfw-3.2.1/src/glfw3.pc.in"
   "../externals/glfw-3.2.1/src/glfw3Config.cmake.in"
   "../externals/glfw-3.2.1/src/glfw_config.h.in"
+  "/usr/lib/x86_64-linux-gnu/cmake/assimp-3.2/assimp-config-version.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/assimp-3.2/assimp-config.cmake"
   "/usr/share/cmake-3.5/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
