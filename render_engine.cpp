@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 
 	// Dark blue background
 	glfwSetInputMode(display->window, GLFW_STICKY_KEYS, GL_TRUE);  
-//dglViewport(0, 0, 1280, 720);
+
     glEnable(GL_DEPTH_TEST); 
 	float vertices[] = { 
 		-0.5f, 0.5f, 0.0f, 
@@ -78,14 +78,7 @@ int main(int argc, char *argv[]) {
 				 sizeof(vertices), 
 				 vertices, 
 				 GL_STATIC_DRAW);
-
-	glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
-	while(glfwGetKey(display->window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display->window)) 
-	{  
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer( // verts
+			glVertexAttribPointer( // verts
 							0,        // attribute
                             3,        // size
                             GL_FLOAT, // type
@@ -93,10 +86,24 @@ int main(int argc, char *argv[]) {
                             0,        // stride
                             (void*)0  // array buffer offset
                         );	
+	glBindBuffer(1, 0);
+	glBindVertexArray(0);
+
+	glClearColor(1.0f, 1.0f, 1.4f, 1.0f);
+	while(glfwGetKey(display->window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display->window)) 
+	{  
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		glBindVertexArray(vao_id);
+		glBindBuffer(1, vbo_id);
+		glEnableVertexAttribArray(0);
 
 		glDrawArrays(GL_TRIANGLES, 0, 18);
 
 		glDisableVertexAttribArray(0);
+
+		glBindBuffer(1, 0);
+		glBindVertexArray(0);
 
 		glfwSwapBuffers(display->window);
 		glfwPollEvents();

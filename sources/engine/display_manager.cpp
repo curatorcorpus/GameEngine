@@ -37,6 +37,9 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
+
+    // info opengl of viewport
+    glViewport(0, 0, 800, 600);
 }
 
 DisplayManager::~DisplayManager() {
