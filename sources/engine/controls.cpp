@@ -77,7 +77,7 @@ void Controls::update() {
 		fov -= 0.01f;
 	}
 
-	std::cerr << curr_pos.x <<  " " << curr_pos.y << " " << curr_pos.z << std::endl;
+	//std::cerr << curr_pos.x <<  " " << curr_pos.y << " " << curr_pos.z << std::endl;
 
 	camera->set_fov(fov);
 	camera->set_lookat(curr_pos, curr_pos + direction, up);

@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 	double init_time = glfwGetTime();
 	double curr_time, last_time = 0.0;
 
-	DisplayManager* display = new DisplayManager("test", false);
+	DisplayManager* display = new DisplayManager("test", false, 2540, 1440);
 
 	// Dark blue background
 	glfwSetInputMode(display->window, GLFW_STICKY_KEYS, GL_TRUE);  
@@ -70,7 +70,9 @@ int main(int argc, char *argv[]) {
 
 	ModelLoader loader = ModelLoader();
 
-	loader.load_obj("dragon", mesh);
+	loader.load_obj("palm", mesh);
+
+	//mesh->set_scale(glm::scale(glm::mat4(), glm::vec3(0.1f)));
 
 	mesh->set_shader(shader);
 	mesh->setup();
@@ -82,6 +84,8 @@ int main(int argc, char *argv[]) {
 		controls.update();
 		mesh->render(camera);
 
+		//fps_counter();
+		
 		glfwSwapBuffers(display->window);
 		glfwPollEvents();
 	}
