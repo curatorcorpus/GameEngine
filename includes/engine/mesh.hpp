@@ -24,8 +24,6 @@ private:
 	std::vector<glm::vec2>*		 uvs;
 	std::vector<unsigned short>* indicies;
 
-	void setup();
-
 public:
 
 	Mesh();
@@ -39,6 +37,7 @@ public:
 	void set_indicies(std::vector<unsigned short>* indicies);   // face indicies.
 
 	void render();
+	void setup();
 };
 
 #endif

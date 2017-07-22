@@ -21,7 +21,7 @@ public:
 	ModelLoader();
 	~ModelLoader();
 
-	bool load_obj(const char* path);
+	bool load_obj(std::string path, Mesh* mesh);
 };
 
 

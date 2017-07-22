@@ -53,8 +53,16 @@ int main(int argc, char *argv[]) {
 
 	Shader shader = Shader("basic");
 	
-	ModelLoader loader();
+	ModelLoader loader = ModelLoader();
 
+
+	Mesh* mesh = new Mesh();
+
+	if(loader.load_obj("katarina", mesh)) {
+
+		std::cout << "worked" << std::endl; 
+	}
+//mesh->setup();
 	// display settings
 
 
@@ -84,11 +92,13 @@ int main(int argc, char *argv[]) {
 		
 		inputs.poll();
 		renderer.update(display.window);
-
+		//mesh->render();
 		fps_counter(curr_time, init_time, (++frames));
 
 		last_time = curr_time;
 	}
+
+	delete mesh;
 
 	return EXIT_SUCCESS;
 }
