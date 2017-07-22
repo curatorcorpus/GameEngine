@@ -7,11 +7,12 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/curator/Repositories/rasterization/render_engine.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/render_engine.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/controls.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/display_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o"
-  "/home/curator/Repositories/rasterization/sources/engine/mesh.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/model_loader.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o"
-  "/home/curator/Repositories/rasterization/sources/engine/object.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/object.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/render_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o"
   "/home/curator/Repositories/rasterization/sources/entities/camera.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/entities/mesh.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/entities/model.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/model.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/entities/object.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/object.cpp.o"
   "/home/curator/Repositories/rasterization/sources/shaders/shader.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

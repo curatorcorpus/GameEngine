@@ -274,33 +274,6 @@ sources/engine/display_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s
 .PHONY : sources/engine/display_manager.cpp.s
 
-sources/engine/mesh.o: sources/engine/mesh.cpp.o
-
-.PHONY : sources/engine/mesh.o
-
-# target to build an object file
-sources/engine/mesh.cpp.o:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o
-.PHONY : sources/engine/mesh.cpp.o
-
-sources/engine/mesh.i: sources/engine/mesh.cpp.i
-
-.PHONY : sources/engine/mesh.i
-
-# target to preprocess a source file
-sources/engine/mesh.cpp.i:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.i
-.PHONY : sources/engine/mesh.cpp.i
-
-sources/engine/mesh.s: sources/engine/mesh.cpp.s
-
-.PHONY : sources/engine/mesh.s
-
-# target to generate assembly for a file
-sources/engine/mesh.cpp.s:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.s
-.PHONY : sources/engine/mesh.cpp.s
-
 sources/engine/model_loader.o: sources/engine/model_loader.cpp.o
 
 .PHONY : sources/engine/model_loader.o
@@ -327,33 +300,6 @@ sources/engine/model_loader.s: sources/engine/model_loader.cpp.s
 sources/engine/model_loader.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.s
 .PHONY : sources/engine/model_loader.cpp.s
-
-sources/engine/object.o: sources/engine/object.cpp.o
-
-.PHONY : sources/engine/object.o
-
-# target to build an object file
-sources/engine/object.cpp.o:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/object.cpp.o
-.PHONY : sources/engine/object.cpp.o
-
-sources/engine/object.i: sources/engine/object.cpp.i
-
-.PHONY : sources/engine/object.i
-
-# target to preprocess a source file
-sources/engine/object.cpp.i:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/object.cpp.i
-.PHONY : sources/engine/object.cpp.i
-
-sources/engine/object.s: sources/engine/object.cpp.s
-
-.PHONY : sources/engine/object.s
-
-# target to generate assembly for a file
-sources/engine/object.cpp.s:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/object.cpp.s
-.PHONY : sources/engine/object.cpp.s
 
 sources/engine/render_manager.o: sources/engine/render_manager.cpp.o
 
@@ -409,6 +355,87 @@ sources/entities/camera.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/camera.cpp.s
 .PHONY : sources/entities/camera.cpp.s
 
+sources/entities/mesh.o: sources/entities/mesh.cpp.o
+
+.PHONY : sources/entities/mesh.o
+
+# target to build an object file
+sources/entities/mesh.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o
+.PHONY : sources/entities/mesh.cpp.o
+
+sources/entities/mesh.i: sources/entities/mesh.cpp.i
+
+.PHONY : sources/entities/mesh.i
+
+# target to preprocess a source file
+sources/entities/mesh.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.i
+.PHONY : sources/entities/mesh.cpp.i
+
+sources/entities/mesh.s: sources/entities/mesh.cpp.s
+
+.PHONY : sources/entities/mesh.s
+
+# target to generate assembly for a file
+sources/entities/mesh.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.s
+.PHONY : sources/entities/mesh.cpp.s
+
+sources/entities/model.o: sources/entities/model.cpp.o
+
+.PHONY : sources/entities/model.o
+
+# target to build an object file
+sources/entities/model.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/model.cpp.o
+.PHONY : sources/entities/model.cpp.o
+
+sources/entities/model.i: sources/entities/model.cpp.i
+
+.PHONY : sources/entities/model.i
+
+# target to preprocess a source file
+sources/entities/model.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/model.cpp.i
+.PHONY : sources/entities/model.cpp.i
+
+sources/entities/model.s: sources/entities/model.cpp.s
+
+.PHONY : sources/entities/model.s
+
+# target to generate assembly for a file
+sources/entities/model.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/model.cpp.s
+.PHONY : sources/entities/model.cpp.s
+
+sources/entities/object.o: sources/entities/object.cpp.o
+
+.PHONY : sources/entities/object.o
+
+# target to build an object file
+sources/entities/object.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/object.cpp.o
+.PHONY : sources/entities/object.cpp.o
+
+sources/entities/object.i: sources/entities/object.cpp.i
+
+.PHONY : sources/entities/object.i
+
+# target to preprocess a source file
+sources/entities/object.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/object.cpp.i
+.PHONY : sources/entities/object.cpp.i
+
+sources/entities/object.s: sources/entities/object.cpp.s
+
+.PHONY : sources/entities/object.s
+
+# target to generate assembly for a file
+sources/entities/object.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/object.cpp.s
+.PHONY : sources/entities/object.cpp.s
+
 sources/shaders/shader.o: sources/shaders/shader.cpp.o
 
 .PHONY : sources/shaders/shader.o
@@ -460,21 +487,24 @@ help:
 	@echo "... sources/engine/display_manager.o"
 	@echo "... sources/engine/display_manager.i"
 	@echo "... sources/engine/display_manager.s"
-	@echo "... sources/engine/mesh.o"
-	@echo "... sources/engine/mesh.i"
-	@echo "... sources/engine/mesh.s"
 	@echo "... sources/engine/model_loader.o"
 	@echo "... sources/engine/model_loader.i"
 	@echo "... sources/engine/model_loader.s"
-	@echo "... sources/engine/object.o"
-	@echo "... sources/engine/object.i"
-	@echo "... sources/engine/object.s"
 	@echo "... sources/engine/render_manager.o"
 	@echo "... sources/engine/render_manager.i"
 	@echo "... sources/engine/render_manager.s"
 	@echo "... sources/entities/camera.o"
 	@echo "... sources/entities/camera.i"
 	@echo "... sources/entities/camera.s"
+	@echo "... sources/entities/mesh.o"
+	@echo "... sources/entities/mesh.i"
+	@echo "... sources/entities/mesh.s"
+	@echo "... sources/entities/model.o"
+	@echo "... sources/entities/model.i"
+	@echo "... sources/entities/model.s"
+	@echo "... sources/entities/object.o"
+	@echo "... sources/entities/object.i"
+	@echo "... sources/entities/object.s"
 	@echo "... sources/shaders/shader.o"
 	@echo "... sources/shaders/shader.i"
 	@echo "... sources/shaders/shader.s"

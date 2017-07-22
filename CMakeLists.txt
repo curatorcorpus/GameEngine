@@ -53,11 +53,12 @@ SET(SRC_CODE
   	sources/engine/display_manager.cpp
     sources/engine/render_manager.cpp
     sources/engine/controls.cpp
-    sources/engine/mesh.cpp
     sources/engine/model_loader.cpp
-    sources/engine/object.cpp
 
     sources/entities/camera.cpp
+    sources/entities/mesh.cpp
+    sources/entities/model.cpp
+    sources/entities/object.cpp
 
     sources/shaders/shader.cpp
 

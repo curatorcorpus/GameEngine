@@ -4,11 +4,11 @@
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../externals/glfw-3.2.1/include/GLFW/glfw3.h
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/controls.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/display_manager.hpp
-CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/mesh.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/model_loader.hpp
-CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/object.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/render_manager.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/camera.hpp
+CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/mesh.hpp
+CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/object.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../render_engine.cpp
 
@@ -21,22 +21,12 @@ CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o: ../externals/
 CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o: ../includes/engine/display_manager.hpp
 CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o: ../sources/engine/display_manager.cpp
 
-CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o: ../includes/engine/mesh.hpp
-CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o: ../includes/engine/object.hpp
-CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o: ../includes/entities/camera.hpp
-CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o: ../includes/shaders/shader.hpp
-CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o: ../sources/engine/mesh.cpp
-
-CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/engine/mesh.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/engine/model_loader.hpp
-CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/engine/object.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/camera.hpp
+CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/mesh.hpp
+CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/object.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../sources/engine/model_loader.cpp
-
-CMakeFiles/render_engine.dir/sources/engine/object.cpp.o: ../includes/engine/object.hpp
-CMakeFiles/render_engine.dir/sources/engine/object.cpp.o: ../includes/shaders/shader.hpp
-CMakeFiles/render_engine.dir/sources/engine/object.cpp.o: ../sources/engine/object.cpp
 
 CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o: ../externals/glfw-3.2.1/include/GLFW/glfw3.h
 CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o: ../includes/engine/render_manager.hpp
@@ -44,6 +34,19 @@ CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o: ../sources/eng
 
 CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o: ../includes/entities/camera.hpp
 CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o: ../sources/entities/camera.cpp
+
+CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/entities/camera.hpp
+CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/entities/mesh.hpp
+CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/shaders/shader.hpp
+CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../sources/entities/mesh.cpp
+
+CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../includes/entities/model.hpp
+CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../sources/entities/model.cpp
+
+CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../includes/shaders/shader.hpp
+CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../sources/entities/object.cpp
 
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../sources/shaders/shader.cpp

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#include <mesh.hpp>
+
 class Model : public Object {
 
 private:
