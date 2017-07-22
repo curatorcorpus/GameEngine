@@ -39,6 +39,25 @@ Camera::Camera(glm::mat4 view_matrix, glm::mat4 projection_matrix) {
 
 Camera::~Camera() {}
 
+glm::vec3 Camera::get_pos() {
+
+	return position;
+}
+
+void Camera::set_pos(glm::vec3 pos) {
+
+	this->position = pos;
+}
+
+void Camera::set_lookat(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up) {
+
+	this->position = pos;
+	this->lookat = lookat;
+	this->upwards = up;
+
+	view_matrix = glm::lookAt(this->position, this->lookat, this->upwards);
+}
+
 glm::mat4 Camera::get_view_mat() {
 
 	return view_matrix;

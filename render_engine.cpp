@@ -19,6 +19,7 @@
 /*
 	Internal Headers
 */
+#include <camera.hpp>
 #include <display_manager.hpp>
 #include <render_manager.hpp>
 #include <input_manager.hpp>
@@ -49,9 +50,12 @@ int main(int argc, char *argv[]) {
 
 	DisplayManager display  = DisplayManager("testing", false);
 	RenderManager  renderer = RenderManager();
-	InputManager   inputs   = InputManager();
 
-	Shader shader = Shader("basic");
+	Camera* camera = new Camera();
+
+	InputManager inputs = InputManager(camera, display.window);
+
+	Shader* shader = new Shader("basic");
 	
 	ModelLoader loader = ModelLoader();
 
@@ -62,7 +66,9 @@ int main(int argc, char *argv[]) {
 
 		std::cout << "worked" << std::endl; 
 	}
-//mesh->setup();
+	mesh->set_shader(shader);
+	mesh->setup();
+
 	// display settings
 
 
@@ -75,13 +81,6 @@ int main(int argc, char *argv[]) {
 	// setup methods
 	renderer.setup();
 
-	float vertices[] = {
-	    // positions         // colors
-	     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
-	    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
-	     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
-	}; 
-
 	int frames = 0;
 	double init_time = glfwGetTime();
 	double curr_time, last_time = 0.0;
@@ -90,14 +89,16 @@ int main(int argc, char *argv[]) {
 	{
 		curr_time = glfwGetTime();
 		
-		inputs.poll();
 		renderer.update(display.window);
-		//mesh->render();
+		inputs.update();
+		mesh->render(camera);
 		fps_counter(curr_time, init_time, (++frames));
 
 		last_time = curr_time;
 	}
 
+	delete camera;
+	delete shader;
 	delete mesh;
 
 	return EXIT_SUCCESS;

@@ -36,8 +36,6 @@ void Shader::setup(std::string& vert_path, std::string& frag_path) {
 	this->mvp_id = glGetUniformLocation(prog_id, "MVP");
 	this->m_id   = glGetUniformLocation(prog_id, "M");
 	this->v_id   = glGetUniformLocation(prog_id, "V");
-
-	bind(prog_id);
 }
 
 std::string Shader::open_file(std::string& shader_path) {
@@ -142,9 +140,9 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id) {
 	return program;
 }
 
-void Shader::bind(GLuint& program) {
+void Shader::bind() {
 
-	glUseProgram(program);
+	glUseProgram(this->prog_id);
 }
 
 void Shader::update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp) {

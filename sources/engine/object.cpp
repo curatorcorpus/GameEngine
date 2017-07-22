@@ -63,3 +63,8 @@ void Object::set_shader(Shader* shader) {
 	}
 	this->shader = shader;
 }
+
+void Object::bind_shader() {
+
+	shader->bind();
+}

@@ -32,6 +32,8 @@ public:
 
 	glm::mat4 get_transform();
 
+	void bind_shader();
+
 	void set_transform(glm::mat4 transform);
 	void set_translation(glm::mat4 translation);
 	void set_rotation(glm::mat4 rotation);

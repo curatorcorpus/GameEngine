@@ -33,23 +33,18 @@ bool ModelLoader::load_obj(std::string name, Mesh* mesh) {
 
 		aiMesh* ai_mesh = scene->mMeshes[i];
 
-		// read mesh vertices
-		verts.reserve(ai_mesh->mNumVertices);
+		verts.reserve(ai_mesh->mNumVertices); 	 // read mesh vertices
+		uvs.reserve(ai_mesh->mNumVertices); 	 // read mesh texture coordinates
+		verts.reserve(ai_mesh->mNumVertices); 	 // read mesh normals
+		indices.reserve(3 * ai_mesh->mNumFaces); // read mesh face indices
+
 		for(int j = 0; j < ai_mesh->mNumVertices; j++) {
 
 			aiVector3D pos = ai_mesh->mVertices[j];
+			aiVector3D norm = ai_mesh->mNormals[j];
 
-			float x = pos.x;
-			float y = pos.y;
-			float z = pos.z;
-
-			std::cerr << x << " " << y << " " << z << std::endl;
 			verts.push_back(glm::vec3(pos.x, pos.y, pos.z));
-		}
-
-		// read mesh texture coordinates
-		uvs.reserve(ai_mesh->mNumVertices);
-		for(int j = 0; j < ai_mesh->mNumVertices; j++) {
+			norms.push_back(glm::vec3(norm.x, norm.y, norm.z));
 
 			if(ai_mesh->mTextureCoords[0] != nullptr) {
 
@@ -58,16 +53,6 @@ bool ModelLoader::load_obj(std::string name, Mesh* mesh) {
 			}
 		}
 
-		// read mesh normals
-		verts.reserve(ai_mesh->mNumVertices);
-		for(int j = 0; j < ai_mesh->mNumVertices; j++) {
-
-			aiVector3D norm = ai_mesh->mNormals[j];
-			norms.push_back(glm::vec3(norm.x, norm.y, norm.z));
-		}
-
-		// read mesh face indices
-		indices.reserve(3 * ai_mesh->mNumFaces);
 		for(int j = 0; j < ai_mesh->mNumFaces; j++) {
 
 			indices.push_back(ai_mesh->mFaces[j].mIndices[0]);
@@ -75,10 +60,11 @@ bool ModelLoader::load_obj(std::string name, Mesh* mesh) {
 			indices.push_back(ai_mesh->mFaces[j].mIndices[2]);
 		}
 
-		mesh->set_vertices(&verts);
-		mesh->set_normals(&norms);
-		mesh->set_uvs(&uvs);
-		mesh->set_indicies(&indices);
+
+		mesh->set_vertices(verts);
+		mesh->set_normals(norms);
+		mesh->set_uvs(uvs);
+		mesh->set_indices(indices);
 	}
 
 	std::cerr << "[Debug::MODEL_LOADER_CPP] Finished loading an obj file" << std::endl;

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 
+#include <camera.hpp>
 #include <object.hpp>
 
 #include <glm/glm.hpp>
@@ -19,24 +20,24 @@ private:
 	GLuint uvs_buff_id;
 	GLuint indices_buff_id;
 
-	std::vector<glm::vec3>* 	 verts;
-	std::vector<glm::vec3>* 	 norms;
-	std::vector<glm::vec2>*		 uvs;
-	std::vector<unsigned short>* indicies;
+	std::vector<glm::vec3> 	 verts;
+	std::vector<glm::vec3>	 norms;
+	std::vector<glm::vec2>		 uvs;
+	std::vector<unsigned short> indices;
 
 public:
 
 	Mesh();
 	Mesh(std::vector<glm::vec3>* verts, std::vector<glm::vec3>* norm, 
-		 std::vector<glm::vec2>* uvs,   std::vector<glm::vec3>* indicies);
+		 std::vector<glm::vec2>* uvs,   std::vector<unsigned short>* indices);
 	~Mesh();
 
-	void set_vertices(std::vector<glm::vec3>* verts); // 3D pos x,y,z.
-	void set_normals(std::vector<glm::vec3>* norms);	 // 
-	void set_uvs(std::vector<glm::vec2>* uvs);		 // texture 2D coordinates.
-	void set_indicies(std::vector<unsigned short>* indicies);   // face indicies.
+	void set_vertices(std::vector<glm::vec3> verts); // 3D pos x,y,z.
+	void set_normals(std::vector<glm::vec3> norms);	 // 
+	void set_uvs(std::vector<glm::vec2> uvs);		 // texture 2D coordinates.
+	void set_indices(std::vector<unsigned short> indices);   // face indicies.
 
-	void render();
+	void render(Camera* camera);
 	void setup();
 };
 
