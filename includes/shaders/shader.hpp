@@ -21,6 +21,7 @@ protected:
 	GLuint m_id;
 	GLuint v_id;
 
+	void 		bind_attrib_loc();
 	GLuint      compile(std::string& file_name, const char* code);
 	std::string open_file(std::string& shader_path);
 	GLuint 		link_shaders(GLuint& vert_id, GLuint& frag_id);
@@ -32,8 +33,11 @@ public:
 	~Shader();
 
 	void bind();
+	void unbind();
 	void update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp);
 	void update_mvp(glm::mat4& mvp);
+
+	GLuint get_prog_id();
 };
 
 

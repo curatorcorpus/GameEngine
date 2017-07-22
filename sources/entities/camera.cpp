@@ -47,6 +47,8 @@ glm::vec3 Camera::get_pos() {
 void Camera::set_pos(glm::vec3 pos) {
 
 	this->position = pos;
+
+	view_matrix = glm::lookAt(this->position, this->lookat, this->upwards);
 }
 
 void Camera::set_lookat(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up) {

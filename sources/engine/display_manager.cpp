@@ -14,7 +14,8 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
     glfwWindowHint(GLFW_SAMPLES, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); 
 
 	// open window and create opengl context
 	if(fullscrn)
@@ -24,16 +25,13 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
 
 	if(window == NULL) {
 		glfwTerminate();
-
 		exit(EXIT_FAILURE);
 	}
 	glfwMakeContextCurrent(window);
 
 	// initialize glew opengl extension libraries.
 	glewExperimental = GL_TRUE;
-
-	GLenum err = glewInit();
-	if(err != GLEW_OK) {
+	if(glewInit() != GLEW_OK) {
         fprintf(stderr, "Failed to initialize GLEW\n");
         getchar();
         glfwTerminate();

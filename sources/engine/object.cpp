@@ -68,3 +68,8 @@ void Object::bind_shader() {
 
 	shader->bind();
 }
+
+void Object::unbind_shader() {
+
+	shader->unbind();
+}

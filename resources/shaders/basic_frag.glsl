@@ -1,6 +1,7 @@
 #version 330 core
 
-in vec4 vertex;
+in vec3 pos;
+
 out vec4 color;
 
 void main() {

@@ -12,7 +12,7 @@ void RenderManager::setup() {
 	// opengl settings
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
-
+	
 	glEnable(GL_DEPTH_TEST);
 
 	glClearColor(bkg_clr.x, bkg_clr.y, bkg_clr.z, bkg_clr.w);

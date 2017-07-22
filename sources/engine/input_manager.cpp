@@ -10,7 +10,7 @@ InputManager::InputManager(Camera* camera, GLFWwindow* window) {
 	this->horizontal_angle = 3.14f;
 	this->vertical_angle = 0.0f;
 
-	glfwSetInputMode(this->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);  // Hide the mouse and enable unlimited mouvement
+	//glfwSetInputMode(this->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);  // Hide the mouse and enable unlimited mouvement
 
 }
 
@@ -27,9 +27,9 @@ void InputManager::update() {
 
 	double xpos, ypos;
 	glfwGetCursorPos(window, &xpos, &ypos);
-
+	//std::cout << xpos << " " << ypos << std::endl;
 	// Reset mouse position for next frame
-	glfwSetCursorPos(window, 1024/2, 768/2);
+	//glfwSetCursorPos(window, 1024/2, 768/2);
 
 	// Compute new orientation
 	horizontal_angle += mouse_speed * float(1024/2 - xpos );
@@ -71,6 +71,6 @@ void InputManager::update() {
 	}
 
 	camera->set_lookat(curr_pos, curr_pos + direction, up);
-	
+
 	last_time = current_time;
 }

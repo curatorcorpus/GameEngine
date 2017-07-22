@@ -28,11 +28,12 @@ public:
 
 	Object();
 	Object(std::string name);
-	~Object();
+	virtual ~Object();
 
 	glm::mat4 get_transform();
 
 	void bind_shader();
+	void unbind_shader();
 
 	void set_transform(glm::mat4 transform);
 	void set_translation(glm::mat4 translation);

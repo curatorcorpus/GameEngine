@@ -8,8 +8,8 @@ Shader::Shader(std::string shader_path) {
 	// relative local path to shader res.
 	std::string loc_res_path = "../resources/shaders/";
 
-	std::string vert_shader_path = loc_res_path + shader_path + ".vert";
-	std::string frag_shader_path = loc_res_path + shader_path + ".frag";
+	std::string vert_shader_path = loc_res_path + shader_path + "_vert.glsl";
+	std::string frag_shader_path = loc_res_path + shader_path + "_frag.glsl";
 
 	setup(vert_shader_path, frag_shader_path);
 }
@@ -31,6 +31,9 @@ void Shader::setup(std::string& vert_path, std::string& frag_path) {
 
 	// compiled shaders to program
 	this->prog_id = link_shaders(vert_id, frag_id);
+
+	// bind 
+	//bind_attrib_loc();
 
 	// create reference to uniform variables inside prog_id shader program. 
 	this->mvp_id = glGetUniformLocation(prog_id, "MVP");
@@ -57,6 +60,14 @@ std::string Shader::open_file(std::string& shader_path) {
 	}
 
 	return code;
+}
+
+void Shader::bind_attrib_loc() {
+
+	glBindAttribLocation(prog_id, 0, "vertices");
+	glBindAttribLocation(prog_id, 1, "normals");
+	glBindAttribLocation(prog_id, 2, "uvs");
+	glBindAttribLocation(prog_id, 3, "indices");	
 }
 
 GLuint Shader::compile(std::string& file_name, const char* code) {
@@ -145,6 +156,11 @@ void Shader::bind() {
 	glUseProgram(this->prog_id);
 }
 
+void Shader::unbind() {
+
+	glUseProgram(0);
+}
+
 void Shader::update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp) {
 
 	glUniformMatrix4fv(mvp_id, 1, GL_FALSE, &mvp[0][0]);
@@ -155,4 +171,9 @@ void Shader::update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp) {
 void Shader::update_mvp(glm::mat4& mvp) {
 
 	glUniformMatrix4fv(mvp_id, 1, GL_FALSE, &mvp[0][0]);
+}
+
+GLuint Shader::get_prog_id() {
+
+	return prog_id;
 }

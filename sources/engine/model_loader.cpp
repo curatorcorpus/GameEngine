@@ -66,7 +66,6 @@ bool ModelLoader::load_obj(std::string name, Mesh* mesh) {
 		mesh->set_uvs(uvs);
 		mesh->set_indices(indices);
 	}
-
 	std::cerr << "[Debug::MODEL_LOADER_CPP] Finished loading an obj file" << std::endl;
 
 	return true;

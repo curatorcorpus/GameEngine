@@ -29,6 +29,7 @@ void Mesh::setup() {
 	glGenBuffers(1, &vert_buff_id);
 	glBindBuffer(GL_ARRAY_BUFFER, vert_buff_id);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, verts.size() * sizeof(glm::vec3), &verts[0], GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
 	glVertexAttribPointer( // verts
 							0,        // attribute
                             3,        // size
@@ -37,11 +38,11 @@ void Mesh::setup() {
                             0,        // stride
                             (void*)0  // array buffer offset
                         );	
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
+	
 	glGenBuffers(1, &norm_buff_id);
 	glBindBuffer(GL_ARRAY_BUFFER, norm_buff_id);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, norms.size() * sizeof(glm::vec3), &norms[0], GL_STATIC_DRAW);
+	glEnableVertexAttribArray(1);
 	glVertexAttribPointer( // norms
 							1,        // attribute
                             3,        // size
@@ -50,11 +51,11 @@ void Mesh::setup() {
                             0,        // stride
                             (void*)0  // array buffer offset
                         );
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glGenBuffers(1, &uvs_buff_id);
 	glBindBuffer(GL_ARRAY_BUFFER, uvs_buff_id);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+	glEnableVertexAttribArray(2);
 	glVertexAttribPointer( // uvs
 							2,        // attribute
                             2,        // size
@@ -63,11 +64,11 @@ void Mesh::setup() {
                             0,        // stride
                             (void*)0  // array buffer offset
                         );
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glGenBuffers(1, &indices_buff_id);
 	glBindBuffer(GL_ARRAY_BUFFER, indices_buff_id);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), &indices[0], GL_STATIC_DRAW);
+	glEnableVertexAttribArray(3);
 	glVertexAttribPointer( // indices
 							3,                 // attribute
                             3,                 // size
@@ -75,8 +76,8 @@ void Mesh::setup() {
                             GL_FALSE,          // normalized?
                             0,                 // stride
                             (void*)0           // array buffer offset
-                        );
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+                        );	
+
 	// enable VAO attributes
 	// specifies how the vertex buffer object data should be handled.
 
@@ -125,18 +126,8 @@ void Mesh::render(Camera* camera) {
 	shader->update_mvp(mvp);
 
 	glBindVertexArray(vao);
-	
-	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
-	glEnableVertexAttribArray(2);
-	glEnableVertexAttribArray(3);
-
 	glDrawElements(GL_TRIANGLES, verts.size(), GL_FLOAT, 0);
-
-	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
-	glDisableVertexAttribArray(2);
-	glDisableVertexAttribArray(3);
-
 	glBindVertexArray(0);
+
+	unbind_shader();
 }
