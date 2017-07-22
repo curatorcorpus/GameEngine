@@ -220,6 +220,33 @@ render_engine.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/render_engine.cpp.s
 .PHONY : render_engine.cpp.s
 
+sources/engine/controls.o: sources/engine/controls.cpp.o
+
+.PHONY : sources/engine/controls.o
+
+# target to build an object file
+sources/engine/controls.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o
+.PHONY : sources/engine/controls.cpp.o
+
+sources/engine/controls.i: sources/engine/controls.cpp.i
+
+.PHONY : sources/engine/controls.i
+
+# target to preprocess a source file
+sources/engine/controls.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/controls.cpp.i
+.PHONY : sources/engine/controls.cpp.i
+
+sources/engine/controls.s: sources/engine/controls.cpp.s
+
+.PHONY : sources/engine/controls.s
+
+# target to generate assembly for a file
+sources/engine/controls.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/controls.cpp.s
+.PHONY : sources/engine/controls.cpp.s
+
 sources/engine/display_manager.o: sources/engine/display_manager.cpp.o
 
 .PHONY : sources/engine/display_manager.o
@@ -246,33 +273,6 @@ sources/engine/display_manager.s: sources/engine/display_manager.cpp.s
 sources/engine/display_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s
 .PHONY : sources/engine/display_manager.cpp.s
-
-sources/engine/input_manager.o: sources/engine/input_manager.cpp.o
-
-.PHONY : sources/engine/input_manager.o
-
-# target to build an object file
-sources/engine/input_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o
-.PHONY : sources/engine/input_manager.cpp.o
-
-sources/engine/input_manager.i: sources/engine/input_manager.cpp.i
-
-.PHONY : sources/engine/input_manager.i
-
-# target to preprocess a source file
-sources/engine/input_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.i
-.PHONY : sources/engine/input_manager.cpp.i
-
-sources/engine/input_manager.s: sources/engine/input_manager.cpp.s
-
-.PHONY : sources/engine/input_manager.s
-
-# target to generate assembly for a file
-sources/engine/input_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.s
-.PHONY : sources/engine/input_manager.cpp.s
 
 sources/engine/mesh.o: sources/engine/mesh.cpp.o
 
@@ -454,12 +454,12 @@ help:
 	@echo "... render_engine.o"
 	@echo "... render_engine.i"
 	@echo "... render_engine.s"
+	@echo "... sources/engine/controls.o"
+	@echo "... sources/engine/controls.i"
+	@echo "... sources/engine/controls.s"
 	@echo "... sources/engine/display_manager.o"
 	@echo "... sources/engine/display_manager.i"
 	@echo "... sources/engine/display_manager.s"
-	@echo "... sources/engine/input_manager.o"
-	@echo "... sources/engine/input_manager.i"
-	@echo "... sources/engine/input_manager.s"
 	@echo "... sources/engine/mesh.o"
 	@echo "... sources/engine/mesh.i"
 	@echo "... sources/engine/mesh.s"

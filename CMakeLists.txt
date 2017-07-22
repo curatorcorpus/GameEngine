@@ -52,7 +52,7 @@ SET(SRC_CODE
 
   	sources/engine/display_manager.cpp
     sources/engine/render_manager.cpp
-    sources/engine/input_manager.cpp
+    sources/engine/controls.cpp
     sources/engine/mesh.cpp
     sources/engine/model_loader.cpp
     sources/engine/object.cpp

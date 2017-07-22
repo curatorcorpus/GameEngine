@@ -20,9 +20,9 @@ private:
 	GLuint uvs_buff_id;
 	GLuint indices_buff_id;
 
-	std::vector<glm::vec3> 	 verts;
-	std::vector<glm::vec3>	 norms;
-	std::vector<glm::vec2>		 uvs;
+	std::vector<glm::vec3> 	 	verts;
+	std::vector<glm::vec3>	 	norms;
+	std::vector<glm::vec2>		uvs;
 	std::vector<unsigned short> indices;
 
 public:

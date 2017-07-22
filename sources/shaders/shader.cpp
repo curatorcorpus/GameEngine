@@ -33,7 +33,7 @@ void Shader::setup(std::string& vert_path, std::string& frag_path) {
 	this->prog_id = link_shaders(vert_id, frag_id);
 
 	// bind 
-	//bind_attrib_loc();
+	bind_attrib_loc();
 
 	// create reference to uniform variables inside prog_id shader program. 
 	this->mvp_id = glGetUniformLocation(prog_id, "MVP");
@@ -67,7 +67,6 @@ void Shader::bind_attrib_loc() {
 	glBindAttribLocation(prog_id, 0, "vertices");
 	glBindAttribLocation(prog_id, 1, "normals");
 	glBindAttribLocation(prog_id, 2, "uvs");
-	glBindAttribLocation(prog_id, 3, "indices");	
 }
 
 GLuint Shader::compile(std::string& file_name, const char* code) {

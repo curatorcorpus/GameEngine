@@ -1,6 +1,10 @@
 #include <display_manager.hpp>
 
 DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int height) {
+
+	this->width = width;
+	this->height = height;
+
 	// initialize GLFW window
 	if(!glfwInit()) {
 		std::cerr << "[DEBUG::DISPLAY_MANAGER] " 
@@ -19,9 +23,9 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
 
 	// open window and create opengl context
 	if(fullscrn)
-		window = glfwCreateWindow(1280, 900, title.c_str(), glfwGetPrimaryMonitor(), NULL);
+		window = glfwCreateWindow(width, height, title.c_str(), glfwGetPrimaryMonitor(), NULL);
 	else 
-		window = glfwCreateWindow(1280, 900, title.c_str(), NULL, NULL);
+		window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
 
 	if(window == NULL) {
 		glfwTerminate();
@@ -39,7 +43,7 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
     }
 
     // info opengl of viewport
-    glViewport(0, 0, 800, 600);
+    glViewport(0, 0, width, height);
 }
 
 DisplayManager::~DisplayManager() {
@@ -48,7 +52,17 @@ DisplayManager::~DisplayManager() {
 
 	std::cerr << "[DEBUG::DISPLAY_MANAGER] Window terminated!" << std::endl;
 }
-/*
-GLFWwindow* DisplayManager::get_window() {
-	return window;
-}*/
+
+int DisplayManager::get_height() {
+	return this->height;
+}
+
+int DisplayManager::get_width() {
+	return this->width;
+}
+
+void DisplayManager::set_dimensions(int width, int height) {
+
+	this->width = width;
+	this->height = height;
+}

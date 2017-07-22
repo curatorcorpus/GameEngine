@@ -22,7 +22,7 @@
 #include <camera.hpp>
 #include <display_manager.hpp>
 #include <render_manager.hpp>
-#include <input_manager.hpp>
+#include <controls.hpp>
 #include <mesh.hpp>
 #include <model_loader.hpp>
 #include <shader.hpp>
@@ -55,63 +55,40 @@ int main(int argc, char *argv[]) {
 	// Dark blue background
 	glfwSetInputMode(display->window, GLFW_STICKY_KEYS, GL_TRUE);  
 
-    glEnable(GL_DEPTH_TEST); 
-	float vertices[] = { 
-		-0.5f, 0.5f, 0.0f, 
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f, 
+    glEnable(GL_DEPTH_TEST);              // Enable depth test
+    glDepthFunc(GL_LESS);                 // Accept fragment if it closer to the camera than the former ones
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glClearColor(0.0f, 0.4f, 0.0f, 1.0f);
 
-		 0.5f, -0.5f, 0.0f, 
-		 0.5f, 0.5f, 0.0f, 
-		 -0.5f, 0.5f, 0.0f
- 
-	};
+	Camera* camera = new Camera();
+	Controls controls = Controls(camera, display->window);
 
-	GLuint vao_id; 
-	glGenVertexArrays(1, &vao_id);
-	glBindVertexArray(vao_id);
+	Shader* shader = new Shader("basic");
+	Mesh* mesh = new Mesh();
 
-	GLuint vbo_id;
-	glGenBuffers(1, &vbo_id);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo_id);
-	glBufferData(GL_ARRAY_BUFFER, 
-				 sizeof(vertices), 
-				 vertices, 
-				 GL_STATIC_DRAW);
-			glVertexAttribPointer( // verts
-							0,        // attribute
-                            3,        // size
-                            GL_FLOAT, // type
-                            GL_FALSE, // normalized?
-                            0,        // stride
-                            (void*)0  // array buffer offset
-                        );	
-	glBindBuffer(1, 0);
-	glBindVertexArray(0);
+	ModelLoader loader = ModelLoader();
 
-	glClearColor(1.0f, 1.0f, 1.4f, 1.0f);
+	loader.load_obj("dragon", mesh);
+
+	mesh->set_shader(shader);
+	mesh->setup();
+
 	while(glfwGetKey(display->window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display->window)) 
 	{  
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		glBindVertexArray(vao_id);
-		glBindBuffer(1, vbo_id);
-		glEnableVertexAttribArray(0);
-
-		glDrawArrays(GL_TRIANGLES, 0, 18);
-
-		glDisableVertexAttribArray(0);
-
-		glBindBuffer(1, 0);
-		glBindVertexArray(0);
+		controls.update();
+		mesh->render(camera);
 
 		glfwSwapBuffers(display->window);
 		glfwPollEvents();
 	}
 
-	glDeleteBuffers(1, &vbo_id);
-	glDeleteVertexArrays(1, &vao_id);
-
+	delete shader;
+	delete mesh;
+	delete camera;
 	delete display;
 
 	return EXIT_SUCCESS;

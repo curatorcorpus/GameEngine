@@ -21,12 +21,12 @@ Camera::Camera() {
 
 Camera::Camera(float fov, float aspect_ratio, float near, float far) {
 
-	Camera(); // default constructor called first, data fields overwritten.
-
 	this->fov 		   = fov;
 	this->aspect_ratio = aspect_ratio;
 	this->near_clip    = near;
 	this->far_clip     = far;
+
+	Camera(); // default constructor called first, data fields overwritten.
 }
 
 Camera::Camera(glm::mat4 view_matrix, glm::mat4 projection_matrix) {
@@ -39,15 +39,25 @@ Camera::Camera(glm::mat4 view_matrix, glm::mat4 projection_matrix) {
 
 Camera::~Camera() {}
 
+float Camera::get_fov() {
+
+	return fov;
+}
+
 glm::vec3 Camera::get_pos() {
 
 	return position;
 }
 
+void Camera::set_fov(float fov) {
+
+	this->fov = fov;
+	projection_matrix = glm::perspective(fov, aspect_ratio, near_clip, far_clip);
+}
+
 void Camera::set_pos(glm::vec3 pos) {
 
 	this->position = pos;
-
 	view_matrix = glm::lookAt(this->position, this->lookat, this->upwards);
 }
 
@@ -72,5 +82,5 @@ glm::mat4 Camera::get_proj_mat() {
 
 glm::mat4 Camera::get_view_proj_mat() {
 
-	return view_matrix * projection_matrix;
+	return projection_matrix * view_matrix;
 }

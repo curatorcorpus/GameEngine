@@ -22,12 +22,19 @@ class DisplayManager {
 
 private:
 
+	int width, height;
+
 public:
 	DisplayManager(std::string title, bool fullscrn, int width = 1280, int height = 1080);
 	~DisplayManager();
 
 	GLFWwindow* window; // doesnt allow for GLFWwindow to be used as method type. 
 	//GLFWwindow* get_window();
+
+	int get_height();
+	int get_width();
+
+	void set_dimensions(int width, int height);
 };
 
 #endif

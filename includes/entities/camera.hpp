@@ -30,8 +30,10 @@ public:
 	Camera(glm::mat4 view_matrix, glm::mat4 projection_matrix);
 	~Camera();
 
+	float get_fov();
 	glm::vec3 get_pos();
 
+	void set_fov(float fov);
 	void set_pos(glm::vec3 pos);
 	void set_lookat();
 	void set_lookat(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up);

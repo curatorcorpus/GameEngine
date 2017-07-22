@@ -5,8 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/curator/Repositories/rasterization/render_engine.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/render_engine.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/engine/controls.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/display_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o"
-  "/home/curator/Repositories/rasterization/sources/engine/input_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/input_manager.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/mesh.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/mesh.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/model_loader.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/object.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/object.cpp.o"
