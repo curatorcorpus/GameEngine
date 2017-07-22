@@ -23,7 +23,7 @@
 #include <display_manager.hpp>
 #include <render_manager.hpp>
 #include <controls.hpp>
-#include <mesh.hpp>
+#include <model.hpp>
 #include <model_loader.hpp>
 #include <shader.hpp>
 
@@ -66,23 +66,19 @@ int main(int argc, char *argv[]) {
 	Controls controls = Controls(camera, display->window);
 
 	Shader* shader = new Shader("basic");
-	Mesh* mesh = new Mesh();
+	Model* model = new Model();
 
 	ModelLoader loader = ModelLoader();
+	loader.load_obj("person", model);
 
-	loader.load_obj("cube", mesh);
-
-	//mesh->set_scale(glm::scale(glm::mat4(), glm::vec3(0.1f)));
-
-	mesh->set_shader(shader);
-	mesh->setup();
+	model->setup_meshes();
 
 	while(glfwGetKey(display->window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display->window)) 
 	{  
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		controls.update();
-		mesh->render(camera);
+		model->render(camera);
 
 		//fps_counter();
 		
@@ -91,7 +87,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	delete shader;
-	delete mesh;
+	delete model;
 	delete camera;
 	delete display;
 

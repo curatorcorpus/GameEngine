@@ -8,10 +8,9 @@ ModelLoader::~ModelLoader() {
 
 }
 
-bool ModelLoader::load_obj(std::string name, Mesh* mesh) {
+bool ModelLoader::load_obj(std::string name, Model* model) {
 
 	std::string directory = "../resources/models/" + name + ".obj";
-	
 	std::cerr << "[DEBUG::MODEL_LOADER_CPP] Loading " << directory << std::endl;
 
 	Assimp::Importer importer;
@@ -22,6 +21,8 @@ bool ModelLoader::load_obj(std::string name, Mesh* mesh) {
 
 		return false;
 	}
+
+	model->reserve_list(scene->mNumMeshes);
 
 	for(int i = 0; i < scene->mNumMeshes; i++) {
 
@@ -60,11 +61,14 @@ bool ModelLoader::load_obj(std::string name, Mesh* mesh) {
 			indices.push_back(ai_mesh->mFaces[j].mIndices[2]);
 		}
 
+		Mesh* mesh = new Mesh();
 
 		mesh->set_vertices(verts);
 		mesh->set_normals(norms);
 		mesh->set_uvs(uvs);
 		mesh->set_indices(indices);
+
+		model->add_mesh(mesh);
 	}
 	std::cerr << "[Debug::MODEL_LOADER_CPP] Finished loading an obj file" << std::endl;
 

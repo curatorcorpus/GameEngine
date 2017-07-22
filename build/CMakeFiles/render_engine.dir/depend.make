@@ -8,6 +8,7 @@ CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/model_loade
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/render_manager.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/camera.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/mesh.hpp
+CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/model.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/object.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../render_engine.cpp
@@ -24,6 +25,7 @@ CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o: ../sources/en
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/engine/model_loader.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/camera.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/mesh.hpp
+CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/model.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/object.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../sources/engine/model_loader.cpp
@@ -41,7 +43,11 @@ CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/entities/o
 CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../sources/entities/mesh.cpp
 
+CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../includes/entities/camera.hpp
+CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../includes/entities/mesh.hpp
 CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../includes/entities/model.hpp
+CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/entities/model.cpp.o: ../sources/entities/model.cpp
 
 CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../includes/entities/object.hpp

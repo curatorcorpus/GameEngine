@@ -9,6 +9,7 @@
 #include <assimp/scene.h>
 
 #include <mesh.hpp>
+#include <model.hpp>
 
 class ModelLoader {
 
@@ -21,7 +22,7 @@ public:
 	ModelLoader();
 	~ModelLoader();
 
-	bool load_obj(std::string path, Mesh* mesh);
+	bool load_obj(std::string path, Model* model);
 };
 
 

@@ -27,7 +27,7 @@ glm::mat4 Object::get_transform() {
 
 glm::mat4 Object::update_transform() {
 
-	this->transform = translation * rotation * scale;
+	this->transform = scale * rotation * translation;
 }
 
 void Object::set_transform(glm::mat4 transform) {
