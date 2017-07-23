@@ -34,7 +34,7 @@
 int main(int argc, char *argv[]) {
 
 	// initialize engine.
-	Display*        display  = new Display("test", false, 1920, 1080);
+	Display*        display  = new Display("test", 2450, 1440);
 	Camera*         camera   = new Camera();
 	Controls*       controls = new Controls(camera, display->window);	
 	MasterRenderer* renderer = new MasterRenderer();

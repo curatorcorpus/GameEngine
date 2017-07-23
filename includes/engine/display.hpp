@@ -22,7 +22,7 @@ class Display {
 
 private:
 
-	bool fullscrn;
+	bool fullscrn, vsync;
 	int width, height;
 
 	std::string title;
@@ -33,7 +33,13 @@ private:
 
 public:
 
-	Display(std::string title, bool fullscrn, int width = 1280, int height = 1080);
+	Display(
+			std::string title, 
+			int width = 1280, 
+			int height = 1080,
+			bool fullscrn = false, 
+			bool vsync = true
+		);
 	~Display();
 
 	GLFWwindow* window;

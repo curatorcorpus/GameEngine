@@ -1,11 +1,13 @@
 #include <display.hpp>
 
-Display::Display(std::string title, bool fullscrn, int width, int height) {
+Display::Display(std::string title, int width, int height,
+									bool fullscrn, bool vsync) {
 
 	this->title    = title;
 	this->width    = width;
 	this->height   = height;
 	this->fullscrn = fullscrn;
+	this->vsync    = vsync;
 
 	setup_glfw();
 	setup_glew();
@@ -57,7 +59,9 @@ void Display::setup_glfw() {
 
 	// glfw settings
 	glfwSetInputMode(this->window, GLFW_STICKY_KEYS, GL_TRUE); 
-	//glfwSwapInterval(0);		 				// vsync
+	
+	if(vsync) 
+		glfwSwapInterval(0);		 				// vsync
 
 }
 
