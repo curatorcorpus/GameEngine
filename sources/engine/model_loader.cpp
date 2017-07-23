@@ -5,7 +5,6 @@ ModelLoader::ModelLoader() {
 }
 
 ModelLoader::~ModelLoader() {
-
 }
 
 bool ModelLoader::load_obj(std::string name, Model* model) {

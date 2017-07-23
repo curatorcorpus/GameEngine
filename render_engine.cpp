@@ -54,8 +54,6 @@ int main(int argc, char *argv[]) {
 
 	Camera* camera = new Camera();
 	Controls controls = Controls(camera, display->window);
-
-	Shader* shader = new Shader("basic");
 	Model* model = new Model();
 
 	ModelLoader loader = ModelLoader();
@@ -76,7 +74,6 @@ int main(int argc, char *argv[]) {
 		glfwPollEvents();
 	}
 
-	delete shader;
 	delete model;
 	delete camera;
 	delete display;
