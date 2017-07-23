@@ -52,16 +52,6 @@ int main(int argc, char *argv[]) {
 
 	DisplayManager* display = new DisplayManager("test", false, 1920, 1080);
 
-	// Dark blue background
-	glfwSetInputMode(display->window, GLFW_STICKY_KEYS, GL_TRUE);  
-
-    glEnable(GL_DEPTH_TEST);              // Enable depth test
-    glDepthFunc(GL_LESS);                 // Accept fragment if it closer to the camera than the former ones
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glClearColor(0.0f, 0.4f, 0.0f, 1.0f);
-
 	Camera* camera = new Camera();
 	Controls controls = Controls(camera, display->window);
 
@@ -69,7 +59,7 @@ int main(int argc, char *argv[]) {
 	Model* model = new Model();
 
 	ModelLoader loader = ModelLoader();
-	loader.load_obj("person", model);
+	loader.load_obj("katarina", model);
 
 	model->setup_meshes();
 

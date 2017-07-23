@@ -2,8 +2,24 @@
 
 DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int height) {
 
-	this->width = width;
-	this->height = height;
+	this->title    = title;
+	this->width    = width;
+	this->height   = height;
+	this->fullscrn = fullscrn;
+
+	setup_glfw();
+	setup_glew();
+    setup_opengl();
+}
+
+DisplayManager::~DisplayManager() {
+	glfwDestroyWindow(window);
+	glfwTerminate();
+
+	std::cerr << "[DEBUG::DISPLAY_MANAGER] Window terminated!" << std::endl;
+}
+
+void DisplayManager::setup_glfw() {
 
 	// initialize GLFW window
 	if(!glfwInit()) {
@@ -22,16 +38,25 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); 
 
 	// open window and create opengl context
-	if(fullscrn)
-		window = glfwCreateWindow(width, height, title.c_str(), glfwGetPrimaryMonitor(), NULL);
+	if(this->fullscrn)
+		this->window = glfwCreateWindow(
+										this->width, 
+										this->height, 
+										this->title.c_str(), 
+										glfwGetPrimaryMonitor(), NULL);
 	else 
-		window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
+		this->window = glfwCreateWindow(this->width, 
+										this->height, 
+										this->title.c_str(), NULL, NULL);
 
-	if(window == NULL) {
+	if(this->window == NULL) {
 		glfwTerminate();
 		exit(EXIT_FAILURE);
 	}
 	glfwMakeContextCurrent(window);
+}
+
+void DisplayManager::setup_glew() {
 
 	// initialize glew opengl extension libraries.
 	glewExperimental = GL_TRUE;
@@ -41,16 +66,20 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
-
-    // info opengl of viewport
-    glViewport(0, 0, width, height);
 }
 
-DisplayManager::~DisplayManager() {
-	glfwDestroyWindow(window);
-	glfwTerminate();
+void DisplayManager::setup_opengl() {
 
-	std::cerr << "[DEBUG::DISPLAY_MANAGER] Window terminated!" << std::endl;
+	// opengl settings
+	glViewport(0, 0, width, height);
+	glfwSetInputMode(this->window, GLFW_STICKY_KEYS, GL_TRUE);  
+
+    glEnable(GL_DEPTH_TEST);              // Enable depth test
+    glDepthFunc(GL_LESS);                 // Accept fragment if it closer to the camera than the former ones
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glClearColor(0.0f, 0.4f, 0.0f, 1.0f);
 }
 
 int DisplayManager::get_height() {

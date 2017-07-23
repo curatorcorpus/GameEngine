@@ -25,5 +25,4 @@ public:
 	bool load_obj(std::string path, Model* model);
 };
 
-
 #endif
