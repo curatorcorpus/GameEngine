@@ -1,5 +1,5 @@
-#ifndef DISPLAY_MANAGER_HPP
-#define DISPLAY_MANAGER_HPP
+#ifndef DISPLAY_HPP
+#define DISPLAY_HPP
 
 /*
 	C++ Libraries
@@ -18,7 +18,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-class DisplayManager {
+class Display {
 
 private:
 
@@ -33,8 +33,8 @@ private:
 
 public:
 
-	DisplayManager(std::string title, bool fullscrn, int width = 1280, int height = 1080);
-	~DisplayManager();
+	Display(std::string title, bool fullscrn, int width = 1280, int height = 1080);
+	~Display();
 
 	GLFWwindow* window;
 

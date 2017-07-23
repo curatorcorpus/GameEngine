@@ -57,57 +57,9 @@ include CMakeFiles/render_engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/render_engine.dir/flags.make
 
-CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o: CMakeFiles/render_engine.dir/flags.make
-CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o: ../sources/engine/display_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o -c /home/curator/Repositories/rasterization/sources/engine/display_manager.cpp
-
-CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/curator/Repositories/rasterization/sources/engine/display_manager.cpp > CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.i
-
-CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/curator/Repositories/rasterization/sources/engine/display_manager.cpp -o CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s
-
-CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.requires:
-
-.PHONY : CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.requires
-
-CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.provides: CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.requires
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.provides.build
-.PHONY : CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.provides
-
-CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o
-
-
-CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o: CMakeFiles/render_engine.dir/flags.make
-CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o: ../sources/engine/render_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o -c /home/curator/Repositories/rasterization/sources/engine/render_manager.cpp
-
-CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/curator/Repositories/rasterization/sources/engine/render_manager.cpp > CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.i
-
-CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/curator/Repositories/rasterization/sources/engine/render_manager.cpp -o CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.s
-
-CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.requires:
-
-.PHONY : CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.requires
-
-CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.provides: CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.requires
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.provides.build
-.PHONY : CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.provides
-
-CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o
-
-
 CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o: CMakeFiles/render_engine.dir/flags.make
 CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o: ../sources/engine/controls.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o -c /home/curator/Repositories/rasterization/sources/engine/controls.cpp
 
 CMakeFiles/render_engine.dir/sources/engine/controls.cpp.i: cmake_force
@@ -127,6 +79,54 @@ CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o.provides: CMakeFiles/
 .PHONY : CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o.provides
 
 CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o
+
+
+CMakeFiles/render_engine.dir/sources/engine/display.cpp.o: CMakeFiles/render_engine.dir/flags.make
+CMakeFiles/render_engine.dir/sources/engine/display.cpp.o: ../sources/engine/display.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/render_engine.dir/sources/engine/display.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/engine/display.cpp.o -c /home/curator/Repositories/rasterization/sources/engine/display.cpp
+
+CMakeFiles/render_engine.dir/sources/engine/display.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine.dir/sources/engine/display.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/curator/Repositories/rasterization/sources/engine/display.cpp > CMakeFiles/render_engine.dir/sources/engine/display.cpp.i
+
+CMakeFiles/render_engine.dir/sources/engine/display.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine.dir/sources/engine/display.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/curator/Repositories/rasterization/sources/engine/display.cpp -o CMakeFiles/render_engine.dir/sources/engine/display.cpp.s
+
+CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.requires:
+
+.PHONY : CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.requires
+
+CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.provides: CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.requires
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.provides.build
+.PHONY : CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.provides
+
+CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/engine/display.cpp.o
+
+
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: CMakeFiles/render_engine.dir/flags.make
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../sources/engine/master_renderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repositories/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o -c /home/curator/Repositories/rasterization/sources/engine/master_renderer.cpp
+
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/curator/Repositories/rasterization/sources/engine/master_renderer.cpp > CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.i
+
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/curator/Repositories/rasterization/sources/engine/master_renderer.cpp -o CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.s
+
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.requires:
+
+.PHONY : CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.requires
+
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.provides: CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.provides.build
+.PHONY : CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.provides
+
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o
 
 
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: CMakeFiles/render_engine.dir/flags.make
@@ -299,9 +299,9 @@ CMakeFiles/render_engine.dir/render_engine.cpp.o.provides.build: CMakeFiles/rend
 
 # Object files for target render_engine
 render_engine_OBJECTS = \
-"CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o" \
-"CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o" \
+"CMakeFiles/render_engine.dir/sources/engine/display.cpp.o" \
+"CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o" \
@@ -313,9 +313,9 @@ render_engine_OBJECTS = \
 # External object files for target render_engine
 render_engine_EXTERNAL_OBJECTS =
 
-render_engine: CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o
-render_engine: CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o
+render_engine: CMakeFiles/render_engine.dir/sources/engine/display.cpp.o
+render_engine: CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o
@@ -344,9 +344,9 @@ CMakeFiles/render_engine.dir/build: render_engine
 
 .PHONY : CMakeFiles/render_engine.dir/build
 
-CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o.requires
-CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o.requires
+CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/display.cpp.o.requires
+CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o.requires

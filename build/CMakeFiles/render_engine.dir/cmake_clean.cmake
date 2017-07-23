@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o"
-  "CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o"
   "CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o"
+  "CMakeFiles/render_engine.dir/sources/engine/display.cpp.o"
+  "CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o"
   "CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o"
   "CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o"
   "CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o"

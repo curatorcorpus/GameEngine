@@ -13,11 +13,14 @@ private:
 
 	int size;
 
+	std::string shader_name;
+
 	std::vector<Mesh*> meshes;
 
 public:
 
 	Model();
+	Model(std::string shader_name);
 	Model(int size);
 	~Model();
 

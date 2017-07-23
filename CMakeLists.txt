@@ -50,9 +50,9 @@ INCLUDE_DIRECTORIES(
 
 SET(SRC_CODE
 
-  	sources/engine/display_manager.cpp
-    sources/engine/render_manager.cpp
     sources/engine/controls.cpp
+  	sources/engine/display.cpp
+    sources/engine/master_renderer.cpp
     sources/engine/model_loader.cpp
 
     sources/entities/camera.cpp

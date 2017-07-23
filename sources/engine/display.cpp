@@ -1,6 +1,6 @@
-#include <display_manager.hpp>
+#include <display.hpp>
 
-DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int height) {
+Display::Display(std::string title, bool fullscrn, int width, int height) {
 
 	this->title    = title;
 	this->width    = width;
@@ -12,14 +12,14 @@ DisplayManager::DisplayManager(std::string title, bool fullscrn, int width, int 
     setup_opengl();
 }
 
-DisplayManager::~DisplayManager() {
+Display::~Display() {
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
 	std::cerr << "[DEBUG::DISPLAY_MANAGER] Window terminated!" << std::endl;
 }
 
-void DisplayManager::setup_glfw() {
+void Display::setup_glfw() {
 
 	// initialize GLFW window
 	if(!glfwInit()) {
@@ -54,9 +54,14 @@ void DisplayManager::setup_glfw() {
 		exit(EXIT_FAILURE);
 	}
 	glfwMakeContextCurrent(window);
+
+	// glfw settings
+	glfwSetInputMode(this->window, GLFW_STICKY_KEYS, GL_TRUE); 
+	//glfwSwapInterval(0);		 				// vsync
+
 }
 
-void DisplayManager::setup_glew() {
+void Display::setup_glew() {
 
 	// initialize glew opengl extension libraries.
 	glewExperimental = GL_TRUE;
@@ -68,29 +73,27 @@ void DisplayManager::setup_glew() {
     }
 }
 
-void DisplayManager::setup_opengl() {
+void Display::setup_opengl() {
 
 	// opengl settings
-	glViewport(0, 0, width, height);
-	glfwSetInputMode(this->window, GLFW_STICKY_KEYS, GL_TRUE);  
-
-    glEnable(GL_DEPTH_TEST);              // Enable depth test
-    glDepthFunc(GL_LESS);                 // Accept fragment if it closer to the camera than the former ones
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glClearColor(0.0f, 0.4f, 0.0f, 1.0f);
+	glDepthFunc(GL_LESS);                 // Accept fragment if it closer to the camera than the former ones
+    glEnable(GL_BLEND);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);              // Enable depth test
+	glViewport(0, 0, width, height);
 }
 
-int DisplayManager::get_height() {
+int Display::get_height() {
 	return this->height;
 }
 
-int DisplayManager::get_width() {
+int Display::get_width() {
 	return this->width;
 }
 
-void DisplayManager::set_dimensions(int width, int height) {
+void Display::set_dimensions(int width, int height) {
 
 	this->width = width;
 	this->height = height;

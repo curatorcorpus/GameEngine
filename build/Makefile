@@ -247,32 +247,59 @@ sources/engine/controls.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/controls.cpp.s
 .PHONY : sources/engine/controls.cpp.s
 
-sources/engine/display_manager.o: sources/engine/display_manager.cpp.o
+sources/engine/display.o: sources/engine/display.cpp.o
 
-.PHONY : sources/engine/display_manager.o
+.PHONY : sources/engine/display.o
 
 # target to build an object file
-sources/engine/display_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o
-.PHONY : sources/engine/display_manager.cpp.o
+sources/engine/display.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display.cpp.o
+.PHONY : sources/engine/display.cpp.o
 
-sources/engine/display_manager.i: sources/engine/display_manager.cpp.i
+sources/engine/display.i: sources/engine/display.cpp.i
 
-.PHONY : sources/engine/display_manager.i
+.PHONY : sources/engine/display.i
 
 # target to preprocess a source file
-sources/engine/display_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.i
-.PHONY : sources/engine/display_manager.cpp.i
+sources/engine/display.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display.cpp.i
+.PHONY : sources/engine/display.cpp.i
 
-sources/engine/display_manager.s: sources/engine/display_manager.cpp.s
+sources/engine/display.s: sources/engine/display.cpp.s
 
-.PHONY : sources/engine/display_manager.s
+.PHONY : sources/engine/display.s
 
 # target to generate assembly for a file
-sources/engine/display_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.s
-.PHONY : sources/engine/display_manager.cpp.s
+sources/engine/display.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/display.cpp.s
+.PHONY : sources/engine/display.cpp.s
+
+sources/engine/master_renderer.o: sources/engine/master_renderer.cpp.o
+
+.PHONY : sources/engine/master_renderer.o
+
+# target to build an object file
+sources/engine/master_renderer.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o
+.PHONY : sources/engine/master_renderer.cpp.o
+
+sources/engine/master_renderer.i: sources/engine/master_renderer.cpp.i
+
+.PHONY : sources/engine/master_renderer.i
+
+# target to preprocess a source file
+sources/engine/master_renderer.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.i
+.PHONY : sources/engine/master_renderer.cpp.i
+
+sources/engine/master_renderer.s: sources/engine/master_renderer.cpp.s
+
+.PHONY : sources/engine/master_renderer.s
+
+# target to generate assembly for a file
+sources/engine/master_renderer.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.s
+.PHONY : sources/engine/master_renderer.cpp.s
 
 sources/engine/model_loader.o: sources/engine/model_loader.cpp.o
 
@@ -300,33 +327,6 @@ sources/engine/model_loader.s: sources/engine/model_loader.cpp.s
 sources/engine/model_loader.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.s
 .PHONY : sources/engine/model_loader.cpp.s
-
-sources/engine/render_manager.o: sources/engine/render_manager.cpp.o
-
-.PHONY : sources/engine/render_manager.o
-
-# target to build an object file
-sources/engine/render_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o
-.PHONY : sources/engine/render_manager.cpp.o
-
-sources/engine/render_manager.i: sources/engine/render_manager.cpp.i
-
-.PHONY : sources/engine/render_manager.i
-
-# target to preprocess a source file
-sources/engine/render_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.i
-.PHONY : sources/engine/render_manager.cpp.i
-
-sources/engine/render_manager.s: sources/engine/render_manager.cpp.s
-
-.PHONY : sources/engine/render_manager.s
-
-# target to generate assembly for a file
-sources/engine/render_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.s
-.PHONY : sources/engine/render_manager.cpp.s
 
 sources/entities/camera.o: sources/entities/camera.cpp.o
 
@@ -484,15 +484,15 @@ help:
 	@echo "... sources/engine/controls.o"
 	@echo "... sources/engine/controls.i"
 	@echo "... sources/engine/controls.s"
-	@echo "... sources/engine/display_manager.o"
-	@echo "... sources/engine/display_manager.i"
-	@echo "... sources/engine/display_manager.s"
+	@echo "... sources/engine/display.o"
+	@echo "... sources/engine/display.i"
+	@echo "... sources/engine/display.s"
+	@echo "... sources/engine/master_renderer.o"
+	@echo "... sources/engine/master_renderer.i"
+	@echo "... sources/engine/master_renderer.s"
 	@echo "... sources/engine/model_loader.o"
 	@echo "... sources/engine/model_loader.i"
 	@echo "... sources/engine/model_loader.s"
-	@echo "... sources/engine/render_manager.o"
-	@echo "... sources/engine/render_manager.i"
-	@echo "... sources/engine/render_manager.s"
 	@echo "... sources/entities/camera.o"
 	@echo "... sources/entities/camera.i"
 	@echo "... sources/entities/camera.s"

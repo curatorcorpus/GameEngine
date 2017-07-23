@@ -13,6 +13,13 @@ Model::Model(int size) {
 	this->size = size;
 }
 
+Model::Model(std::string shader_name) {
+
+	Model();
+
+	this->shader_name = shader_name;
+}
+
 Model::~Model() {
 
 	for(int i = 0; i < size; i++) {
@@ -42,7 +49,7 @@ void Model::reserve_list(int size) {
 
 void Model::setup_meshes() {
 
-	shader = new Shader("basic");
+	shader = new Shader(this->shader_name);
 
 	for(int i = 0; i < size; i++) {
 

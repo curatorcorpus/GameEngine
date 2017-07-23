@@ -6,9 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/curator/Repositories/rasterization/render_engine.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/render_engine.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/controls.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/controls.cpp.o"
-  "/home/curator/Repositories/rasterization/sources/engine/display_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/display_manager.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/engine/display.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/display.cpp.o"
+  "/home/curator/Repositories/rasterization/sources/engine/master_renderer.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o"
   "/home/curator/Repositories/rasterization/sources/engine/model_loader.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o"
-  "/home/curator/Repositories/rasterization/sources/engine/render_manager.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/render_manager.cpp.o"
   "/home/curator/Repositories/rasterization/sources/entities/camera.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o"
   "/home/curator/Repositories/rasterization/sources/entities/mesh.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o"
   "/home/curator/Repositories/rasterization/sources/entities/model.cpp" "/home/curator/Repositories/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/model.cpp.o"
