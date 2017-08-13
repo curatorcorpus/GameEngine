@@ -1,4 +1,4 @@
-# Install script for directory: /home/curator/Repositories/rasterization
+# Install script for directory: /home/curator/Repository/rasterization
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/curator/Repositories/rasterization/build/externals/glfw-3.2.1/cmake_install.cmake")
+  include("/home/curator/Repository/rasterization/build/externals/glfw-3.2.1/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/curator/Repositories/rasterization/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/curator/Repository/rasterization/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
