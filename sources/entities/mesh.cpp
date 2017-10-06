@@ -6,7 +6,6 @@ Mesh::Mesh() {
 
 Mesh::Mesh(std::vector<glm::vec3>* verts, std::vector<glm::vec3>* norms,
 	 	   std::vector<glm::vec2>* uvs,   std::vector<unsigned short>* indices) {
-
 }
 
 Mesh::~Mesh() {
@@ -157,4 +156,23 @@ void Mesh::render(Camera* camera) {
     glDisableVertexAttribArray(3);
 
 	unbind_shader();
+}
+
+void Mesh::set_shader(Shader* shader) {
+
+	if(shader == nullptr) {
+
+		std::cerr << "[DEBUG::OBJECT_CPP]" + name + "failed to reference shader!" << std::endl; 
+	}
+	this->shader = shader;
+}
+
+void Mesh::bind_shader() {
+
+	shader->bind();
+}
+
+void Mesh::unbind_shader() {
+
+	shader->unbind();
 }

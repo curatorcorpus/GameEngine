@@ -6,6 +6,8 @@ pkg-config
 glfw3
 glew 1.13 At Least
 
+libvulkan-dev
+
 Installation:
 
 This application currently runs on Ubuntu 16.04 LTS.

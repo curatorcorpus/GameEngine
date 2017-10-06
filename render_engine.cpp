@@ -31,14 +31,23 @@
 	Gloabl Variables
 */
 
-int main(int argc, char *argv[]) {
-
+int main(int argc, char *argv[]) 
+{
 	// initialize engine.
-	Display*        display  = new Display("test", 2450, 1440);
+	Display*        display  = new Display("Game Engine", 2450, 1440);
 	Camera*         camera   = new Camera();
 	Controls*       controls = new Controls(camera, display->window);	
 	MasterRenderer* renderer = new MasterRenderer();
 	
+	// create model loader.
+	ModelLoader loader = ModelLoader();
+
+	Model model("basic");
+	loader.load_obj("katarina", &model);
+
+	// add models to render
+	renderer->add_model(&model);
+
 	// setup engine properties.
 	renderer->setup();
 

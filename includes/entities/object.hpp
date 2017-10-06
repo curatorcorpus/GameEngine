@@ -12,8 +12,6 @@ class Object {
 
 protected:
 
-	Shader* shader;
-
 	std::string name;
 
 	// homogenous coordinates
@@ -32,15 +30,10 @@ public:
 
 	glm::mat4 get_transform();
 
-	void bind_shader();
-	void unbind_shader();
-
 	void set_transform(glm::mat4 transform);
 	void set_translation(glm::mat4 translation);
 	void set_rotation(glm::mat4 rotation);
 	void set_scale(glm::mat4 scale);
-
-	void set_shader(Shader* shader);
 };
 
 #endif

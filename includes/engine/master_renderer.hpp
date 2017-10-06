@@ -40,7 +40,7 @@ public:
 
 	// setters and getters
 
-
+	void add_model(Model* model);
 	void setup();
 	void update(GLFWwindow* window, Camera* camera);
 };

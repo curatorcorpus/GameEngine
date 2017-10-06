@@ -7,7 +7,7 @@
 #include <camera.hpp>
 #include <mesh.hpp>
 
-class Model : public Object {
+class Model {
 
 private:
 
@@ -16,6 +16,8 @@ private:
 	std::string shader_name;
 
 	std::vector<Mesh*> meshes;
+
+	Shader* shader;
 
 public:
 

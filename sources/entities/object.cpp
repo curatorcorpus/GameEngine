@@ -8,8 +8,6 @@ Object::Object() {
 	rotation 	= glm::mat4(1.0f);
 	scale 		= glm::scale(glm::mat4(),	  glm::vec3(1.0f));
 	transform 	= this->update_transform();
-
-	shader = nullptr;
 }
 
 Object::Object(std::string name) {
@@ -52,24 +50,4 @@ void Object::set_scale(glm::mat4 scale) {
 
 	this->scale = scale;
 	this->transform = update_transform();
-}
-
-void Object::set_shader(Shader* shader) {
-
-	if(shader == nullptr) {
-		delete shader;
-
-		std::cerr << "[DEBUG::OBJECT_CPP]" + name + "failed to reference shader!" << std::endl; 
-	}
-	this->shader = shader;
-}
-
-void Object::bind_shader() {
-
-	shader->bind();
-}
-
-void Object::unbind_shader() {
-
-	shader->unbind();
 }

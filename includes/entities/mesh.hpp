@@ -25,6 +25,11 @@ private:
 	std::vector<glm::vec2>		uvs;
 	std::vector<unsigned short> indices;
 
+	Shader* shader;
+
+	void bind_shader();
+	void unbind_shader();
+
 public:
 
 	Mesh();
@@ -36,6 +41,8 @@ public:
 	void set_normals(std::vector<glm::vec3> norms);	 // 
 	void set_uvs(std::vector<glm::vec2> uvs);		 // texture 2D coordinates.
 	void set_indices(std::vector<unsigned short> indices);   // face indicies.
+
+	void set_shader(Shader* shader);
 
 	void render(Camera* camera);
 	void setup();

@@ -11,8 +11,8 @@ uniform mat4 V;
 
 out vec3 pos;
 
-void main() {
-	
+void main() 
+{
 	pos = vertices;
 
 	gl_Position = MVP * vec4(vertices, 1.0f); 
