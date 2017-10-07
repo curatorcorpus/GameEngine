@@ -22,7 +22,7 @@ public:
 	ModelLoader();
 	~ModelLoader();
 
-	bool load_obj(std::string path, Model* model);
+	Model* load_obj(std::string path, std::string shader_name);
 };
 
 #endif

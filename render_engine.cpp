@@ -30,39 +30,35 @@
 /*
 	Gloabl Variables
 */
+static const int W_WIDTH  = 2560;
+static const int W_HEIGHT = 1440;
 
 int main(int argc, char *argv[]) 
 {
-	// initialize engine.
-	Display*        display  = new Display("Game Engine", 2450, 1440);
-	Camera*         camera   = new Camera();
-	Controls*       controls = new Controls(camera, display->window);	
+	// initialize engine components.
+	Display* 	    display  = new Display("Game Engine", W_WIDTH, W_HEIGHT);
+	Camera*  	    camera   = new Camera();
+	GLFWwindow*     window   = display->get_window();
+	Controls* 	    controls = new Controls(camera, window);
 	MasterRenderer* renderer = new MasterRenderer();
-	
-	// create model loader.
-	ModelLoader loader = ModelLoader();
-
-	Model model("basic");
-	loader.load_obj("katarina", &model);
 
 	// add models to render
-	renderer->add_model(&model);
+	renderer->add_model("katarina", "basic");
 
 	// setup engine properties.
 	renderer->setup();
 
 	// main engine loop.
-	while(glfwGetKey(display->window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(display->window)) 
+	while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))
 	{  
 		controls->update();
-		renderer->update(display->window, camera);
+		renderer->update(window, camera);
 	}
 
-	// tidy engine memory.
-	delete camera;
+	delete display;
 	delete controls;
 	delete renderer;
-	delete display;
+	delete camera;
 
 	return EXIT_SUCCESS;
 }

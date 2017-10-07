@@ -97,6 +97,11 @@ int Display::get_width() {
 	return this->width;
 }
 
+GLFWwindow* Display::get_window()
+{
+	return window;
+}
+
 void Display::set_dimensions(int width, int height) {
 
 	this->width = width;

@@ -9,7 +9,7 @@
 
 class Model {
 
-private:
+protected:
 
 	int size;
 
@@ -26,6 +26,7 @@ public:
 	Model(int size);
 	~Model();
 
+	void clean_up();
 	void add_mesh(Mesh* mesh);
 	void render(Camera* camera);
 	void reserve_list(int size);	

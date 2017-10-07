@@ -33,6 +33,7 @@ private:
 	std::vector<Model*> models;
 
 	FpsCounter* fps_counter;
+	ModelLoader loader;
 
 public:
 	MasterRenderer();
@@ -40,7 +41,7 @@ public:
 
 	// setters and getters
 
-	void add_model(Model* model);
+	void add_model(std::string model_name, std::string shader_name);
 	void setup();
 	void update(GLFWwindow* window, Camera* camera);
 };

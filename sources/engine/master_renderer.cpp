@@ -3,21 +3,33 @@
 MasterRenderer::MasterRenderer() {
 
 	this->models.clear();
+	this->loader = ModelLoader();
 }
 
 MasterRenderer::~MasterRenderer() {
-/*
+
 	for(int i = 0; i < models.size(); i++)
 	{
+		// free all memory used for storing meshes.
+		models[i]->clean_up();
+
+		// delete the memory for ptr of model class.
 		delete models[i];
-	}*/
+	}
 
 	delete fps_counter;
 }
 
-void MasterRenderer::add_model(Model* model) 
+void MasterRenderer::add_model(std::string model_name, std::string shader_name) 
 {
-	models.push_back(model);
+	Model* loaded_model = loader.load_obj(model_name, shader_name);
+
+	if(loaded_model == nullptr)
+	{
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
+	}
+
+	models.push_back(loaded_model);
 }
 
 void MasterRenderer::setup() 

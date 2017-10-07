@@ -31,6 +31,8 @@ private:
 	void setup_glew();
 	void setup_opengl();
 
+	GLFWwindow* window;
+
 public:
 
 	Display(
@@ -42,10 +44,9 @@ public:
 		);
 	~Display();
 
-	GLFWwindow* window;
-
 	int get_height();
 	int get_width();
+	GLFWwindow* get_window();
 
 	void set_dimensions(int width, int height);
 };

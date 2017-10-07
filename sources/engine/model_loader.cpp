@@ -7,7 +7,9 @@ ModelLoader::ModelLoader() {
 ModelLoader::~ModelLoader() {
 }
 
-bool ModelLoader::load_obj(std::string name, Model* model) {
+Model* ModelLoader::load_obj(std::string name, std::string shader_name) {
+
+	Model* model = new Model(shader_name);
 
 	std::string directory = "../resources/models/" + name + ".obj";
 	std::cerr << "[DEBUG::MODEL_LOADER_CPP] Loading " << directory << std::endl;
@@ -18,7 +20,7 @@ bool ModelLoader::load_obj(std::string name, Model* model) {
 	if(!scene) {
 		std::cerr << "[DEBUG::MODEL_LOADER_CPP] Failed to load: " << importer.GetErrorString();
 
-		return false;
+		return nullptr;
 	}
 
 	model->reserve_list(scene->mNumMeshes);
@@ -71,5 +73,5 @@ bool ModelLoader::load_obj(std::string name, Model* model) {
 	}
 	std::cerr << "[Debug::MODEL_LOADER_CPP] Finished loading an obj file" << std::endl;
 
-	return true;
+	return model;
 }
