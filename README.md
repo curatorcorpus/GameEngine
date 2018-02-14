@@ -7,6 +7,7 @@ glfw3
 glew 1.13 At Least
 
 libvulkan-dev
+libpng16-dev
 
 Installation:
 

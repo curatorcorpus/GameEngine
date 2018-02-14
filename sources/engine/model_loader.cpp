@@ -7,7 +7,7 @@ ModelLoader::ModelLoader() {
 ModelLoader::~ModelLoader() {
 }
 
-Model* ModelLoader::load_obj(std::string name, std::string shader_name) {
+Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
 
 	Model* model = new Model(shader_name);
 

@@ -20,7 +20,7 @@ MasterRenderer::~MasterRenderer() {
 	delete fps_counter;
 }
 
-void MasterRenderer::add_model(std::string model_name, std::string shader_name) 
+void MasterRenderer::add_model(std::string model_name, const std::string& shader_name) 
 {
 	Model* loaded_model = loader.load_obj(model_name, shader_name);
 

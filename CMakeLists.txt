@@ -34,13 +34,15 @@ FIND_PACKAGE(OpenGL REQUIRED) # Find OpenGL -
 FIND_PACKAGE(GLM REQUIRED)    # Find GLM Libraries - maths library for graphics
 FIND_PACKAGE(GLEW REQUIRED)   # Find GLEW libraries - 
 FIND_PACKAGE(assimp REQUIRED) # Find Assimp Libraries
+FIND_PACKAGE(PNG REQUIRED)
 
 INCLUDE_DIRECTORIES(
     
     ${OPENGL_INCLUDE_DIRS}
     ${GLM_INCLUDE_DIRS}
     ${GLEW_INCLUDE_DIRS}
-    
+    ${PNG_INCLUDE_DIR}
+
     includes/engine
     includes/entities
     includes/shaders
@@ -86,4 +88,5 @@ TARGET_LINK_LIBRARIES(render_engine
     ${GLEW_LIBRARIES}
     ${OPENGL_LIBRARIES}
     ${GLM_LIBRARIES}
+    ${PNG_LIBRARY}
 )

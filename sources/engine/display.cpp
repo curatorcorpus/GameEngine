@@ -14,15 +14,16 @@ Display::Display(std::string title, int width, int height,
     setup_opengl();
 }
 
-Display::~Display() {
+Display::~Display() 
+{
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
 	std::cerr << "[DEBUG::DISPLAY_MANAGER] Window terminated!" << std::endl;
 }
 
-void Display::setup_glfw() {
-
+void Display::setup_glfw() 
+{
 	// initialize GLFW window
 	if(!glfwInit()) {
 		std::cerr << "[DEBUG::DISPLAY_MANAGER] " 
@@ -65,8 +66,8 @@ void Display::setup_glfw() {
 
 }
 
-void Display::setup_glew() {
-
+void Display::setup_glew() 
+{
 	// initialize glew opengl extension libraries.
 	glewExperimental = GL_TRUE;
 	if(glewInit() != GLEW_OK) {
@@ -77,8 +78,8 @@ void Display::setup_glew() {
     }
 }
 
-void Display::setup_opengl() {
-
+void Display::setup_opengl() 
+{
 	// opengl settings
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glClearColor(0.0f, 0.4f, 0.0f, 1.0f);
@@ -89,11 +90,13 @@ void Display::setup_opengl() {
 	glViewport(0, 0, width, height);
 }
 
-int Display::get_height() {
+int Display::get_height() 
+{
 	return this->height;
 }
 
-int Display::get_width() {
+int Display::get_width() 
+{
 	return this->width;
 }
 
@@ -102,8 +105,8 @@ GLFWwindow* Display::get_window()
 	return window;
 }
 
-void Display::set_dimensions(int width, int height) {
-
+void Display::set_dimensions(int width, int height) 
+{
 	this->width = width;
 	this->height = height;
 }

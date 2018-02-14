@@ -328,6 +328,7 @@ render_engine: externals/glfw-3.2.1/src/libglfw3.a
 render_engine: /usr/lib/x86_64-linux-gnu/libGLEW.so
 render_engine: /usr/lib/x86_64-linux-gnu/libGLU.so
 render_engine: /usr/lib/x86_64-linux-gnu/libGL.so
+render_engine: /usr/lib/x86_64-linux-gnu/libpng.so
 render_engine: /usr/lib/x86_64-linux-gnu/librt.so
 render_engine: /usr/lib/x86_64-linux-gnu/libm.so
 render_engine: /usr/lib/x86_64-linux-gnu/libX11.so
