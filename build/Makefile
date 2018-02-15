@@ -436,6 +436,33 @@ sources/entities/object.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/object.cpp.s
 .PHONY : sources/entities/object.cpp.s
 
+sources/entities/textured_model.o: sources/entities/textured_model.cpp.o
+
+.PHONY : sources/entities/textured_model.o
+
+# target to build an object file
+sources/entities/textured_model.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o
+.PHONY : sources/entities/textured_model.cpp.o
+
+sources/entities/textured_model.i: sources/entities/textured_model.cpp.i
+
+.PHONY : sources/entities/textured_model.i
+
+# target to preprocess a source file
+sources/entities/textured_model.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.i
+.PHONY : sources/entities/textured_model.cpp.i
+
+sources/entities/textured_model.s: sources/entities/textured_model.cpp.s
+
+.PHONY : sources/entities/textured_model.s
+
+# target to generate assembly for a file
+sources/entities/textured_model.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.s
+.PHONY : sources/entities/textured_model.cpp.s
+
 sources/shaders/shader.o: sources/shaders/shader.cpp.o
 
 .PHONY : sources/shaders/shader.o
@@ -505,6 +532,9 @@ help:
 	@echo "... sources/entities/object.o"
 	@echo "... sources/entities/object.i"
 	@echo "... sources/entities/object.s"
+	@echo "... sources/entities/textured_model.o"
+	@echo "... sources/entities/textured_model.i"
+	@echo "... sources/entities/textured_model.s"
 	@echo "... sources/shaders/shader.o"
 	@echo "... sources/shaders/shader.i"
 	@echo "... sources/shaders/shader.s"

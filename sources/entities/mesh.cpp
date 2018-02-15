@@ -134,7 +134,7 @@ void Mesh::render(Camera* camera) {
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, uvs_buff_id);
     }
-    if(uvs.size() !=0 ) {
+    if(uvs.size() != 0) {
         // 2nd attribute buffer : UVs
         glEnableVertexAttribArray(2);
         glBindBuffer(GL_ARRAY_BUFFER, norm_buff_id);

@@ -11,11 +11,12 @@ Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
 
 	Model* model = new Model(shader_name);
 
-	std::string directory = "../resources/models/" + name + ".obj";
+	std::string directory = Model_Path + name + Model_Suffix;
 	std::cerr << "[DEBUG::MODEL_LOADER_CPP] Loading " << directory << std::endl;
 
 	Assimp::Importer importer;
 
+	// Uses Assimp for reading obj file.
 	const aiScene* scene = importer.ReadFile(directory.c_str(), 0);
 	if(!scene) {
 		std::cerr << "[DEBUG::MODEL_LOADER_CPP] Failed to load: " << importer.GetErrorString();
@@ -23,8 +24,10 @@ Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
 		return nullptr;
 	}
 
+	// Allocates memory for the number of meshes in model.
 	model->reserve_list(scene->mNumMeshes);
-
+	
+	// For each mesh, extra all norms, indicies, vertices, and uv coordinates.
 	for(int i = 0; i < scene->mNumMeshes; i++) {
 
 		// outputs
@@ -61,7 +64,7 @@ Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
 			indices.push_back(ai_mesh->mFaces[j].mIndices[1]);
 			indices.push_back(ai_mesh->mFaces[j].mIndices[2]);
 		}
-
+		
 		Mesh* mesh = new Mesh();
 
 		mesh->set_vertices(verts);

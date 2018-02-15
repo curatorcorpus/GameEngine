@@ -5,6 +5,8 @@
 #include <vector>
 
 #include <glm/glm.hpp>
+#include <glm/ext.hpp>
+#include <glm/gtx/string_cast.hpp>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 
@@ -15,7 +17,8 @@ class ModelLoader {
 
 private:
 
-
+	const char *Model_Path   = "../resources/models/";
+	const char *Model_Suffix = ".obj";
 
 public:
 

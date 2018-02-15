@@ -62,6 +62,14 @@ CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../includes/entities
 CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/entities/object.cpp.o: ../sources/entities/object.cpp
 
+CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../includes/entities/camera.hpp
+CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../includes/entities/mesh.hpp
+CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../includes/entities/model.hpp
+CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../includes/entities/textured_model.hpp
+CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../includes/shaders/shader.hpp
+CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../sources/entities/textured_model.cpp
+
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../sources/shaders/shader.cpp
 

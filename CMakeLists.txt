@@ -33,8 +33,8 @@ SET(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 FIND_PACKAGE(OpenGL REQUIRED) # Find OpenGL - 
 FIND_PACKAGE(GLM REQUIRED)    # Find GLM Libraries - maths library for graphics
 FIND_PACKAGE(GLEW REQUIRED)   # Find GLEW libraries - 
-FIND_PACKAGE(assimp REQUIRED) # Find Assimp Libraries
-FIND_PACKAGE(PNG REQUIRED)
+FIND_PACKAGE(assimp REQUIRED) # Find Assimp libraries
+FIND_PACKAGE(PNG REQUIRED)    # Find Libpmg libraries
 
 INCLUDE_DIRECTORIES(
     
@@ -61,6 +61,7 @@ SET(SRC_CODE
     sources/entities/mesh.cpp
     sources/entities/model.cpp
     sources/entities/object.cpp
+    sources/entities/textured_model.cpp
 
     sources/shaders/shader.cpp
 
