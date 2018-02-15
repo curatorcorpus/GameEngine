@@ -11,6 +11,7 @@ CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/camera.hp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/mesh.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/model.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/textured_model.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../render_engine.cpp
 
@@ -31,6 +32,7 @@ CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/e
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/mesh.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/model.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/textured_model.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../sources/engine/master_renderer.cpp
 
@@ -39,6 +41,7 @@ CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/enti
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/mesh.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/model.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/object.hpp
+CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/entities/textured_model.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../sources/engine/model_loader.cpp
 

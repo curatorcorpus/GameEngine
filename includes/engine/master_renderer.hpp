@@ -16,6 +16,8 @@
 #include <camera.hpp>
 #include <model.hpp>
 #include <model_loader.hpp>
+#include <textured_model.hpp>
+
 
 /*
 	External Libraries
@@ -42,6 +44,7 @@ public:
 	// setters and getters
 
 	void add_model(std::string model_name, const std::string& shader_name);
+	void add_textured_model(std::string model_name, std::string texture_name, const std::string& shader_name);
 	void setup();
 	void update(GLFWwindow* window, Camera* camera);
 };

@@ -27,7 +27,23 @@ void MasterRenderer::add_model(std::string model_name, const std::string& shader
 	if(loaded_model == nullptr)
 	{
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
+		return;
 	}
+
+	models.push_back(loaded_model);
+}
+
+void MasterRenderer::add_textured_model(std::string model_name, std::string texture_name, const std::string& shader_name) 
+{
+	TexturedModel* loaded_model = loader.load_textured_obj(model_name, texture_name, shader_name);
+
+	if(loaded_model == nullptr)
+	{
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
+		return;
+	}
+
+	std::cout << loaded_model->load_texture_image(texture_name) << std::endl;
 
 	models.push_back(loaded_model);
 }

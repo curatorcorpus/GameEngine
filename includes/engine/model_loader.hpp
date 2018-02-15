@@ -12,13 +12,14 @@
 
 #include <mesh.hpp>
 #include <model.hpp>
+#include <textured_model.hpp>
 
 class ModelLoader {
 
 private:
 
-	const char *Model_Path   = "../resources/models/";
-	const char *Model_Suffix = ".obj";
+	const char* Model_Path   = "../resources/models/";
+	const char* Model_Suffix = ".obj";
 
 public:
 
@@ -26,6 +27,7 @@ public:
 	~ModelLoader();
 
 	Model* load_obj(std::string path, const std::string& shader_name);
+	TexturedModel* load_textured_obj(std::string name, std::string texture_name, const std::string& shader_name);
 };
 
 #endif
