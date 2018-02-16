@@ -10,10 +10,49 @@ TexturedModel::~TexturedModel() {
 	free(texture_image);
 }
 
+void TexturedModel::setup() {
+
+	glGenTextures(1, &texture_id);
+    glBindTexture(GL_TEXTURE_2D, texture_id); 
+    // Set the texture wrapping parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	bool isLoaded = load_texture_image(texture_name);
+	if(isLoaded) 
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, this->width, this->height, 0, GL_RGB, GL_UNSIGNED_BYTE, this->texture_image);
+        glGenerateMipmap(GL_TEXTURE_2D);
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " loaded!" << std::endl;
+	}
+	else 
+	{
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " failed to load!" << std::endl;
+		return;
+	}
+
+	// Set uniform variable name for shader program.
+	glUniform1i(glGetUniformLocation(shader->get_prog_id(), "texture2D"), 0);
+}
+
+void TexturedModel::render(Camera* camera) {
+
+	glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture_id);
+
+	for(int i = 0; i < size; i++) 
+	{
+		meshes[i]->render(camera);
+	}
+}
+
 bool TexturedModel::load_texture_image(std::string name) {
 
     unsigned int sig_read = 0;
-    int color_type, interlace_type;
+    int color_type, interlace_type, bit_depth;
 
 	png_structp png_ptr;
 	png_infop 	info_ptr;
@@ -72,8 +111,6 @@ bool TexturedModel::load_texture_image(std::string name) {
     // PNG_TRANSFORM_STRIP_16 | PNG_TRANSFORM_PACKING  forces 8 bit PNG_TRANSFORM_EXPAND forces to
     // expand a palette into RGB.
     png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_16|PNG_TRANSFORM_PACKING|PNG_TRANSFORM_EXPAND, NULL);
- 
-    int bit_depth;
     png_get_IHDR(png_ptr, info_ptr, &width, &height, &bit_depth, &color_type, &interlace_type, NULL, NULL);
  
    	unsigned int row_bytes = png_get_rowbytes(png_ptr, info_ptr);

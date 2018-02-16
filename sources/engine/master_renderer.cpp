@@ -50,18 +50,7 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 	{
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
 	}
-
-	bool isLoaded = loaded_model->load_texture_image(texture_name);
-
-	if(isLoaded) 
-	{
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " loaded!" << std::endl;
-	}
-	else 
-	{
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " failed to load!" << std::endl;
-		return;
-	}
+	loaded_model->setup();
 
 	models.push_back(loaded_model);
 }

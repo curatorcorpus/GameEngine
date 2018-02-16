@@ -20,6 +20,7 @@ protected:
 	std::string texture_name;
 
 	GLubyte* texture_image;
+	GLuint 	 texture_id;
 
 public:
 	
@@ -27,6 +28,8 @@ public:
 	~TexturedModel();
 
 	bool load_texture_image(std::string name);
+	void setup();
+	void render(Camera* camera);
 };
 
 #endif
