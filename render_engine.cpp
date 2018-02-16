@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	// add models to render
 	//renderer->add_model("katarina", "basic");
 
-	renderer->add_textured_model("katarina", "katarinaTexture", "basic");
+	renderer->add_textured_model("katarina", "katarinaTexture", "texture");
 
 	// setup engine properties.
 	renderer->setup();

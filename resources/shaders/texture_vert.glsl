@@ -9,10 +9,12 @@ uniform mat4 M;
 uniform mat4 V;
 
 out vec3 pos;
+out vec2 uv;
 
 void main() 
 {
 	pos = vertices;
+	uv  = uvs;
 
 	gl_Position = MVP * vec4(vertices, 1.0f); 
 }

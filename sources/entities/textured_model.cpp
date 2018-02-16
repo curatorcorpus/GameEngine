@@ -35,13 +35,13 @@ void TexturedModel::setup() {
 	}
 
 	// Set uniform variable name for shader program.
-	glUniform1i(glGetUniformLocation(shader->get_prog_id(), "texture2D"), 0);
+	glUniform1i(glGetUniformLocation(shader->get_prog_id(), "_texture"), 0);
 }
 
 void TexturedModel::render(Camera* camera) {
 
-	glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texture_id);
+//	glActiveTexture(GL_TEXTURE0);
+ //   glBindTexture(GL_TEXTURE_2D, texture_id);
 
 	for(int i = 0; i < size; i++) 
 	{
