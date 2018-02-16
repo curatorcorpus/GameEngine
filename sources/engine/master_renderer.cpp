@@ -29,6 +29,10 @@ void MasterRenderer::add_model(std::string model_name, const std::string& shader
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
 		return;
 	}
+	else 
+	{
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
+	}
 
 	models.push_back(loaded_model);
 }
@@ -42,8 +46,22 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
 		return;
 	}
+	else 
+	{
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
+	}
 
-	std::cout << loaded_model->load_texture_image(texture_name) << std::endl;
+	bool isLoaded = loaded_model->load_texture_image(texture_name);
+
+	if(isLoaded) 
+	{
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " loaded!" << std::endl;
+	}
+	else 
+	{
+		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " failed to load!" << std::endl;
+		return;
+	}
 
 	models.push_back(loaded_model);
 }
