@@ -62,6 +62,7 @@ SET(SRC_CODE
     sources/entities/model.cpp
     sources/entities/object.cpp
     sources/entities/textured_model.cpp
+    sources/entities/light.cpp
 
     sources/shaders/shader.cpp
 

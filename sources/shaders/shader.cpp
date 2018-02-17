@@ -138,6 +138,7 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id)
 	glGetProgramiv(program, GL_INFO_LOG_LENGTH, &info_log_length);
 
 	if(info_log_length > 0) {
+		
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetProgramInfoLog(program, info_log_length, NULL, &err_msg[0]);
 

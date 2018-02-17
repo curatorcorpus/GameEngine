@@ -55,6 +55,11 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 	models.push_back(loaded_model);
 }
 
+void MasterRenderer::set_light(Light* light) {
+
+	this->light = light;
+}
+
 void MasterRenderer::setup() 
 {
 	for(int i = 0; i < models.size(); i++)

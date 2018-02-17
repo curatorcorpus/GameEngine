@@ -273,9 +273,33 @@ CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o.provides: CMa
 CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o
 
 
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.o: CMakeFiles/render_engine.dir/flags.make
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.o: ../sources/entities/light.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repository/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/render_engine.dir/sources/entities/light.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/entities/light.cpp.o -c /home/curator/Repository/rasterization/sources/entities/light.cpp
+
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine.dir/sources/entities/light.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/curator/Repository/rasterization/sources/entities/light.cpp > CMakeFiles/render_engine.dir/sources/entities/light.cpp.i
+
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine.dir/sources/entities/light.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/curator/Repository/rasterization/sources/entities/light.cpp -o CMakeFiles/render_engine.dir/sources/entities/light.cpp.s
+
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.requires:
+
+.PHONY : CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.requires
+
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.provides: CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.requires
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.provides.build
+.PHONY : CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.provides
+
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.provides.build: CMakeFiles/render_engine.dir/sources/entities/light.cpp.o
+
+
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: CMakeFiles/render_engine.dir/flags.make
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../sources/shaders/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repository/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repository/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o -c /home/curator/Repository/rasterization/sources/shaders/shader.cpp
 
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.i: cmake_force
@@ -299,7 +323,7 @@ CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.provides.build: CMakeF
 
 CMakeFiles/render_engine.dir/render_engine.cpp.o: CMakeFiles/render_engine.dir/flags.make
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../render_engine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repository/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/render_engine.dir/render_engine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/curator/Repository/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/render_engine.dir/render_engine.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render_engine.dir/render_engine.cpp.o -c /home/curator/Repository/rasterization/render_engine.cpp
 
 CMakeFiles/render_engine.dir/render_engine.cpp.i: cmake_force
@@ -332,6 +356,7 @@ render_engine_OBJECTS = \
 "CMakeFiles/render_engine.dir/sources/entities/model.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/entities/object.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o" \
+"CMakeFiles/render_engine.dir/sources/entities/light.cpp.o" \
 "CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o" \
 "CMakeFiles/render_engine.dir/render_engine.cpp.o"
 
@@ -347,6 +372,7 @@ render_engine: CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/entities/model.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/entities/object.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o
+render_engine: CMakeFiles/render_engine.dir/sources/entities/light.cpp.o
 render_engine: CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o
 render_engine: CMakeFiles/render_engine.dir/render_engine.cpp.o
 render_engine: CMakeFiles/render_engine.dir/build.make
@@ -363,7 +389,7 @@ render_engine: /usr/lib/x86_64-linux-gnu/libXinerama.so
 render_engine: /usr/lib/x86_64-linux-gnu/libXxf86vm.so
 render_engine: /usr/lib/x86_64-linux-gnu/libXcursor.so
 render_engine: CMakeFiles/render_engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/curator/Repository/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable render_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/curator/Repository/rasterization/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable render_engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/render_engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -380,6 +406,7 @@ CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/enti
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/entities/model.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/entities/object.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o.requires
+CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/entities/light.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o.requires
 CMakeFiles/render_engine.dir/requires: CMakeFiles/render_engine.dir/render_engine.cpp.o.requires
 

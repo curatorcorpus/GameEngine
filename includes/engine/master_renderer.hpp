@@ -17,7 +17,7 @@
 #include <model.hpp>
 #include <model_loader.hpp>
 #include <textured_model.hpp>
-
+#include <light.hpp>
 
 /*
 	External Libraries
@@ -35,6 +35,7 @@ private:
 	std::vector<Model*> models;
 
 	FpsCounter* fps_counter;
+	Light* light;
 	ModelLoader loader;
 
 public:
@@ -45,6 +46,7 @@ public:
 
 	void add_model(std::string model_name, const std::string& shader_name);
 	void add_textured_model(std::string model_name, std::string texture_name, const std::string& shader_name);
+	void set_light(Light* light);
 	void setup();
 	void update(GLFWwindow* window, Camera* camera);
 };

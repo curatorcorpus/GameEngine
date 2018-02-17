@@ -26,6 +26,7 @@
 #include <model.hpp>
 #include <model_loader.hpp>
 #include <shader.hpp>
+#include <light.hpp>
 
 /*
 	Gloabl Variables
@@ -41,11 +42,14 @@ int main(int argc, char *argv[])
 	GLFWwindow*     window   = display->get_window();
 	Controls* 	    controls = new Controls(camera, window);
 	MasterRenderer* renderer = new MasterRenderer();
+	Light*			light 	 = new Light(glm::vec3(0.0f, 10.0f, 0.0f));
 
 	// add models to render
 	//renderer->add_model("katarina", "basic");
 
+	// Master renderer settings.
 	renderer->add_textured_model("katarina", "katarinaTexture", "texture");
+	renderer->set_light(light);
 
 	// setup engine properties.
 	renderer->setup();
@@ -57,6 +61,7 @@ int main(int argc, char *argv[])
 		renderer->update(window, camera);
 	}
 
+	delete light;
 	delete display;
 	delete controls;
 	delete renderer;

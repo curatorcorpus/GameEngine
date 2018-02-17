@@ -8,6 +8,7 @@ CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/fps_counter
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/master_renderer.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/engine/model_loader.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/camera.hpp
+CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/light.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/mesh.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/model.hpp
 CMakeFiles/render_engine.dir/render_engine.cpp.o: ../includes/entities/object.hpp
@@ -29,6 +30,7 @@ CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/e
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/engine/master_renderer.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/engine/model_loader.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/camera.hpp
+CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/light.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/mesh.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/model.hpp
 CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o: ../includes/entities/object.hpp
@@ -47,6 +49,9 @@ CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o: ../sources/engin
 
 CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o: ../includes/entities/camera.hpp
 CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o: ../sources/entities/camera.cpp
+
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.o: ../includes/entities/light.hpp
+CMakeFiles/render_engine.dir/sources/entities/light.cpp.o: ../sources/entities/light.cpp
 
 CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/entities/camera.hpp
 CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o: ../includes/entities/mesh.hpp

@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/curator/Repository/rasterization/sources/engine/master_renderer.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/master_renderer.cpp.o"
   "/home/curator/Repository/rasterization/sources/engine/model_loader.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/engine/model_loader.cpp.o"
   "/home/curator/Repository/rasterization/sources/entities/camera.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/camera.cpp.o"
+  "/home/curator/Repository/rasterization/sources/entities/light.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/light.cpp.o"
   "/home/curator/Repository/rasterization/sources/entities/mesh.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/mesh.cpp.o"
   "/home/curator/Repository/rasterization/sources/entities/model.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/model.cpp.o"
   "/home/curator/Repository/rasterization/sources/entities/object.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/object.cpp.o"
