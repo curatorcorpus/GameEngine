@@ -48,7 +48,8 @@ int main(int argc, char *argv[])
 	//renderer->add_model("katarina", "basic");
 
 	// Master renderer settings.
-	renderer->add_textured_model("katarina", "katarina_base_diffuse", "texture");
+	renderer->add_textured_model("katarina","katarina_base_diffuse");
+	//renderer->add_textured_model("stall","stallTexture");
 	renderer->set_light(light);
 
 	// setup engine properties.

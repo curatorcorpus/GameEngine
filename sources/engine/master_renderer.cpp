@@ -20,9 +20,9 @@ MasterRenderer::~MasterRenderer() {
 	delete fps_counter;
 }
 
-void MasterRenderer::add_model(std::string model_name, const std::string& shader_name) 
+void MasterRenderer::add_model(std::string model_name) 
 {
-	Model* loaded_model = loader.load_obj(model_name, shader_name);
+	Model* loaded_model = loader.load_obj(model_name,"basic");
 
 	if(loaded_model == nullptr)
 	{
@@ -37,9 +37,9 @@ void MasterRenderer::add_model(std::string model_name, const std::string& shader
 	models.push_back(loaded_model);
 }
 
-void MasterRenderer::add_textured_model(std::string model_name, std::string texture_name, const std::string& shader_name) 
+void MasterRenderer::add_textured_model(std::string model_name, std::string texture_name) 
 {
-	TexturedModel* loaded_model = loader.load_textured_obj(model_name, texture_name, shader_name);
+	TexturedModel* loaded_model = loader.load_textured_obj(model_name,texture_name,"texture");
 
 	if(loaded_model == nullptr)
 	{
