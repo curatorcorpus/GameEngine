@@ -10,9 +10,8 @@ uniform mat4 M;
 uniform mat4 V;
 
 uniform vec3 cam_pos;
-uniform vec3 light_pos = vec3(10.0f,10.0f,10.0f);
+uniform vec3 light_pos = vec3(4.0f,4.0f,4.0f);
 
-out vec3 pos;
 out vec3 norm;
 out vec2 uv;
 out vec3 light_dir;
@@ -20,7 +19,6 @@ out vec3 eye_dir;
 
 void main() 
 {
-	pos  = vertices;
 	uv   = uvs;
 	norm = normals;
 
@@ -30,7 +28,7 @@ void main()
 
 	// Vector that goes from light to vertex.
 	vec3 c_light_pos = (V*vec4(light_pos, 1.0f)).xyz;
-	light_dir = c_light_pos + eye_dir;
+	light_dir = light_pos + eye_dir;
 
 	gl_Position = MVP * vec4(vertices, 1.0f);
 }
