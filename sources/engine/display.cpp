@@ -86,6 +86,7 @@ void Display::setup_opengl()
 	glDepthFunc(GL_LESS);                 // Accept fragment if it closer to the camera than the former ones
     glEnable(GL_BLEND);
     glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
     glEnable(GL_DEPTH_TEST);              // Enable depth test
 	glViewport(0, 0, width, height);
 }

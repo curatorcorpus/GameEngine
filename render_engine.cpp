@@ -31,13 +31,13 @@
 /*
 	Gloabl Variables
 */
-static const int W_WIDTH  = 2560;
-static const int W_HEIGHT = 1440;
+static const int W_WIDTH  = 1920;
+static const int W_HEIGHT = 1080;
 
 int main(int argc, char *argv[]) 
 {
 	// initialize engine components.
-	Display* 	    display  = new Display("Game Engine", W_WIDTH, W_HEIGHT);
+	Display* 	    display  = new Display("Game Engine", W_WIDTH, W_HEIGHT, false, false);
 	Camera*  	    camera   = new Camera();
 	GLFWwindow*     window   = display->get_window();
 	Controls* 	    controls = new Controls(camera, window);

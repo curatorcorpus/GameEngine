@@ -12,7 +12,7 @@ out vec4 color;
 uniform sampler2D _texture;
 uniform vec3 cam_pos;
 
-const vec3 ambient_color  = vec3(0.5f,0.5f,0.3f);
+const vec3 ambient_color  = vec3(1.0f,1.0f,1.0f);
 const vec3 ambient_light  = vec3(0.3f,0.3f,0.3f);
 
 const vec3 diffuse_color  = vec3(1.0f,1.0f,1.0f);
