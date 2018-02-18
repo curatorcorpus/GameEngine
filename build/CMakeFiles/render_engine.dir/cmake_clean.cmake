@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o"
   "CMakeFiles/render_engine.dir/sources/entities/light.cpp.o"
   "CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
+  "CMakeFiles/render_engine.dir/sources/terrains/terrain.cpp.o"
   "CMakeFiles/render_engine.dir/render_engine.cpp.o"
   "render_engine.pdb"
   "render_engine"

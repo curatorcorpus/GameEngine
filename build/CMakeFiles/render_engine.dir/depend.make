@@ -81,3 +81,6 @@ CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o: ../sources/e
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../includes/shaders/shader.hpp
 CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o: ../sources/shaders/shader.cpp
 
+CMakeFiles/render_engine.dir/sources/terrains/terrain.cpp.o: ../includes/terrains/terrain.hpp
+CMakeFiles/render_engine.dir/sources/terrains/terrain.cpp.o: ../sources/terrains/terrain.cpp
+

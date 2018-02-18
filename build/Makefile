@@ -517,6 +517,33 @@ sources/shaders/shader.cpp.s:
 	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.s
 .PHONY : sources/shaders/shader.cpp.s
 
+sources/terrains/terrain.o: sources/terrains/terrain.cpp.o
+
+.PHONY : sources/terrains/terrain.o
+
+# target to build an object file
+sources/terrains/terrain.cpp.o:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/terrains/terrain.cpp.o
+.PHONY : sources/terrains/terrain.cpp.o
+
+sources/terrains/terrain.i: sources/terrains/terrain.cpp.i
+
+.PHONY : sources/terrains/terrain.i
+
+# target to preprocess a source file
+sources/terrains/terrain.cpp.i:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/terrains/terrain.cpp.i
+.PHONY : sources/terrains/terrain.cpp.i
+
+sources/terrains/terrain.s: sources/terrains/terrain.cpp.s
+
+.PHONY : sources/terrains/terrain.s
+
+# target to generate assembly for a file
+sources/terrains/terrain.cpp.s:
+	$(MAKE) -f CMakeFiles/render_engine.dir/build.make CMakeFiles/render_engine.dir/sources/terrains/terrain.cpp.s
+.PHONY : sources/terrains/terrain.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -568,6 +595,9 @@ help:
 	@echo "... sources/shaders/shader.o"
 	@echo "... sources/shaders/shader.i"
 	@echo "... sources/shaders/shader.s"
+	@echo "... sources/terrains/terrain.o"
+	@echo "... sources/terrains/terrain.i"
+	@echo "... sources/terrains/terrain.s"
 .PHONY : help
 
 

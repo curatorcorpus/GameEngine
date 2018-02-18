@@ -66,6 +66,8 @@ SET(SRC_CODE
 
     sources/shaders/shader.cpp
 
+    sources/terrains/terrain.cpp
+
   	render_engine.cpp
 )
 

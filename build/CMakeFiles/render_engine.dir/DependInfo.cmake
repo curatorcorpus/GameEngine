@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/curator/Repository/rasterization/sources/entities/object.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/object.cpp.o"
   "/home/curator/Repository/rasterization/sources/entities/textured_model.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/entities/textured_model.cpp.o"
   "/home/curator/Repository/rasterization/sources/shaders/shader.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/shaders/shader.cpp.o"
+  "/home/curator/Repository/rasterization/sources/terrains/terrain.cpp" "/home/curator/Repository/rasterization/build/CMakeFiles/render_engine.dir/sources/terrains/terrain.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
