@@ -42,6 +42,8 @@ void Shader::setup(std::string& vert_path, std::string& frag_path)
 	this->mvp_id = glGetUniformLocation(prog_id, "MVP");
 	this->m_id   = glGetUniformLocation(prog_id, "M");
 	this->v_id   = glGetUniformLocation(prog_id, "V");
+
+	this->cam_pos_id = glGetUniformLocation(prog_id, "cam_pos");
 }
 
 /*
@@ -138,7 +140,7 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id)
 	glGetProgramiv(program, GL_INFO_LOG_LENGTH, &info_log_length);
 
 	if(info_log_length > 0) {
-		
+
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetProgramInfoLog(program, info_log_length, NULL, &err_msg[0]);
 
@@ -167,6 +169,11 @@ void Shader::bind()
 void Shader::unbind() 
 {
 	glUseProgram(0);
+}
+
+void Shader::update_cam_pos(glm::vec3 position) {
+
+	glUniform3f(cam_pos_id, position.x, position.y, position.z);
 }
 
 void Shader::update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp) 

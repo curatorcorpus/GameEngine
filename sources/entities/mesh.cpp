@@ -122,6 +122,7 @@ void Mesh::render(Camera* camera) {
 	glm::mat4 mvp   = camera->get_view_proj_mat() * model;
 
 	shader->update_mvp(mvp);
+	shader->update_cam_pos(camera->get_pos());
 
 	glBindVertexArray(vao);
 

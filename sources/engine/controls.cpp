@@ -54,26 +54,32 @@ void Controls::update() {
 	glm::vec3 up = glm::cross(right, direction);
 
 	float fov = camera->get_fov();
-
+bool f = false;
 	if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		curr_pos += direction * delta * key_speed;
+		f =true;
 	}
 	// Move backward
 	if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
 		curr_pos -= direction * delta * key_speed;
+		f =true;
 	}
 	// Strafe right
 	if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		curr_pos += right * delta * key_speed;
+		f =true;
 	}
 	// Strafe left
 	if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 		curr_pos -= right * delta * key_speed;
+		f =true;
 	}
 	if(glfwGetKey(window, GLFW_KEY_KP_ADD) == GLFW_PRESS) {
+		f =true;
  		fov += 0.01f;
 	}	
 	if(glfwGetKey(window, GLFW_KEY_KP_SUBTRACT) == GLFW_PRESS) {
+		f =true;
 		fov -= 0.01f;
 	}
 
@@ -81,6 +87,8 @@ void Controls::update() {
 
 	camera->set_fov(fov);
 	camera->set_lookat(curr_pos, curr_pos + direction, up);
+
+	//if(f) std::cout << curr_pos.x << " " << curr_pos.y << " " << curr_pos.z << std::endl;
 
 	last_time = current_time;
 }

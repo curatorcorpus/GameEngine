@@ -122,7 +122,7 @@ TexturedModel* ModelLoader::load_textured_obj(std::string name, std::string text
 
 			verts.push_back(glm::vec3(pos.x, pos.y, pos.z));
 			norms.push_back(glm::vec3(norm.x, norm.y, norm.z));
-
+			
 			if(ai_mesh->mTextureCoords[0] != nullptr) {
 
 				aiVector3D uv = ai_mesh->mTextureCoords[0][j];
