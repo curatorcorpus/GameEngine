@@ -1,13 +1,13 @@
 #include <master_renderer.hpp>
 
-MasterRenderer::MasterRenderer() {
-
+MasterRenderer::MasterRenderer() 
+{
 	this->models.clear();
 	this->loader = ModelLoader();
 }
 
-MasterRenderer::~MasterRenderer() {
-
+MasterRenderer::~MasterRenderer()
+{
 	for(int i = 0; i < models.size(); i++)
 	{
 		// free all memory used for storing meshes.

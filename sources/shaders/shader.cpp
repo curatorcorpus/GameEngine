@@ -7,7 +7,6 @@ Shader::Shader(std::string shader_name)
 {
 	// relative local path to shader res.
 	std::string loc_res_path = "../resources/shaders/";
-
 	std::string vert_shader_path = loc_res_path + shader_name + "_vert.glsl";
 	std::string frag_shader_path = loc_res_path + shader_name + "_frag.glsl";
 
@@ -62,8 +61,9 @@ std::string Shader::open_file(std::string& shader_path)
 			code += "\n" + line;
 		}
 		shader_stream.close();
-	
-	} else {
+	} 
+	else 
+	{
 		std::cerr << "[DEBUG::SHADER_CPP] Shader Failed to load! Wrong path?" << std::endl;
 	}
 
@@ -105,7 +105,8 @@ GLuint Shader::compile(std::string& file_name, const char* code)
 	glGetShaderiv(shader_id, GL_COMPILE_STATUS, &result);
 	glGetShaderiv(shader_id, GL_INFO_LOG_LENGTH, &info_log_length);
 
-	if(info_log_length > 0) {
+	if(info_log_length > 0) 
+	{
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetShaderInfoLog(shader_id, info_log_length, NULL, &err_msg[0]);
 
@@ -113,9 +114,12 @@ GLuint Shader::compile(std::string& file_name, const char* code)
 		std::cerr << "[DEBUG::SHADER_CPP] Shader Compilation Failed!" << std::endl;
 	}
 
-	if(determiner == 0) {
+	if(determiner == 0) 
+	{
 		std::cerr << "[DEBUG::SHADER_CPP] Vert Shader Compilation Succeed!" << std::endl;
-	} else {
+	} 
+	else 
+	{
 		std::cerr << "[DEBUG::SHADER_CPP] Frag Shader Compilation Succeed!" << std::endl;
 	}
 

@@ -60,8 +60,8 @@ SET(SRC_CODE
     sources/entities/camera.cpp
     sources/entities/mesh.cpp
     sources/entities/model.cpp
-    sources/entities/object.cpp
     sources/entities/textured_model.cpp
+    sources/entities/transform.cpp
     sources/entities/light.cpp
 
     sources/shaders/shader.cpp

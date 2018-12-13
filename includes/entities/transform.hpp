@@ -1,5 +1,5 @@
-#ifndef TRANSFORM_HPP
-#define TRANSFORM_HPP
+#ifndef OBJECT_HPP
+#define OBJECT_HPP
 
 #include <iostream>
 

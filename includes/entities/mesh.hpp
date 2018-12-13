@@ -5,11 +5,11 @@
 #include <vector>
 
 #include <camera.hpp>
-#include <object.hpp>
+#include <transform.hpp>
 
 #include <glm/glm.hpp>
 
-class Mesh : public Object {
+class Mesh : public Transform {
 
 private:
 

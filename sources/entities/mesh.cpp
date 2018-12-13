@@ -130,29 +130,31 @@ void Mesh::render(Camera* camera) {
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vert_buff_id);
     
-    if(norms.size() != 0) {
+    if(norms.size() != 0) 
+    {
         // 3rd attribute buffer : normals
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, uvs_buff_id);
     }
-    if(uvs.size() != 0) {
+    if(uvs.size() != 0) 
+    {
         // 2nd attribute buffer : UVs
         glEnableVertexAttribArray(2);
         glBindBuffer(GL_ARRAY_BUFFER, norm_buff_id);
     }
-    if(indices.size() == 0) {
-
+    if(indices.size() == 0) 
+    {
         glDrawArrays(GL_TRIANGLES, 0, verts.size());
-
-    } else { 
-
+    } 
+    else 
+    { 
     	glEnableVertexAttribArray(3);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indices_buff_id);
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
     }
 
     glDisableVertexAttribArray(0);
-    if(uvs.size()	  != 0) glDisableVertexAttribArray(1);
+    if(uvs.size()	!= 0) glDisableVertexAttribArray(1);
     if(norms.size() != 0) glDisableVertexAttribArray(2);
     glDisableVertexAttribArray(3);
 
@@ -163,7 +165,7 @@ void Mesh::set_shader(Shader* shader) {
 
 	if(shader == nullptr) {
 
-		std::cerr << "[DEBUG::OBJECT_CPP]" + name + "failed to reference shader!" << std::endl; 
+//		std::cerr << "[DEBUG::MESH_CPP]" + name + "failed to reference shader!" << std::endl; 
 	}
 	this->shader = shader;
 }
