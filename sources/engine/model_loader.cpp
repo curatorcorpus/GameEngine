@@ -26,7 +26,7 @@ Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
 
 	// Allocates memory for the number of meshes in model.
 	model->reserve_list(scene->mNumMeshes);
-	
+
 	// For each mesh, extra all norms, indicies, vertices, and uv coordinates.
 	for(int i = 0; i < scene->mNumMeshes; i++) {
 
@@ -98,7 +98,7 @@ TexturedModel* ModelLoader::load_textured_obj(std::string name, std::string text
 
 	// Allocates memory for the number of meshes in model.
 	model->reserve_list(scene->mNumMeshes);
-	
+		
 	// For each mesh, extra all norms, indicies, vertices, and uv coordinates.
 	for(int i = 0; i < scene->mNumMeshes; i++) {
 
@@ -119,7 +119,7 @@ TexturedModel* ModelLoader::load_textured_obj(std::string name, std::string text
 
 			aiVector3D pos = ai_mesh->mVertices[j];
 			aiVector3D norm = ai_mesh->mNormals[j];
-
+			
 			verts.push_back(glm::vec3(pos.x, pos.y, pos.z));
 			norms.push_back(glm::vec3(norm.x, norm.y, norm.z));
 			

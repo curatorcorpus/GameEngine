@@ -1,12 +1,12 @@
 #ifndef MESH_HPP
 #define MESH_HPP
-
+#define GLM_ENABLE_EXPERIMENTAL
 #include <iostream>
 #include <vector>
 
 #include <camera.hpp>
 #include <transform.hpp>
-
+#include <glm/gtx/string_cast.hpp>
 #include <glm/glm.hpp>
 
 class Mesh : public Transform {
