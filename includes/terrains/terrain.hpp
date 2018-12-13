@@ -5,18 +5,24 @@
 #include <vector>
 
 #include <camera.hpp>
-#include <model.hpp>
 #include <mesh.hpp>
+#include <textured_model.hpp>
 
-class Terrain : public Model {
+class Terrain : public TexturedModel {
 
 private:
 
+    static const int SIZE = 800;
+    static const int VERTICES_NO = 128;
+
     Mesh terrain_mesh;
+
+    void generate_terrains();
 
 public: 
 
-    void generate_terrains();
+    Terrain(std::string texture_name, std::string shader_name);
+    ~Terrain();
 };
 
 #endif
