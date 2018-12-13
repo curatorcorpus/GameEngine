@@ -71,11 +71,6 @@ SET(SRC_CODE
   	render_engine.cpp
 )
 
-ADD_SUBDIRECTORY(
-    
-    externals/glfw-3.2.1 # static library for GLFW added because v3.2 and greater has no memory leak.
-)
-
 ADD_DEFINITIONS(
     #-DGLEW_STATIC
 )

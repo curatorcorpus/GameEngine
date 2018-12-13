@@ -48,9 +48,9 @@ int main(int argc, char *argv[])
 //	Terrain terrain("test");
 
 	// Master renderer settings.
-	//renderer.add_textured_model("katarina","katarina_base_diffuse");
+	renderer.add_textured_model("katarina","katarina_base_diffuse");
 	//renderer.add_textured_model("stall","stallTexture");
-	renderer.add_model("stall");
+	//renderer.add_model("stall");
 	renderer.set_light(&light);
 
 	// setup engine properties.
