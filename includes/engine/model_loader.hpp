@@ -6,7 +6,6 @@
 
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <glm/gtx/string_cast.hpp>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 

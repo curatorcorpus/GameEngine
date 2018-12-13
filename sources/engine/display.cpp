@@ -1,8 +1,7 @@
 #include <display.hpp>
 
-Display::Display(std::string title, int width, int height,
-									bool fullscrn, bool vsync) {
-
+Display::Display(std::string title, int width, int height, bool fullscrn, bool vsync) 
+{
 	this->title    = title;
 	this->width    = width;
 	this->height   = height;

@@ -1,6 +1,6 @@
 #include <controls.hpp>
 
-Controls::Controls(Camera* camera, GLFWwindow* window) {
+Controls::Controls(Camera *camera, GLFWwindow* window) {
 
 	this->camera = camera;
 	this->window = window;

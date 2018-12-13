@@ -38,37 +38,30 @@ static const int W_HEIGHT = 1080;
 int main(int argc, char *argv[]) 
 {
 	// initialize engine components.
-	Display* 	    display  = new Display("Game Engine", W_WIDTH, W_HEIGHT, false, false);
-	Camera*  	    camera   = new Camera();
-	GLFWwindow*     window   = display->get_window();
-	Controls* 	    controls = new Controls(camera, window);
-	MasterRenderer* renderer = new MasterRenderer();
-	Light*			light 	 = new Light(glm::vec3(0.0f, 10.0f, 0.0f));
+	Display display("Game Engine", W_WIDTH, W_HEIGHT, false, false);
+	Camera camera;
+	GLFWwindow* window = display.get_window();
+	Controls controls(&camera, window);
+	MasterRenderer renderer;
+	Light light(glm::vec3(0.0f, 10.0f, 0.0f));
 
-	Terrain terrain("test");
-	// add models to render
-	//renderer->add_model("katarina", "basic");
+//	Terrain terrain("test");
 
 	// Master renderer settings.
-	renderer->add_textured_model("katarina","katarina_base_diffuse");
-	//renderer->add_textured_model("stall","stallTexture");
-	renderer->set_light(light);
+	//renderer.add_textured_model("katarina","katarina_base_diffuse");
+	//renderer.add_textured_model("stall","stallTexture");
+	renderer.add_model("stall");
+	renderer.set_light(&light);
 
 	// setup engine properties.
-	renderer->setup();
+	renderer.setup();
 
 	// main engine loop.
 	while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))
-	{  
-		controls->update();
-		renderer->update(window, camera);
+	{
+		controls.update();
+		renderer.update(window, &camera);
 	}
-
-	delete light;
-	delete display;
-	delete controls;
-	delete renderer;
-	delete camera;
 
 	return EXIT_SUCCESS;
 }

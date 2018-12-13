@@ -43,7 +43,7 @@ void Terrain::generate_terrain()
             glm::vec2 uv(u, v);
 
             // add mesh components
-            verts.push_back(verts);
+            verts.push_back(vert);
             norms.push_back(norm);
             uvs.push_back(uv);
 
@@ -73,6 +73,6 @@ void Terrain::generate_terrain()
         }
     }
 
-    Mesh terrain_mesh(&verts, &norm, &uvs, &indices);
-    add_mesh(&terrain_mesh);
+    Mesh terrain_mesh(&verts, &norms, &uvs, &indices);
+    this->add_mesh(&terrain_mesh);
 }
