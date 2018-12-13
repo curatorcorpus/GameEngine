@@ -26,6 +26,7 @@
 #include <model.hpp>
 #include <model_loader.hpp>
 #include <shader.hpp>
+#include <terrain.hpp>
 #include <light.hpp>
 
 /*
@@ -44,6 +45,7 @@ int main(int argc, char *argv[])
 	MasterRenderer* renderer = new MasterRenderer();
 	Light*			light 	 = new Light(glm::vec3(0.0f, 10.0f, 0.0f));
 
+	Terrain terrain("test");
 	// add models to render
 	//renderer->add_model("katarina", "basic");
 
