@@ -26,6 +26,7 @@ public:
 	Transform(std::string name);
 	virtual ~Transform();
 
+	glm::mat4 get_identity();
 	glm::mat4 get_transform();
 
 	void set_transform(glm::mat4 transform);

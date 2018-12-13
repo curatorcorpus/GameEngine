@@ -2,10 +2,11 @@
 
 Transform::Transform() 
 {
-	translation = glm::translate(glm::mat4(), glm::vec3(0.0f));
-	rotation 	= glm::mat4(0.0f);
-	scale 		= glm::scale(glm::mat4(),	  glm::vec3(1.0f));
-	transform 	= this->update_transform();
+	this->translation = glm::translate(glm::mat4(), glm::vec3(0.0f));
+	this->rotation 	  = glm::mat4(0.0f);
+	this->scale 	  = glm::scale(glm::mat4(), glm::vec3(1.0f));
+	
+	this->transform = get_identity();
 }
 
 Transform::Transform(std::string name) 
@@ -14,6 +15,11 @@ Transform::Transform(std::string name)
 }
 
 Transform::~Transform() {}
+
+glm::mat4 Transform::get_identity()
+{
+	return glm::mat4(1.0f);
+}
 
 glm::mat4 Transform::get_transform() 
 {

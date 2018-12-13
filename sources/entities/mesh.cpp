@@ -120,7 +120,7 @@ void Mesh::render(Camera* camera) {
 
 	glm::mat4 model = this->get_transform();
 	glm::mat4 mvp   = camera->get_view_proj_mat();// * model;
-
+    std::cout << glm::to_string(model) << std::endl;
 	shader->update_mvp(mvp);
 	shader->update_cam_pos(camera->get_pos());
 
