@@ -1,5 +1,9 @@
-# rasterization
+# Game Engine
 
+## Windows
+
+
+## Ubuntu 16.04 or greater:
 Required Libraries:
 
 pkg-config
