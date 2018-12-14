@@ -7,9 +7,9 @@ Terrain::Terrain(std::string terrain_texture_name) : TexturedModel(terrain_textu
 
 Terrain::~Terrain() {}
 
-/**
+/*=================
     PRIVATE METHODS    
-**/
+/==================
 
 /*
     Method for generating a flat terrain, from ThinMatrix:
@@ -47,19 +47,19 @@ void Terrain::generate_terrain()
             norms.push_back(norm);
             uvs.push_back(uv);
 
-            std::cout << x << " " << y << " " << z << " " << u << " " << v << std::endl; 
+           // std::cout << x << " " << y << " " << z << " " << u << " " << v << std::endl; 
         }
     }   
 
-    for(int z_idx = 0; z_idx < VERTICES_NO - 1; z_idx++)
+    for(unsigned short z_idx = 0; z_idx < VERTICES_NO - 1; z_idx++)
     {
-        for(int x_idx = 0; x_idx < VERTICES_NO - 1; x_idx++)
+        for(unsigned short x_idx = 0; x_idx < VERTICES_NO - 1; x_idx++)
         {
             // generate indices for one terrain chunk
-            int top_left  = z_idx * VERTICES_NO + x_idx;
-            int top_right = top_left + 1;
-            int bottom_left = ((z_idx + 1) * VERTICES_NO) + x_idx;
-            int bottom_right = bottom_left + 1;
+            unsigned short top_left  = z_idx * VERTICES_NO + x_idx;
+            unsigned short top_right = top_left + 1;
+            unsigned short bottom_left = ((z_idx + 1) * VERTICES_NO) + x_idx;
+            unsigned short bottom_right = bottom_left + 1;
 
             // first triangle that makes up the square
             indices.push_back(top_left);

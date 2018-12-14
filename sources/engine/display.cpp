@@ -81,7 +81,7 @@ void Display::setup_opengl()
 {
 	// opengl settings
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.8f, 1.0f);
 	glDepthFunc(GL_LESS);                 // Accept fragment if it closer to the camera than the former ones
     glEnable(GL_BLEND);
     glEnable(GL_CULL_FACE);

@@ -1,19 +1,20 @@
 #include <textured_model.hpp>
 
-TexturedModel::TexturedModel(std::string texture_name, std::string shader_name) : Model(shader_name) {
-
+TexturedModel::TexturedModel(std::string texture_name, std::string shader_name) : Model(shader_name) 
+{
 	this->texture_name = texture_name;
 }
 
-TexturedModel::~TexturedModel() {
-
+TexturedModel::~TexturedModel() 
+{
 	free(texture_image);
 }
 
-void TexturedModel::setup() {
-
+void TexturedModel::setup() 
+{
 	glGenTextures(1, &texture_id);
-    glBindTexture(GL_TEXTURE_2D, texture_id); 
+    glBindTexture(GL_TEXTURE_2D, texture_id);
+    std::cout << texture_id << std::endl; 
     // Set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -38,8 +39,8 @@ void TexturedModel::setup() {
 	glUniform1i(glGetUniformLocation(shader->get_prog_id(), "_texture"), 0);
 }
 
-void TexturedModel::render(Camera* camera) {
-
+void TexturedModel::render(Camera* camera) 
+{
 //	glActiveTexture(GL_TEXTURE0);
  //   glBindTexture(GL_TEXTURE_2D, texture_id);
 
@@ -49,8 +50,8 @@ void TexturedModel::render(Camera* camera) {
 	}
 }
 
-bool TexturedModel::load_texture_image(std::string name) {
-
+bool TexturedModel::load_texture_image(std::string name)
+{
     unsigned int sig_read = 0;
     int color_type, interlace_type, bit_depth;
 

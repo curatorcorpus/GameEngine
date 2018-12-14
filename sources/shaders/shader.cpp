@@ -6,9 +6,11 @@
 Shader::Shader(std::string shader_name) 
 {
 	// relative local path to shader res.
-	std::string loc_res_path = "../resources/shaders/";
-	std::string vert_shader_path = loc_res_path + shader_name + "_vert.glsl";
-	std::string frag_shader_path = loc_res_path + shader_name + "_frag.glsl";
+	std::string loc_res_path  = "../resources/shaders/";
+	std::string vertex_suffix = "_vert.glsl";
+	std::string frag_suffix   = "_frag.glsl";
+	std::string vert_shader_path = loc_res_path + shader_name + vertex_suffix;
+	std::string frag_shader_path = loc_res_path + shader_name + frag_suffix;
 
 	setup(vert_shader_path, frag_shader_path);
 }

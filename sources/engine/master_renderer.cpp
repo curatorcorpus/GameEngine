@@ -55,6 +55,12 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 	models.push_back(loaded_model);
 }
 
+void MasterRenderer::add_terrain(Terrain* terrain)
+{
+	terrain->setup();
+	models.push_back(terrain);
+}
+
 void MasterRenderer::set_light(Light* light) {
 
 	this->light = light;
@@ -75,7 +81,6 @@ void MasterRenderer::update(GLFWwindow* window, Camera* camera) {
 	fps_counter->update();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 
 	for(int i = 0; i < models.size(); i++) 
 	{

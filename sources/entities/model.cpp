@@ -1,26 +1,28 @@
 #include <model.hpp>
 
-Model::Model() {
-
+Model::Model()
+{
 	this->meshes.clear();
+	this->transform = glm::mat4(1.0f);
 }
 
-Model::Model(int size) {
-
+Model::Model(int size)
+{
 	Model();
 
 	this->size = size;
 }
 
-Model::Model(std::string shader_name) {
-
+Model::Model(std::string shader_name)
+{
 	Model();
 
 	this->shader_name = shader_name;
 	this->shader = new Shader(shader_name);
 }
 
-Model::~Model() {
+Model::~Model() 
+{
 /*
 	for(int i = 0; i < size; i++) 
 	{
@@ -74,4 +76,14 @@ void Model::clean_up()
 	{
 		delete shader;
 	}
+}
+
+void Model::reset_transform()
+{
+	this->transform = glm::mat4(1.0f);
+}
+
+void Model::translate(glm::vec3 translation)
+{
+	this->transform = glm::translate(transform, translation);
 }

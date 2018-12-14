@@ -16,6 +16,7 @@
 #include <camera.hpp>
 #include <model.hpp>
 #include <model_loader.hpp>
+#include <terrain.hpp>
 #include <textured_model.hpp>
 #include <light.hpp>
 
@@ -45,7 +46,7 @@ public:
 	// setters and getters
 
 	void add_model(std::string model_name);
-	void add_terrain();
+	void add_terrain(Terrain* terrain);
 	void add_textured_model(std::string model_name, std::string texture_name);
 	void set_light(Light* light);
 	void setup();

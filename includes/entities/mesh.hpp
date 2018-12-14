@@ -5,11 +5,11 @@
 #include <vector>
 
 #include <camera.hpp>
-#include <transform.hpp>
+#include <shader.hpp>
+#include <GL/glew.h>
 #include <glm/gtx/string_cast.hpp>
-#include <glm/glm.hpp>
 
-class Mesh : public Transform {
+class Mesh {
 
 private:
 
@@ -37,6 +37,7 @@ public:
 		 std::vector<glm::vec2>* uvs,   std::vector<unsigned short>* indices);
 	~Mesh();
 
+	void apply_transform(glm::mat4 transform);
 	void set_vertices(std::vector<glm::vec3> verts); // 3D pos x,y,z.
 	void set_normals(std::vector<glm::vec3> norms);	 // 
 	void set_uvs(std::vector<glm::vec2> uvs);		 // texture 2D coordinates.
