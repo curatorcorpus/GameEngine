@@ -23,6 +23,9 @@ Shader::~Shader()
 	glDeleteProgram(prog_id);
 }
 
+/*
+	Method for compiling and creating reference to shaders.
+*/
 void Shader::setup(std::string& vert_path, std::string& frag_path) 
 {
 	// read in shader files.
@@ -72,6 +75,9 @@ std::string Shader::open_file(std::string& shader_path)
 	return code;
 }
 
+/*
+
+*/
 void Shader::bind_attrib_loc() 
 {
 	glBindAttribLocation(prog_id, 0, "vertices");
@@ -79,11 +85,14 @@ void Shader::bind_attrib_loc()
 	glBindAttribLocation(prog_id, 2, "uvs");
 }
 
+/*
+
+*/
 GLuint Shader::compile(std::string& file_name, const char* code) 
 {
 	std::cerr << "[DEBUG::SHADER_CPP] Compiling Shader: " << file_name << std::endl;
 
-	int determiner = 0;
+	bool is_vert_shader = true;
 
 	// create empty shader object. [only limited to vert and frag shader]
 	// determines which shader processor should be used for the provided code.
@@ -91,10 +100,11 @@ GLuint Shader::compile(std::string& file_name, const char* code)
 	if(file_name.find("vert") != std::string::npos) 
 	{
 		shader_id = glCreateShader(GL_VERTEX_SHADER);
-	} else 
+	} 
+	else 
 	{
 		shader_id = glCreateShader(GL_FRAGMENT_SHADER);
-		determiner = 1;
+		is_vert_shader = false;
 	}
 
 	glShaderSource(shader_id, 1, &code, NULL); // attach source code to empty shader object.
@@ -116,7 +126,7 @@ GLuint Shader::compile(std::string& file_name, const char* code)
 		std::cerr << "[DEBUG::SHADER_CPP] Shader Compilation Failed!" << std::endl;
 	}
 
-	if(determiner == 0) 
+	if(is_vert_shader) 
 	{
 		std::cerr << "[DEBUG::SHADER_CPP] Vert Shader Compilation Succeed!" << std::endl;
 	} 
@@ -128,6 +138,9 @@ GLuint Shader::compile(std::string& file_name, const char* code)
 	return shader_id;
 }
 
+/*
+
+*/
 GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id) 
 {
 	std::cerr << "[DEBUG::SHADER_CPP] Linking shader program" << std::endl;
@@ -145,8 +158,8 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id)
 	glGetProgramiv(program, GL_LINK_STATUS, &result);
 	glGetProgramiv(program, GL_INFO_LOG_LENGTH, &info_log_length);
 
-	if(info_log_length > 0) {
-
+	if(info_log_length > 0) 
+	{
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetProgramInfoLog(program, info_log_length, NULL, &err_msg[0]);
 

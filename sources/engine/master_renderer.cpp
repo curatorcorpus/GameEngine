@@ -16,7 +16,6 @@ MasterRenderer::~MasterRenderer()
 		// delete the memory for ptr of model class.
 		delete models[i];
 	}
-
 	delete fps_counter;
 }
 
@@ -51,7 +50,6 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
 	}
 	loaded_model->setup();
-
 	models.push_back(loaded_model);
 }
 
@@ -61,8 +59,8 @@ void MasterRenderer::add_terrain(Terrain* terrain)
 	models.push_back(terrain);
 }
 
-void MasterRenderer::set_light(Light* light) {
-
+void MasterRenderer::set_light(Light* light) 
+{
 	this->light = light;
 }
 
@@ -76,8 +74,8 @@ void MasterRenderer::setup()
 	fps_counter = new FpsCounter();
 }
 
-void MasterRenderer::update(GLFWwindow* window, Camera* camera) { 
-
+void MasterRenderer::update(GLFWwindow* window, Camera* camera) 
+{ 
 	fps_counter->update();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

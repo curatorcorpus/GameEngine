@@ -12,14 +12,12 @@
 class Model {
 
 protected:
-
-	glm::mat4 transform;
+	
 	int size;
 
+	glm::mat4 transform;
 	std::string shader_name;
-
 	std::vector<Mesh*> meshes;
-
 	Shader* shader;
 
 public:

@@ -7,7 +7,7 @@ TexturedModel::TexturedModel(std::string texture_name, std::string shader_name) 
 
 TexturedModel::~TexturedModel() 
 {
-	free(texture_image);
+	//free(texture_image);
 }
 
 void TexturedModel::setup() 
