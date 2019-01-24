@@ -7,14 +7,14 @@ TexturedModel::TexturedModel(std::string texture_name, std::string shader_name) 
 
 TexturedModel::~TexturedModel() 
 {
-	//free(texture_image);
+   glDeleteTextures(1, &texture_id);
 }
 
 void TexturedModel::setup() 
 {
 	glGenTextures(1, &texture_id);
     glBindTexture(GL_TEXTURE_2D, texture_id);
-    std::cout << texture_id << std::endl; 
+    //std::cout << texture_id << std::endl; 
     // Set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -46,7 +46,7 @@ void TexturedModel::render(Camera* camera)
 
 	for(int i = 0; i < size; i++) 
 	{
-		meshes[i]->render(camera);
+		meshes[i].render(camera);
 	}
 }
 

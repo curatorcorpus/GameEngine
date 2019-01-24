@@ -33,11 +33,14 @@ private:
 public:
 
 	Mesh();
-	Mesh(std::vector<glm::vec3>* verts, std::vector<glm::vec3>* norm, 
-		 std::vector<glm::vec2>* uvs,   std::vector<unsigned short>* indices);
+	Mesh(std::vector<glm::vec3>& verts, std::vector<glm::vec3>& norm, 
+		 std::vector<glm::vec2>& uvs,   std::vector<unsigned short>& indices);
 	~Mesh();
 
 	void apply_transform(glm::mat4 transform);
+
+	int get_verts_size();
+
 	void set_vertices(std::vector<glm::vec3> verts); // 3D pos x,y,z.
 	void set_normals(std::vector<glm::vec3> norms);	 // 
 	void set_uvs(std::vector<glm::vec2> uvs);		 // texture 2D coordinates.

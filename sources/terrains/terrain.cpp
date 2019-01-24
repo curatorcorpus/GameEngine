@@ -72,7 +72,7 @@ void Terrain::generate_terrain()
             indices.push_back(bottom_right);
         }
     }
-
-    Mesh terrain_mesh(&verts, &norms, &uvs, &indices);
-    this->add_mesh(&terrain_mesh);
+    Mesh terrain_mesh(verts, norms, uvs, indices);
+                std::cout << "wtf" << terrain_mesh.get_verts_size() << std::endl;
+    this->add_mesh(terrain_mesh);
 }

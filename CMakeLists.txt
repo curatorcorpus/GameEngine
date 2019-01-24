@@ -55,7 +55,7 @@ SET(SRC_CODE
     sources/engine/controls.cpp
   	sources/engine/display.cpp
     sources/engine/master_renderer.cpp
-    sources/engine/model_loader.cpp
+   # sources/engine/model_loader.cpp
 
     sources/entities/camera.cpp
     sources/entities/mesh.cpp

@@ -4,8 +4,13 @@ Mesh::Mesh() {
 
 }
 
-Mesh::Mesh(std::vector<glm::vec3>* verts, std::vector<glm::vec3>* norms,
-	 	   std::vector<glm::vec2>* uvs,   std::vector<unsigned short>* indices) {
+Mesh::Mesh(std::vector<glm::vec3>& verts, std::vector<glm::vec3>& norms,
+	 	   std::vector<glm::vec2>& uvs,   std::vector<unsigned short>& indices) 
+{
+	set_vertices(verts);
+	set_normals(norms);
+	set_uvs(uvs);
+	set_indices(indices);
 }
 
 Mesh::~Mesh() {
@@ -23,7 +28,7 @@ void Mesh::setup() {
 	// create VAO.
 	glGenVertexArrays(1, &vao); // generate a VAO.
 	glBindVertexArray(vao);	    // prepare vao, any subsequent vertex pointer calls will be stored in VAO.
-
+	std::cout << "[MESH::SETUP] Vert count: " << (this->verts.size()) << std::endl;
 	// create and obtain reference to buffer objects.
 	glGenBuffers(1, &vert_buff_id);
 	glBindBuffer(GL_ARRAY_BUFFER, vert_buff_id);
@@ -81,13 +86,17 @@ void Mesh::setup() {
 
 	glBindVertexArray(0);
 }
-
+int Mesh::get_verts_size()
+{
+	return verts.size();
+}
 void Mesh::set_vertices(std::vector<glm::vec3> verts) {
 
 	this->verts.clear();
 	this->verts.resize(verts.size());
 
 	std::copy(verts.begin(), verts.end(), this->verts.begin());
+	std::cout << "[SET_VERTICES] " << this->verts.size() << std::endl;
 }
 
 void Mesh::set_normals(std::vector<glm::vec3> norms) {

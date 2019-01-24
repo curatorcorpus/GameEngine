@@ -17,7 +17,7 @@ protected:
 
 	glm::mat4 transform;
 	std::string shader_name;
-	std::vector<Mesh*> meshes;
+	std::vector<Mesh> meshes;
 	Shader* shader;
 
 public:
@@ -28,7 +28,7 @@ public:
 	~Model();
 
 	void clean_up();
-	void add_mesh(Mesh* mesh);
+	void add_mesh(Mesh mesh);
 	void render(Camera* camera);
 	void reserve_list(int size);	
 	void setup_meshes();

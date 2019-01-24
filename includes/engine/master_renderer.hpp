@@ -15,7 +15,7 @@
 
 #include <camera.hpp>
 #include <model.hpp>
-#include <model_loader.hpp>
+//#include <model_loader.hpp>
 #include <terrain.hpp>
 #include <textured_model.hpp>
 #include <light.hpp>
@@ -37,7 +37,7 @@ private:
 
 	FpsCounter* fps_counter;
 	Light* light;
-	ModelLoader loader;
+//	ModelLoader loader;
 
 public:
 	MasterRenderer();

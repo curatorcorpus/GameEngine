@@ -46,9 +46,10 @@ int main(int argc, char *argv[])
 	Light light(glm::vec3(0.0f, 10.0f, 0.0f));
 
 	// Master renderer settings.
-	renderer.add_textured_model("katarina","katarina_base_diffuse");
-	Terrain terrain("grass");
-	//renderer.add_terrain(&terrain);
+	//renderer.add_textured_model("katarina","katarina_base_diffuse");
+	//renderer.add_textured_model("katarina","katarina_base_diffuse");
+	Terrain terrain("grassFlowers");
+	renderer.add_terrain(&terrain);
 
 	//renderer.add_textured_model("stall","stallTexture");
 	//renderer.add_model("stall");
