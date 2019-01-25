@@ -19,8 +19,8 @@ Model::Model(std::string shader_name)
 	Model();
 
 	this->shader_name = shader_name;
-	this->shader = new Shader(shader_name);
-	std::cerr << "[DEBUG::MODEL::SHADERNAME] " << shader_name << std::endl;
+ 	this->shader = new Shader(shader_name);
+	//std::cerr << "[DEBUG::MODEL::SHADERNAME] " << shader_name << " ID "<< this->shader->get_prog_id() << std::endl;
 	this->size = 0;
 }
 
@@ -49,6 +49,7 @@ void Model::add_mesh(Mesh mesh)
 
 void Model::render(Camera* camera) 
 {	
+	std::cerr<<"[DEBUG::MODEL::RENDER]"<<std::endl;
 	for(int i = 0; i < meshes.size(); i++) 
 	{
 		meshes[i].render(camera);
@@ -65,7 +66,7 @@ void Model::setup_meshes()
 {
 	for(int i = 0; i < meshes.size(); i++) 
 	{	
-		std::cerr << "[Model::setup_meshes]" << shader_name << std::endl;
+		std::cerr << "[Model::SETUP_MESHES] " << shader->get_prog_id() << std::endl;
 		meshes[i].set_shader(shader);
 		meshes[i].setup();
 	}

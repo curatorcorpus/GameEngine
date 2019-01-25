@@ -11,7 +11,7 @@ MasterRenderer::~MasterRenderer()
 	for(int i = 0; i < models.size(); i++)
 	{
 		// free all memory used for storing meshes.
-		models[i]->clean_up();
+	//	models[i]->clean_up();
 
 		// delete the memory for ptr of model class.
 		//delete models[i];
@@ -21,7 +21,7 @@ MasterRenderer::~MasterRenderer()
 
 void MasterRenderer::add_model(std::string model_name) 
 {
-	Model* loaded_model = loader.load_obj(model_name,"basic");
+/*	Model* loaded_model = loader.load_obj(model_name,"basic");
 
 	if(loaded_model == nullptr)
 	{
@@ -33,7 +33,7 @@ void MasterRenderer::add_model(std::string model_name)
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
 	}
 
-	models.push_back(loaded_model);
+	models.push_back(loaded_model);*/
 }
 
 void MasterRenderer::add_textured_model(std::string model_name, std::string texture_name) 
@@ -45,10 +45,11 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
 		return;
 	}
-	else 
+	else
 	{
 		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
 	}
+	loaded_model->set_size(0);
 	loaded_model->setup();
 	std::cout << "test" << std::endl;
 	models.push_back(loaded_model);
@@ -56,6 +57,7 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 
 void MasterRenderer::add_terrain(Terrain* terrain)
 {
+	terrain->set_size(1);
 	terrain->setup();
 	models.push_back(terrain);
 }

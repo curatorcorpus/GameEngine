@@ -33,7 +33,7 @@ class MasterRenderer {
 
 private:
 
-	std::vector<Model*> models;
+	std::vector<TexturedModel*> models;
 
 	FpsCounter* fps_counter;
 	Light* light;

@@ -1,4 +1,6 @@
 #version 330 core
+#extension GL_ARB_explicit_uniform_location : enable
+#extension GL_ARB_shading_language_420pack : enable
 
 // These mesh positions and normals are in world space.
 in vec3 norm;

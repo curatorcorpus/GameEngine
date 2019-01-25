@@ -3,6 +3,8 @@
 TexturedModel::TexturedModel(std::string texture_name, std::string shader_name) : Model(shader_name) 
 {
 	this->texture_name = texture_name;
+    //this->shader_name = shader_name;
+	//this->shader = new Shader(shader_name);
 }
 
 TexturedModel::~TexturedModel() 
@@ -13,14 +15,25 @@ TexturedModel::~TexturedModel()
 void TexturedModel::setup() 
 {
 	glGenTextures(1, &texture_id);
+  /*  if(size == 0) 
+    {
+        glActiveTexture(GL_TEXTURE0);
+      //  std::cerr<<"One"<<std::endl;
+    }
+    else
+    {
+        glActiveTexture(GL_TEXTURE1);
+     //   std::cerr<<"Two"<<std::endl;
+    }*/
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture_id);
     std::cerr << "[DEBUG::TEXTURED_MODEL::TextureID] " << texture_id << std::endl; 
     // Set the texture wrapping parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     // Set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	bool isLoaded = load_texture_image(texture_name);
 	if(isLoaded) 
@@ -37,21 +50,67 @@ void TexturedModel::setup()
 
 	// Set uniform variable name for shader program.
    // std::cerr << "[DEBUG::TEXTURED_MODEL::SHADER_ID]" << shader->get_prog_id() << std::endl;
-    GLint test = glGetUniformLocation(shader->get_prog_id(), "_texture");
-	glUniform1i(test, s);
-    std::cerr << "[DEBUG::TEXTURED_MODEL::UNIFORMLOCATION]" << s << " " << test << std::endl;
-    s++;
+    GLint test = glGetUniformLocation(this->shader->get_prog_id(), "_texture");
+    std::cerr << "[DEBUG::TEXTURED_MODEL::UNI_LOC] " << " " << test << std::endl;
+    
+    //glUniform1i(test, 1);
+  /*  if(size == 0) 
+    {
+        glUniform1i(test,0);
+        std::cerr<<"One"<<std::endl;
+    }
+    else
+    {
+        glUniform1i(test,1);
+        std::cerr<<"Two"<<std::endl;
+    }*/
+    glUniform1i(test, 0);
+           //glBindTexture(GL_TEXTURE_2D, 0);
 }
-
+void TexturedModel::set_size(int size)
+{
+    this->size = size;
+    std::cout << "SIZE " << size << std::endl;
+}
 void TexturedModel::render(Camera* camera) 
 {
-//	glActiveTexture(GL_TEXTURE0);
- //   glBindTexture(GL_TEXTURE_2D, texture_id);
+    //	std::cerr<<"[DEBUG::TEXTUREDMODEL::RENDER]"<<std::endl;
+   // glActiveTexture(GL_TEXTURE0);
+    //glBindTexture(GL_TEXTURE_2D, texture_id);
 
-	for(int i = 0; i < size; i++) 
+ /*   if(size == 0) 
+    {
+        glActiveTexture(GL_TEXTURE0);
+      //  std::cerr<<"One"<<std::endl;
+    }
+    else
+    {
+       glActiveTexture(GL_TEXTURE1);
+      // std::cerr<<"Two"<<std::endl;
+    }*/
+   // glEnable(GL_TEXTURE_2D);
+  // glActiveTexture(GL_TEXTURE0);
+   glBindTexture(GL_TEXTURE_2D, texture_id);
+   //     GLint test = glGetUniformLocation(this->shader->get_prog_id(), "_texture");
+   // std::cerr << "[DEBUG::TEXTURED_MODEL::RENDER::UNI_LOC] " << " " << test << std::endl;
+   // glValidateProgram(this->shader->get_prog_id());
+    //glUniform1i(test, 1);
+	for(int i = 0; i < meshes.size(); i++) 
 	{
 		meshes[i].render(camera);
 	}
+
+   /* if(size == 0) 
+    {
+        glActiveTexture(GL_TEXTURE0);
+       // std::cerr<<"One"<<std::endl;
+    }
+    else
+    {
+        glActiveTexture(GL_TEXTURE1);
+        //std::cerr<<"Two"<<std::endl;
+    }*/
+       //glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 bool TexturedModel::load_texture_image(std::string name)

@@ -38,7 +38,6 @@ public:
 	void update_cam_pos(glm::vec3 position);
 	void update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp);
 	void update_mvp(glm::mat4& mvp);
-
 	GLuint get_prog_id();
 };
 

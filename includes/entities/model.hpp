@@ -29,7 +29,7 @@ public:
 
 	void clean_up();
 	void add_mesh(Mesh mesh);
-	void render(Camera* camera);
+	virtual void render(Camera* camera);
 	void reserve_list(int size);	
 	void setup_meshes();
 

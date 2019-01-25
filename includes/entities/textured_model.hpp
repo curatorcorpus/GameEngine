@@ -9,7 +9,7 @@
 #include <GL/glut.h>
 
 class TexturedModel : public Model {
-	int s = 0;
+
 protected:
 	const char* Texture_Path = "../resources/textures/";
 	const char* PNG_Suffix 	 = ".png";
@@ -21,12 +21,15 @@ protected:
 	GLubyte* texture_image;
 	GLuint 	 texture_id;
 
+		int size = 0;
+
 public:
 	TexturedModel(std::string texture_name, std::string shader_name);
 	~TexturedModel();
 
 	bool load_texture_image(std::string name);
 	void setup();
+	void set_size(int size);
 	void render(Camera* camera);
 };
 
