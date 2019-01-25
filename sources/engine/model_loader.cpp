@@ -65,12 +65,12 @@ Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
 			indices.push_back(ai_mesh->mFaces[j].mIndices[2]);
 		}
 		
-		Mesh* mesh = new Mesh();
+		Mesh mesh;
 
-		mesh->set_vertices(verts);
-		mesh->set_normals(norms);
-		mesh->set_uvs(uvs);
-		mesh->set_indices(indices);
+		mesh.set_vertices(verts);
+		mesh.set_normals(norms);
+		mesh.set_uvs(uvs);
+		mesh.set_indices(indices);
 
 		model->add_mesh(mesh);
 	}
@@ -137,12 +137,12 @@ TexturedModel* ModelLoader::load_textured_obj(std::string name, std::string text
 			indices.push_back(ai_mesh->mFaces[j].mIndices[2]);
 		}
 		
-		Mesh* mesh = new Mesh();
+		Mesh mesh;
 
-		mesh->set_vertices(verts);
-		mesh->set_normals(norms);
-		mesh->set_uvs(uvs);
-		mesh->set_indices(indices);
+		mesh.set_vertices(verts);
+		mesh.set_normals(norms);
+		mesh.set_uvs(uvs);
+		mesh.set_indices(indices);
 
 		model->add_mesh(mesh);
 	}

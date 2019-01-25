@@ -14,7 +14,7 @@ void TexturedModel::setup()
 {
 	glGenTextures(1, &texture_id);
     glBindTexture(GL_TEXTURE_2D, texture_id);
-    //std::cout << texture_id << std::endl; 
+    std::cerr << "[DEBUG::TEXTURED_MODEL::TextureID] " << texture_id << std::endl; 
     // Set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -27,16 +27,20 @@ void TexturedModel::setup()
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, this->width, this->height, 0, GL_RGB, GL_UNSIGNED_BYTE, this->texture_image);
         glGenerateMipmap(GL_TEXTURE_2D);
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " loaded!" << std::endl;
+		std::cerr << "[DEBUG::TEXTURED_MODEL]" << " Texture " << texture_name << " loaded!" << std::endl;
 	}
 	else 
 	{
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Texture " << texture_name << " failed to load!" << std::endl;
+		std::cerr << "[DEBUG::TEXTURED_MODEL]" << " Texture " << texture_name << " failed to load!" << std::endl;
 		return;
 	}
 
 	// Set uniform variable name for shader program.
-	glUniform1i(glGetUniformLocation(shader->get_prog_id(), "_texture"), 0);
+   // std::cerr << "[DEBUG::TEXTURED_MODEL::SHADER_ID]" << shader->get_prog_id() << std::endl;
+    GLint test = glGetUniformLocation(shader->get_prog_id(), "_texture");
+	glUniform1i(test, s);
+    std::cerr << "[DEBUG::TEXTURED_MODEL::UNIFORMLOCATION]" << s << " " << test << std::endl;
+    s++;
 }
 
 void TexturedModel::render(Camera* camera) 

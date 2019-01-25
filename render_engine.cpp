@@ -46,9 +46,9 @@ int main(int argc, char *argv[])
 	Light light(glm::vec3(0.0f, 10.0f, 0.0f));
 
 	// Master renderer settings.
+	renderer.add_textured_model("katarina","grassFlowers");
 	//renderer.add_textured_model("katarina","katarina_base_diffuse");
-	//renderer.add_textured_model("katarina","katarina_base_diffuse");
-	Terrain terrain("grass");
+	Terrain terrain("katarina_base_diffuse");
 	renderer.add_terrain(&terrain);
 
 	//renderer.add_textured_model("stall","stallTexture");
@@ -61,8 +61,10 @@ int main(int argc, char *argv[])
 	// main engine loop.
 	while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))
 	{
+		if(!display.get_focus_status()) glfwWaitEvents();
+
 		controls.update();
-		renderer.update(window, &camera);
+		renderer.update(window, &camera); 
 	}
 
 	return EXIT_SUCCESS;

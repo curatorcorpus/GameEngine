@@ -38,7 +38,7 @@ void Shader::setup(std::string& vert_path, std::string& frag_path)
 
 	// compiled shaders to program
 	this->prog_id = link_shaders(vert_id, frag_id);
-
+	std::cerr << "[DEBUG::SHADER::PROG_ID] " << prog_id << std::endl;
 	// bind 
 	bind_attrib_loc();
 
@@ -69,7 +69,7 @@ std::string Shader::open_file(std::string& shader_path)
 	} 
 	else 
 	{
-		std::cerr << "[DEBUG::SHADER_CPP] Shader Failed to load! Wrong path?" << std::endl;
+		std::cerr << "[DEBUG::SHADER] Shader Failed to load! Wrong path?" << std::endl;
 	}
 
 	return code;
@@ -90,7 +90,7 @@ void Shader::bind_attrib_loc()
 */
 GLuint Shader::compile(std::string& file_name, const char* code) 
 {
-	std::cerr << "[DEBUG::SHADER_CPP] Compiling Shader: " << file_name << std::endl;
+	std::cerr << "[DEBUG::SHADER] Compiling Shader: " << file_name << std::endl;
 
 	bool is_vert_shader = true;
 
@@ -122,17 +122,17 @@ GLuint Shader::compile(std::string& file_name, const char* code)
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetShaderInfoLog(shader_id, info_log_length, NULL, &err_msg[0]);
 
-		std::cerr << "[DEBUG::SHADER_CPP] " << &err_msg[0] << std::endl;
-		std::cerr << "[DEBUG::SHADER_CPP] Shader Compilation Failed!" << std::endl;
+		std::cerr << "[DEBUG::SHADER] " << &err_msg[0] << std::endl;
+		std::cerr << "[DEBUG::SHADER] Shader Compilation Failed!" << std::endl;
 	}
 
 	if(is_vert_shader) 
 	{
-		std::cerr << "[DEBUG::SHADER_CPP] Vert Shader Compilation Succeed!" << std::endl;
+		std::cerr << "[DEBUG::SHADER] Vert Shader Compilation Succeed!" << std::endl;
 	} 
 	else 
 	{
-		std::cerr << "[DEBUG::SHADER_CPP] Frag Shader Compilation Succeed!" << std::endl;
+		std::cerr << "[DEBUG::SHADER] Frag Shader Compilation Succeed!" << std::endl;
 	}
 
 	return shader_id;
@@ -143,7 +143,7 @@ GLuint Shader::compile(std::string& file_name, const char* code)
 */
 GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id) 
 {
-	std::cerr << "[DEBUG::SHADER_CPP] Linking shader program" << std::endl;
+	std::cerr << "[DEBUG::SHADER] Linking shader program" << std::endl;
 
 	// create program object.
 	GLuint program = glCreateProgram();
@@ -163,8 +163,8 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id)
 		std::vector<char> err_msg(info_log_length + 1);
 		glGetProgramInfoLog(program, info_log_length, NULL, &err_msg[0]);
 
-		std::cerr << "[DEBUG::SHADER_CPP] " << &err_msg[0] << std::endl;
-		std::cerr << "[DEBUG::SHADER_CPP] Program Linking Failed!" << std::endl;
+		std::cerr << "[DEBUG::SHADER] " << &err_msg[0] << std::endl;
+		std::cerr << "[DEBUG::SHADER] Program Linking Failed!" << std::endl;
 	}
 
 	// detach shader object from program
@@ -175,7 +175,7 @@ GLuint Shader::link_shaders(GLuint& vert_id, GLuint& frag_id)
 	glDeleteShader(vert_id);
 	glDeleteShader(vert_id);
 
-	std::cerr << "[DEBUG::SHADER_CPP] Shaders Linked Successfully to Program!" << std::endl;
+	std::cerr << "[DEBUG::SHADER] Shaders Linked Successfully to Program!" << std::endl;
 
 	return program;
 }

@@ -47,7 +47,7 @@ void Terrain::generate_terrain()
             norms.push_back(norm);
             uvs.push_back(uv);
 
-           std::cout << x << " " << y << " " << z << " " << u << " " << v << std::endl; 
+           //std::cout << x << " " << y << " " << z << " " << u << " " << v << std::endl; 
         }
     }   
 

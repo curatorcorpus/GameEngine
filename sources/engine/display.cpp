@@ -23,6 +23,8 @@ Display::~Display()
 
 void Display::setup_glfw() 
 {
+	Display* display;
+
 	// initialize GLFW window
 	if(!glfwInit()) {
 		std::cerr << "[DEBUG::DISPLAY_MANAGER] " 
@@ -38,6 +40,7 @@ void Display::setup_glfw()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); 
+	glfwWindowHint(GLFW_FOCUSED, GLFW_FALSE);
 
 	// open window and create opengl context
 	if(this->fullscrn)
@@ -58,8 +61,10 @@ void Display::setup_glfw()
 	glfwMakeContextCurrent(window);
 
 	// glfw settings
+	glfwSetWindowUserPointer(window, this);
 	glfwSetInputMode(this->window, GLFW_STICKY_KEYS, GL_TRUE); 
-	
+	glfwSetCursorEnterCallback(this->window, this->cursor_enter_callback);
+
 	if(vsync) 
 		glfwSwapInterval(0);		 				// vsync
 
@@ -89,6 +94,14 @@ void Display::setup_opengl()
     glEnable(GL_DEPTH_TEST);              // Enable depth test
 	glViewport(0, 0, width, height);
 }
+/*
+void cursor_enter_callback(GLFWwindow* window, int entered)
+{	std::cerr << "[Display::CursorEnterCallback] " << entered << std::endl;  
+	if(entered)
+	{
+
+	}
+}*/
 
 int Display::get_height() 
 {
@@ -103,6 +116,11 @@ int Display::get_width()
 GLFWwindow* Display::get_window()
 {
 	return window;
+}
+
+int Display::get_focus_status()
+{
+	return cursor_focus_status;
 }
 
 void Display::set_dimensions(int width, int height) 

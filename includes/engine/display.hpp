@@ -24,6 +24,7 @@ private:
 
 	bool fullscrn, vsync;
 	int width, height;
+	int cursor_focus_status;
 
 	std::string title;
 
@@ -32,6 +33,12 @@ private:
 	void setup_opengl();
 
 	GLFWwindow* window;
+
+	static void cursor_enter_callback(GLFWwindow* window, int entered)
+	{
+		Display* test = static_cast<Display*>(glfwGetWindowUserPointer(window));
+		test->cursor_enter_callback(entered);
+	}
 
 public:
 
@@ -44,8 +51,14 @@ public:
 		);
 	~Display();
 
+	void cursor_enter_callback(int entered)
+	{	
+		cursor_focus_status = entered;
+	}
+
 	int get_height();
 	int get_width();
+	int get_focus_status();
 	GLFWwindow* get_window();
 
 	void set_dimensions(int width, int height);

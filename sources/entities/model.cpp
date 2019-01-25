@@ -20,6 +20,7 @@ Model::Model(std::string shader_name)
 
 	this->shader_name = shader_name;
 	this->shader = new Shader(shader_name);
+	std::cerr << "[DEBUG::MODEL::SHADERNAME] " << shader_name << std::endl;
 	this->size = 0;
 }
 
@@ -43,27 +44,28 @@ void Model::add_mesh(Mesh mesh)
 {
 	meshes.push_back(mesh);
 	this->size += 1;
+	std::cerr << "[DEBUG::MODEL] " << size << std::endl;
 }
 
 void Model::render(Camera* camera) 
-{
-	for(int i = 0; i < size; i++) 
+{	
+	for(int i = 0; i < meshes.size(); i++) 
 	{
 		meshes[i].render(camera);
 	}
 }
 
-/*void Model::reserve_list(int size) 
+void Model::reserve_list(int size) 
 {
 	this->size = size;
 	this->meshes.reserve(size);
-}*/
+}
 
 void Model::setup_meshes() 
 {
-	for(int i = 0; i < size; i++) 
+	for(int i = 0; i < meshes.size(); i++) 
 	{	
-		std::cout << "[Model::setup_meshes]" << std::endl;
+		std::cerr << "[Model::setup_meshes]" << shader_name << std::endl;
 		meshes[i].set_shader(shader);
 		meshes[i].setup();
 	}
@@ -76,10 +78,10 @@ void Model::clean_up()
 		delete meshes[i];
 	}
 */
-	if(shader != nullptr) 
+	/*if(shader != nullptr) 
 	{
 		delete shader;
-	}
+	}*/
 }
 
 void Model::reset_transform()
