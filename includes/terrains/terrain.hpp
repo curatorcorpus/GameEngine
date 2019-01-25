@@ -12,8 +12,9 @@ class Terrain : public TexturedModel {
 
 private:
 
-    static const int SIZE = 800;
-    static const int VERTICES_NO = 128;
+    static constexpr float  TILE_MULTIPILER = 40.0f; // Used for multiplying normalized uv coordinates. OpenGL automatically tiles texture.
+    static const int        SIZE = 800;
+    static const int        VERTICES_NO = 128;
 
     void generate_terrain();
 

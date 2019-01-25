@@ -36,18 +36,18 @@ void Terrain::generate_terrain()
             glm::vec3 norm(0.0f, 1.0f, 0.0f);
 
             // generate uv
-            float u = (float) x_idx / ((float) VERTICES_NO - 1);
-            float v = (float) z_idx / ((float) VERTICES_NO - 1);
+            float u = ((float) x_idx / ((float) VERTICES_NO - 1)) * TILE_MULTIPILER;
+            float v = ((float) z_idx / ((float) VERTICES_NO - 1)) * TILE_MULTIPILER;
 
             glm::vec3 vert(x, y, z);
             glm::vec2 uv(u, v);
-
+            //std::cout << u << " " << v << std::endl; 
             // add mesh components
             verts.push_back(vert);
             norms.push_back(norm);
             uvs.push_back(uv);
 
-           // std::cout << x << " " << y << " " << z << " " << u << " " << v << std::endl; 
+           std::cout << x << " " << y << " " << z << " " << u << " " << v << std::endl; 
         }
     }   
 

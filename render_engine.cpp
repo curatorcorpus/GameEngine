@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	// Master renderer settings.
 	//renderer.add_textured_model("katarina","katarina_base_diffuse");
 	//renderer.add_textured_model("katarina","katarina_base_diffuse");
-	Terrain terrain("grassFlowers");
+	Terrain terrain("grass");
 	renderer.add_terrain(&terrain);
 
 	//renderer.add_textured_model("stall","stallTexture");
