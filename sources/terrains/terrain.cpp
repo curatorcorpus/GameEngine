@@ -158,6 +158,6 @@ void Terrain::setup(Shader* shader)
 {
     this->shader = shader;
 
-    generate_terrain(true);
+    generate_terrain();
     load_texture();
 }
