@@ -16,23 +16,6 @@ MasterRenderer::~MasterRenderer()
 	delete fps_counter;
 }
 
-void MasterRenderer::add_model(std::string model_name) 
-{
-/*	Model* loaded_model = loader.load_obj(model_name,"basic");
-
-	if(loaded_model == nullptr)
-	{
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
-		return;
-	}
-	else 
-	{
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
-	}
-
-	models.push_back(loaded_model);*/
-}
-
 void MasterRenderer::add_object(Object* object) 
 {
 	object->setup(default_shader);
