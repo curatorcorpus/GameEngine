@@ -123,7 +123,7 @@ void Mesh::set_indices(std::vector<unsigned short> indices) {
 	std::copy(indices.begin(), indices.end(), this->indices.begin());
 }
 
-void Mesh::render(Camera* camera) 
+void Mesh::render() 
 {
 	glBindVertexArray(vao);
 

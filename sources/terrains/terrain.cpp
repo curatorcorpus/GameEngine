@@ -121,21 +121,23 @@ void Terrain::load_texture(Loader::texture_info& tex_info)
 
 void Terrain::render(Camera* camera)
 {
-	shader->bind();
+	shader->bind(); // could be bound in master renderer for terrains.
 
+    // activate binded texture.
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex_info.id);
 
+    // obtain current MVP and model transform.
 	//glm::mat4 model = this->get_transform();
 	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
-    //std::cout << glm::to_string(model) << std::endl;
+
+    // update MVP and camera pos in bound shader.
 	shader->update_mvp(mvp);
 	shader->update_cam_pos(camera->get_pos());
 
-	//std::cerr<<"[DEBUG::MODEL::RENDER]"<<std::endl;
 	for(int i = 0; i < meshes.size(); i++) 
 	{
-		meshes[i].render(camera);
+		meshes[i].render();
 	}
 
     glBindTexture(GL_TEXTURE_2D, 0);

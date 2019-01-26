@@ -48,7 +48,7 @@ public:
 
 	void set_shader(Shader* shader);
 
-	void render(Camera* camera);
+	void render();
 	void setup();
 };
 

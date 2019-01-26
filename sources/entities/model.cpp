@@ -41,7 +41,7 @@ void Model::render(Camera* camera)
 	//std::cerr<<"[DEBUG::MODEL::RENDER]"<<std::endl;
 	for(int i = 0; i < meshes.size(); i++) 
 	{
-		meshes[i].render(camera);
+		meshes[i].render();
 	}
 
 	shader->unbind();
