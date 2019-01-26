@@ -1,15 +1,8 @@
-#include <model_loader.hpp>
+#include <loader.hpp>
 
-ModelLoader::ModelLoader() {
+Model* Loader::load_obj(std::string name, const std::string& shader_name) {
 
-}
-
-ModelLoader::~ModelLoader() {
-}
-
-Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
-
-	Model* model = new Model(shader_name);
+/*	Model* model = new Model(shader_name);
 
 	std::string directory = Model_Path + name + Model_Suffix;
 	std::cerr << "[DEBUG::MODEL_LOADER_CPP] Loading " << directory << std::endl;
@@ -76,12 +69,12 @@ Model* ModelLoader::load_obj(std::string name, const std::string& shader_name) {
 	}
 	std::cerr << "[Debug::MODEL_LOADER_CPP] Finished loading an obj file" << std::endl;
 
-	return model;
+	return model;*/
 }
+/*
+Model* Loader::load_textured_obj(std::string name, std::string texture_name) {
 
-TexturedModel* ModelLoader::load_textured_obj(std::string name, std::string texture_name, const std::string& shader_name) {
-
-	TexturedModel* model = new TexturedModel(texture_name, shader_name);
+	Model* model = new Model(texture_name);
 
 	std::string directory = Model_Path + name + Model_Suffix;
 	std::cerr << "[DEBUG::MODEL_LOADER_CPP] Loading " << directory << std::endl;
@@ -149,4 +142,94 @@ TexturedModel* ModelLoader::load_textured_obj(std::string name, std::string text
 	std::cerr << "[Debug::MODEL_LOADER_CPP] Finished loading an obj file" << std::endl;
 
 	return model;
+}*/
+
+void Loader::load_PNG(texture_info* tex_info)
+{
+    unsigned int sig_read = 0;
+    int color_type, interlace_type, bit_depth;
+	
+	png_structp png_ptr;
+	png_infop 	info_ptr;
+
+	std::string file_name = Texture_Path + tex_info->name + PNG_Suffix;
+
+	FILE *fp;
+
+	// Try open the image file - read bytes.
+	fp = fopen(file_name.c_str(), "rb");
+	if(fp == NULL) 
+	{
+		tex_info->is_loaded = false;
+		return;
+	}
+
+	// Create and initialize the png_struct with the desired error handler
+    // functions. If you want to use the default stderr and longjump method,
+    // you can supply NULL for the last three parameters. We also supply the
+    // the compiler header file version, so that we know if the application
+    // was compiled with a compatible version of the library.
+    png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+    if (png_ptr == NULL) 
+    {
+        fclose(fp);
+		tex_info->is_loaded = false;
+        return;
+    }
+
+    // Allocate/initialize the memory for the image information.
+    info_ptr = png_create_info_struct(png_ptr);
+    if(info_ptr == NULL) 
+    {
+    	fclose(fp);
+    	png_destroy_read_struct(&png_ptr, NULL, NULL);
+		tex_info->is_loaded = false;
+    	return;
+    }
+
+    // Set error handling if you are using the setjmp/longjmp method (this is 
+    // the normal method fo doing things with libpng). REQUIRED unless you set 
+    // up your own error handlers in the png_create_read_struct() earlier.
+    if(setjmp(png_jmpbuf(png_ptr))) 
+    { 	// Free all of the memory assocaited with png_ptr and info_ptr.
+    	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
+    	fclose(fp);
+		tex_info->is_loaded = false;
+    	return; // There was a problem reading the png file.
+    }
+
+    png_init_io(png_ptr, fp); 			  // Set up the output control if you are using standard C streams. 
+    png_set_sig_bytes(png_ptr, sig_read); // If we have already read some of the signature.
+ 
+    // If you have enough memory to read in the entire image at once, and
+    // you need to specify only transforms that can be controlled
+    // with one of the PNG_TRANSFORM_* bits (this presently excludes
+    // dithering, filling, setting background, and doing gamma
+    // adjustment), then you can read the entire image (including pixels)
+    // into the info structure with this call.
+    // PNG_TRANSFORM_STRIP_16 | PNG_TRANSFORM_PACKING  forces 8 bit PNG_TRANSFORM_EXPAND forces to
+    // expand a palette into RGB.
+    png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_16|PNG_TRANSFORM_PACKING|PNG_TRANSFORM_EXPAND, NULL);
+    png_get_IHDR(png_ptr, info_ptr, &tex_info->width, &tex_info->height, &bit_depth, &color_type, &interlace_type, NULL, NULL);
+ 
+   	unsigned int row_bytes = png_get_rowbytes(png_ptr, info_ptr);
+    tex_info->data = (unsigned char*) malloc(row_bytes * tex_info->height);
+ 
+    png_bytepp row_pointers = png_get_rows(png_ptr, info_ptr);
+ 
+    for (int i = 0; i < tex_info->height; i++) 
+    {
+        // note that png is ordered top to
+        // bottom, but OpenGL expect it bottom to top
+        // so the order or swapped
+        memcpy(tex_info->data+(row_bytes * (tex_info->height-1-i)), row_pointers[i], row_bytes);
+    }
+
+    // Clean up after the read and free any memory allocated.
+    png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
+
+    // Close file.
+	fclose(fp);
+
+	tex_info->is_loaded = true;
 }

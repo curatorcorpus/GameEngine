@@ -1,5 +1,7 @@
 #include <shader.hpp>
 
+Shader::Shader() {}
+
 /*
 	Assumes shader names will be the same for both frag and vert shaders.
 */

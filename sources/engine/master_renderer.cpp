@@ -1,9 +1,12 @@
 #include <master_renderer.hpp>
 
-MasterRenderer::MasterRenderer() 
+MasterRenderer::MasterRenderer()
 {
 	this->models.clear();
-	this->loader = ModelLoader();
+	
+	// construct shaders.
+	this->default_shader = new Shader("default");
+	this->terrain_shader = new Shader("terrain");
 }
 
 MasterRenderer::~MasterRenderer()
@@ -16,6 +19,9 @@ MasterRenderer::~MasterRenderer()
 		// delete the memory for ptr of model class.
 		//delete models[i];
 	}
+
+	delete default_shader;
+	delete terrain_shader;
 	delete fps_counter;
 }
 
@@ -38,7 +44,7 @@ void MasterRenderer::add_model(std::string model_name)
 
 void MasterRenderer::add_textured_model(std::string model_name, std::string texture_name) 
 {
-	TexturedModel* loaded_model = loader.load_textured_obj(model_name,texture_name,"texture");
+	/*Model* loaded_model = Loader::load_textured_obj(model_name, texture_name);
 
 	if(loaded_model == nullptr)
 	{
@@ -52,14 +58,12 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 	loaded_model->set_size(0);
 	loaded_model->setup();
 	std::cout << "test" << std::endl;
-	models.push_back(loaded_model);
+	models.push_back(loaded_model);*/
 }
 
 void MasterRenderer::add_terrain(Terrain* terrain)
 {
-	terrain->set_size(1);
-	terrain->setup();
-	models.push_back(terrain);
+	terrains.push_back(terrain);
 }
 
 void MasterRenderer::set_light(Light* light) 
@@ -71,9 +75,14 @@ void MasterRenderer::setup()
 {
 	for(int i = 0; i < models.size(); i++)
 	{
-		models[i]->setup_meshes();
+		models[i]->set_meshes();
+		models[i]->set_shader(default_shader);
 	}
-
+	for(int i = 0; i < terrains.size(); i++) 
+	{
+		terrains[i]->set_meshes();
+		terrains[i]->set_shader(terrain_shader);
+	}
 	fps_counter = new FpsCounter();
 }
 
@@ -87,7 +96,10 @@ void MasterRenderer::update(GLFWwindow* window, Camera* camera)
 	{
 		models[i]->render(camera);
 	}
-
+	for(int i = 0; i < terrains.size(); i++) 
+	{
+		terrains[i]->render(camera);
+	}
 	glfwPollEvents();
 	glfwSwapBuffers(window);
 

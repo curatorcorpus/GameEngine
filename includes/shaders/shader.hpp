@@ -30,6 +30,7 @@ protected:
 
 public:
 
+	Shader();
 	Shader(std::string shader_path);
 	~Shader();
 

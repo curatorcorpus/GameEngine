@@ -8,6 +8,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <mesh.hpp>
+#include <shader.hpp>
 
 class Model {
 
@@ -31,7 +32,9 @@ public:
 	void add_mesh(Mesh mesh);
 	virtual void render(Camera* camera);
 	void reserve_list(int size);	
-	void setup_meshes();
+	void set_meshes();
+	void set_shader(Shader* shader);
+	void set_texture();
 
 	void translate(glm::vec3 translation);
 	void rotate();

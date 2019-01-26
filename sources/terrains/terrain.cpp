@@ -1,8 +1,11 @@
 #include <terrain.hpp>
 
-Terrain::Terrain(std::string terrain_texture_name) : TexturedModel(terrain_texture_name, "terrain")
+Terrain::Terrain(std::string texture_name)
 {
+    this->tex_info.name = texture_name;
+
     generate_terrain();
+    load_texture(tex_info);
 }
 
 Terrain::~Terrain() {}
@@ -75,4 +78,67 @@ void Terrain::generate_terrain()
     Mesh terrain_mesh(verts, norms, uvs, indices);
                 std::cout << "wtf" << terrain_mesh.get_verts_size() << std::endl;
     this->add_mesh(terrain_mesh);
+}
+
+void Terrain::load_texture(Loader::texture_info& tex_info)
+{
+	glGenTextures(1, &tex_info.id);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex_info.id);
+   // std::cerr << "[DEBUG::TEXTURED_MODEL::TextureID] " << texture_id << std::endl; 
+    // Set the texture wrapping parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	Loader::load_PNG(&tex_info);
+	if(tex_info.is_loaded) 
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, tex_info.width, tex_info.height, 0, GL_RGB, GL_UNSIGNED_BYTE, tex_info.data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+		std::cerr << "[DEBUG::TEXTURED_MODEL]" << " Texture " << tex_info.name << " loaded!" << std::endl;
+	}
+	else 
+	{
+		std::cerr << "[DEBUG::TEXTURED_MODEL]" << " Texture " << tex_info.name << " failed to load!" << std::endl;
+		return;
+	}
+
+	// Set uniform variable name for shader program.
+   // std::cerr << "[DEBUG::TEXTURED_MODEL::SHADER_ID]" << shader->get_prog_id() << std::endl;
+    
+    GLuint shader_id = this->shader->get_prog_id();
+    glUniform1i(glGetUniformLocation(shader_id, "_texture"), GL_TEXTURE0); // gets uniform location in shader to update texture values. 
+
+    // unbind
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    // free texture in memory. 
+    free(tex_info.data);
+}
+
+void Terrain::render(Camera* camera)
+{
+	shader->bind();
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex_info.id);
+
+	//glm::mat4 model = this->get_transform();
+	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
+    //std::cout << glm::to_string(model) << std::endl;
+	shader->update_mvp(mvp);
+	shader->update_cam_pos(camera->get_pos());
+
+	//std::cerr<<"[DEBUG::MODEL::RENDER]"<<std::endl;
+	for(int i = 0; i < meshes.size(); i++) 
+	{
+		meshes[i].render(camera);
+	}
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+	shader->unbind();
 }

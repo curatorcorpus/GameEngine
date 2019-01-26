@@ -123,16 +123,8 @@ void Mesh::set_indices(std::vector<unsigned short> indices) {
 	std::copy(indices.begin(), indices.end(), this->indices.begin());
 }
 
-void Mesh::render(Camera* camera) {
-
-	bind_shader();
-
-	//glm::mat4 model = this->get_transform();
-	glm::mat4 mvp   = camera->get_view_proj_mat();// * model;
-    //std::cout << glm::to_string(model) << std::endl;
-	shader->update_mvp(mvp);
-	shader->update_cam_pos(camera->get_pos());
-
+void Mesh::render(Camera* camera) 
+{
 	glBindVertexArray(vao);
 
     // 1rst attribute buffer : vertices
@@ -166,25 +158,4 @@ void Mesh::render(Camera* camera) {
     if(uvs.size()	!= 0) glDisableVertexAttribArray(1);
     if(norms.size() != 0) glDisableVertexAttribArray(2);
     glDisableVertexAttribArray(3);
-
-	unbind_shader();
-}
-
-void Mesh::set_shader(Shader* shader) {
-
-	if(shader == nullptr) 
-    {
-//		std::cerr << "[DEBUG::MESH_CPP]" + name + "failed to reference shader!" << std::endl; 
-	}
-	this->shader = shader;
-}
-
-void Mesh::bind_shader() {
-
-	shader->bind();
-}
-
-void Mesh::unbind_shader() {
-
-	shader->unbind();
 }

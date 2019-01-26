@@ -24,7 +24,7 @@ protected:
 		int size = 0;
 
 public:
-	TexturedModel(std::string texture_name, std::string shader_name);
+	TexturedModel(std::string texture_name);
 	~TexturedModel();
 
 	bool load_texture_image(std::string name);

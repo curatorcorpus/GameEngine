@@ -24,7 +24,6 @@
 #include <display.hpp>
 #include <master_renderer.hpp>
 #include <model.hpp>
-#include <model_loader.hpp>
 #include <shader.hpp>
 #include <terrain.hpp>
 #include <light.hpp>
@@ -46,7 +45,7 @@ int main(int argc, char *argv[])
 	Light light(glm::vec3(0.0f, 10.0f, 0.0f));
 
 	// Master renderer settings.
-	renderer.add_textured_model("katarina","katarina_base_diffuse");
+	//renderer.add_textured_model("katarina","katarina_base_diffuse");
 	//renderer.add_textured_model("katarina","katarina_base_diffuse");
 	Terrain terrain("grassFlowers");
 	renderer.add_terrain(&terrain);

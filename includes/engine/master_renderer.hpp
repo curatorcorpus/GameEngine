@@ -13,12 +13,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*
+
+*/
 #include <camera.hpp>
+#include <light.hpp>
+#include <loader.hpp>
 #include <model.hpp>
-#include <model_loader.hpp>
+#include <shader.hpp>
 #include <terrain.hpp>
 #include <textured_model.hpp>
-#include <light.hpp>
 
 /*
 	External Libraries
@@ -33,11 +37,13 @@ class MasterRenderer {
 
 private:
 
-	std::vector<TexturedModel*> models;
+	std::vector<Model*> models;
+	std::vector<Terrain*> terrains;
 
 	FpsCounter* fps_counter;
 	Light* light;
-	ModelLoader loader;
+	Shader* default_shader;
+	Shader* terrain_shader;
 
 public:
 	MasterRenderer();

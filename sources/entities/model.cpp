@@ -7,23 +7,6 @@ Model::Model()
 	this->size = 0;
 }
 
-Model::Model(int size)
-{
-	Model();
-
-	this->size = size;
-}
-
-Model::Model(std::string shader_name)
-{
-	Model();
-
-	this->shader_name = shader_name;
- 	this->shader = new Shader(shader_name);
-	//std::cerr << "[DEBUG::MODEL::SHADERNAME] " << shader_name << " ID "<< this->shader->get_prog_id() << std::endl;
-	this->size = 0;
-}
-
 Model::~Model() 
 {
 /*
@@ -43,17 +26,25 @@ Model::~Model()
 void Model::add_mesh(Mesh mesh) 
 {
 	meshes.push_back(mesh);
-	this->size += 1;
-	std::cerr << "[DEBUG::MODEL] " << size << std::endl;
 }
 
 void Model::render(Camera* camera) 
 {	
-	std::cerr<<"[DEBUG::MODEL::RENDER]"<<std::endl;
+	shader->bind();
+
+	//glm::mat4 model = this->get_transform();
+	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
+    //std::cout << glm::to_string(model) << std::endl;
+	shader->update_mvp(mvp);
+	shader->update_cam_pos(camera->get_pos());
+
+	//std::cerr<<"[DEBUG::MODEL::RENDER]"<<std::endl;
 	for(int i = 0; i < meshes.size(); i++) 
 	{
 		meshes[i].render(camera);
 	}
+
+	shader->unbind();
 }
 
 void Model::reserve_list(int size) 
@@ -62,14 +53,22 @@ void Model::reserve_list(int size)
 	this->meshes.reserve(size);
 }
 
-void Model::setup_meshes() 
+void Model::set_meshes() 
 {
 	for(int i = 0; i < meshes.size(); i++) 
 	{	
 		std::cerr << "[Model::SETUP_MESHES] " << shader->get_prog_id() << std::endl;
-		meshes[i].set_shader(shader);
 		meshes[i].setup();
 	}
+}
+
+void Model::set_shader(Shader* shader)
+{
+	if(shader == nullptr) 
+    {
+//		std::cerr << "[DEBUG::MESH_CPP]" + name + "failed to reference shader!" << std::endl; 
+	}
+	this->shader = shader;
 }
 
 void Model::clean_up()

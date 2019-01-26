@@ -5,10 +5,12 @@
 #include <vector>
 
 #include <camera.hpp>
+#include <loader.hpp>
 #include <mesh.hpp>
-#include <textured_model.hpp>
+#include <model.hpp>
+#include <shader.hpp>
 
-class Terrain : public TexturedModel {
+class Terrain : public Model {
 
 private:
 
@@ -16,12 +18,17 @@ private:
     static const int        SIZE = 800;
     static const int        VERTICES_NO = 128;
 
+    Loader::texture_info tex_info;
+
     void generate_terrain();
+    void load_texture(Loader::texture_info& tex_info);
 
 public: 
 
     Terrain(std::string texture_name);
     ~Terrain();
+
+    void render(Camera* camera);
 };
 
 #endif
