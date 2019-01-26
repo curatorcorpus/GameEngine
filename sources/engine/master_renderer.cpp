@@ -2,7 +2,7 @@
 
 MasterRenderer::MasterRenderer()
 {
-	this->models.clear();
+	this->objects.clear();
 	
 	// construct shaders.
 	this->default_shader = new Shader("default");
@@ -33,23 +33,10 @@ void MasterRenderer::add_model(std::string model_name)
 	models.push_back(loaded_model);*/
 }
 
-void MasterRenderer::add_textured_model(std::string model_name, std::string texture_name) 
+void MasterRenderer::add_object(Object* object) 
 {
-	/*Model* loaded_model = Loader::load_textured_obj(model_name, texture_name);
-
-	if(loaded_model == nullptr)
-	{
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP] Failed to load model!" << std::endl;
-		return;
-	}
-	else
-	{
-		std::cerr << "[DEBUG::MASTER_RENDERER_CPP]" << " Loaded " << model_name << " model!" << std::endl;
-	}
-	loaded_model->set_size(0);
-	loaded_model->setup();
-	std::cout << "test" << std::endl;
-	models.push_back(loaded_model);*/
+	object->setup(default_shader);
+	objects.push_back(object);
 }
 
 void MasterRenderer::add_terrain(Terrain* terrain)
@@ -65,9 +52,9 @@ void MasterRenderer::set_light(Light* light)
 
 void MasterRenderer::setup() 
 {
-	for(int i = 0; i < models.size(); i++)
+	for(int i = 0; i < objects.size(); i++)
 	{
-		models[i]->set_meshes();
+		objects[i]->set_meshes();
 	}
 	for(int i = 0; i < terrains.size(); i++) 
 	{
@@ -82,14 +69,15 @@ void MasterRenderer::update(GLFWwindow* window, Camera* camera)
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	for(int i = 0; i < models.size(); i++) 
+	for(int i = 0; i < objects.size(); i++) 
 	{
-		models[i]->render(camera);
+		objects[i]->render(camera);
 	}
 	for(int i = 0; i < terrains.size(); i++) 
 	{
 		terrains[i]->render(camera);
 	}
+
 	glfwPollEvents();
 	glfwSwapBuffers(window);
 

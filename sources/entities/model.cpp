@@ -20,11 +20,9 @@ void Model::render(Camera* camera)
 
 	//glm::mat4 model = this->get_transform();
 	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
-    //std::cout << glm::to_string(model) << std::endl;
 	shader->update_mvp(mvp);
 	shader->update_cam_pos(camera->get_pos());
 
-	//std::cerr<<"[DEBUG::MODEL::RENDER]"<<std::endl;
 	for(int i = 0; i < meshes.size(); i++) 
 	{
 		meshes[i].render();

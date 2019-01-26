@@ -19,7 +19,6 @@
 #include <camera.hpp>
 #include <light.hpp>
 #include <loader.hpp>
-#include <model.hpp>
 #include <shader.hpp>
 #include <terrain.hpp>
 #include <object.hpp>
@@ -37,7 +36,7 @@ class MasterRenderer {
 
 private:
 
-	std::vector<Object*> models;
+	std::vector<Object*> objects;
 	std::vector<Terrain*> terrains;
 
 	FpsCounter* fps_counter;
@@ -52,8 +51,8 @@ public:
 	// setters and getters
 
 	void add_model(std::string model_name);
+	void add_object(Object* object);
 	void add_terrain(Terrain* terrain);
-	void add_textured_model(std::string model_name, std::string texture_name);
 	void set_light(Light* light);
 	void setup();
 	void update(GLFWwindow* window, Camera* camera);

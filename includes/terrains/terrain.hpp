@@ -2,11 +2,9 @@
 #define TERRAIN_HPP_
 
 #include <iostream>
-#include <vector>
 
 #include <camera.hpp>
 #include <loader.hpp>
-#include <mesh.hpp>
 #include <model.hpp>
 
 class Terrain : public Model {
@@ -20,7 +18,7 @@ private:
     Loader::texture_info tex_info;
 
     void generate_terrain();
-    void load_texture(Loader::texture_info& tex_info);
+    void load_texture();
 
 public: 
 

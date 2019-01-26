@@ -80,7 +80,7 @@ void Terrain::generate_terrain()
     this->add_mesh(terrain_mesh);
 }
 
-void Terrain::load_texture(Loader::texture_info& tex_info)
+void Terrain::load_texture()
 {
 	glGenTextures(1, &tex_info.id);
     glActiveTexture(GL_TEXTURE0);
@@ -98,11 +98,11 @@ void Terrain::load_texture(Loader::texture_info& tex_info)
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, tex_info.width, tex_info.height, 0, GL_RGB, GL_UNSIGNED_BYTE, tex_info.data);
         glGenerateMipmap(GL_TEXTURE_2D);
-		std::cerr << "[DEBUG::TEXTURED_MODEL]" << " Texture " << tex_info.name << " loaded!" << std::endl;
+		std::cerr << "[DEBUG::TERRAIN]" << " Texture " << tex_info.name << " loaded!" << std::endl;
 	}
 	else 
 	{
-		std::cerr << "[DEBUG::TEXTURED_MODEL]" << " Texture " << tex_info.name << " failed to load!" << std::endl;
+		std::cerr << "[DEBUG::TERRAIN]" << " Texture " << tex_info.name << " failed to load!" << std::endl;
 		return;
 	}
 
@@ -159,5 +159,5 @@ void Terrain::setup(Shader* shader)
     this->shader = shader;
 
     generate_terrain();
-    load_texture(tex_info);
+    load_texture();
 }
