@@ -2,11 +2,11 @@
 
 Camera::Camera() {
 
-	position = glm::vec3(0.0f, 0.0f, -1.0f);
-	lookat   = glm::vec3(0.0f, 0.0f, 0.0f);
+	position = glm::vec3(0.0f, 10.0f, 0.0f);
+	lookat   = glm::vec3(0.0f, 1.0f, 0.0f);
 	upwards  = glm::vec3(0.0f, 1.0f, 0.0f);
 
-	fov 		 = 45.0f;
+	fov 		 = 70.0f;
 	aspect_ratio = 16.0f/9.0f;
 	near_clip    = 0.1f;
 	far_clip	 = 1000.0f;

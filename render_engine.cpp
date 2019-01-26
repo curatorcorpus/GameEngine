@@ -42,17 +42,18 @@ int main(int argc, char *argv[])
 	GLFWwindow* window = display.get_window();
 	Controls controls(&camera, window);
 	MasterRenderer renderer;
-	Light light(glm::vec3(0.0f, 10.0f, 0.0f));
+	Light light(glm::vec3(0.0f, 100.0f, 0.0f));
 
 	// Master renderer settings.
 	Object kat("katarina","katarina_base_diffuse");
 	renderer.add_object(&kat);
-	//renderer.add_textured_model("katarina","katarina_base_diffuse");
+	Object ciri("torus", "BlueMarbleSlabs");
+	renderer.add_object(&ciri);
+	Object stall("stall","stallTexture");
+	renderer.add_object(&stall);
 	Terrain terrain("grassFlowers");
 	renderer.add_terrain(&terrain);
 
-	//renderer.add_textured_model("stall","stallTexture");
-	//renderer.add_model("stall");
 	renderer.set_light(&light);
 
 	// setup engine properties.

@@ -11,13 +11,13 @@ class Terrain : public Model {
 
 private:
 
-    static constexpr float  TILE_MULTIPILER = 40.0f; // Used for multiplying normalized uv coordinates. OpenGL automatically tiles texture.
+    static constexpr float  TILE_MULTIPILER = 80.0f; // Used for multiplying normalized uv coordinates. OpenGL automatically tiles texture.
     static const int        SIZE = 800;
     static const int        VERTICES_NO = 128;
 
     Loader::texture_info tex_info;
 
-    void generate_terrain();
+    void generate_terrain(bool origin_at_center);
     void load_texture();
 
 public: 

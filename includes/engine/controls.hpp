@@ -49,9 +49,9 @@ public:
 	// Used more for an interrupt event.
 	void key_callback(int key, int scancode, int action, int mods)
 	{
+		// Reads current pixels in the frame buffer and saves it as png to disk.
 		if(key == GLFW_KEY_F12 && action == GLFW_PRESS)
 		{
-			std::cerr << "[DEBUG::CONTROLS] Screenshot saved!" << std::endl;
 			int w = 1920;
 			int h = 1080;
 			std::string file_name = "./test.png";
@@ -60,6 +60,8 @@ public:
 			uint8_t *pixels = new uint8_t[w * h * 3];
 			glReadPixels(0, 0, w, h, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid *)pixels);
 			ImgWriter::save_png(file_name, w, h, pixels);
+
+			std::cerr << "[DEBUG::CONTROLS] Screenshot saved!" << std::endl;
 		}
 	}
 

@@ -18,7 +18,7 @@ Terrain::~Terrain()
     Method for generating a flat terrain, from ThinMatrix:
     https://www.youtube.com/watch?v=yNYwZMmgTJk&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP&index=14
 */
-void Terrain::generate_terrain()
+void Terrain::generate_terrain(bool origin_at_center)
 {
     std::vector<glm::vec3>      verts;
     std::vector<glm::vec3>      norms;
@@ -27,13 +27,13 @@ void Terrain::generate_terrain()
 
     float y = 0.0f;
 
-    for(int z_idx = 0; z_idx < VERTICES_NO; z_idx++)
+    for(int z_idx = -(VERTICES_NO/2); z_idx < (VERTICES_NO/2); z_idx++)
     {
-        for(int x_idx = 0; x_idx < VERTICES_NO; x_idx++)
+        for(int x_idx = -(VERTICES_NO/2); x_idx < (VERTICES_NO/2); x_idx++)
         {
             // generate vertex
-            float x = (float) x_idx / ((float) VERTICES_NO - 1) * SIZE;
-            float z = (float) z_idx / ((float) VERTICES_NO - 1) * SIZE;
+            float x = (float) x_idx / ((float) (VERTICES_NO/2) - 1) * SIZE;
+            float z = (float) z_idx / ((float) (VERTICES_NO/2) - 1) * SIZE;
 
             // generate norm (flat terrain)
             glm::vec3 norm(0.0f, 1.0f, 0.0f);
@@ -158,6 +158,6 @@ void Terrain::setup(Shader* shader)
 {
     this->shader = shader;
 
-    generate_terrain();
+    generate_terrain(true);
     load_texture();
 }
