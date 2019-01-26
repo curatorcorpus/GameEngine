@@ -13,22 +13,19 @@
 class Model {
 
 protected:
-	
-	int size;
 
+	std::string name;
 	glm::mat4 transform;
-	std::string shader_name;
 	std::vector<Mesh> meshes;
+
 	Shader* shader;
 
 public:
 
 	Model();
-	Model(std::string shader_name);
-	Model(int size);
+	Model(std::string name);
 	~Model();
-
-	void clean_up();
+	
 	void add_mesh(Mesh mesh);
 	virtual void render(Camera* camera);
 	void reserve_list(int size);	
@@ -42,6 +39,7 @@ public:
 	void reset_transform();
 
 	glm::mat4 get_transform();
+	std::string get_name();
 
 	void set_transform(glm::mat4 transform);
 };

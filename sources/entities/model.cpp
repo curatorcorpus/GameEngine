@@ -2,26 +2,12 @@
 
 Model::Model()
 {
+	this->name = "no_name";
 	this->meshes.clear();
 	this->transform = glm::mat4(1.0f);
-	this->size = 0;
 }
 
-Model::~Model() 
-{
-/*
-	for(int i = 0; i < size; i++) 
-	{
-		delete meshes[i];
-	}
-
-	if(shader != nullptr) 
-	{
-		std::cerr << "test" << std::endl;
-	
-		delete shader;
-	}*/
-}
+Model::~Model() {}
 
 void Model::add_mesh(Mesh mesh) 
 {
@@ -47,12 +33,6 @@ void Model::render(Camera* camera)
 	shader->unbind();
 }
 
-void Model::reserve_list(int size) 
-{
-	this->size = size;
-	this->meshes.reserve(size);
-}
-
 void Model::set_meshes() 
 {
 	for(int i = 0; i < meshes.size(); i++) 
@@ -66,22 +46,10 @@ void Model::set_shader(Shader* shader)
 {
 	if(shader == nullptr) 
     {
-//		std::cerr << "[DEBUG::MESH_CPP]" + name + "failed to reference shader!" << std::endl; 
+		std::cerr << "[DEBUG::MESH] " + name + "failed to reference shader!" << std::endl;
+		return; 
 	}
 	this->shader = shader;
-}
-
-void Model::clean_up()
-{
-/*	for(int i = 0; i < size; i++) 
-	{
-		delete meshes[i];
-	}
-*/
-	/*if(shader != nullptr) 
-	{
-		delete shader;
-	}*/
 }
 
 void Model::reset_transform()

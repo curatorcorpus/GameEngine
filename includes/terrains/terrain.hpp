@@ -8,7 +8,6 @@
 #include <loader.hpp>
 #include <mesh.hpp>
 #include <model.hpp>
-#include <shader.hpp>
 
 class Terrain : public Model {
 
@@ -29,6 +28,7 @@ public:
     ~Terrain();
 
     void render(Camera* camera);
+    void setup(Shader* shader);
 };
 
 #endif

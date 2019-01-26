@@ -11,15 +11,6 @@ MasterRenderer::MasterRenderer()
 
 MasterRenderer::~MasterRenderer()
 {
-	for(int i = 0; i < models.size(); i++)
-	{
-		// free all memory used for storing meshes.
-	//	models[i]->clean_up();
-
-		// delete the memory for ptr of model class.
-		//delete models[i];
-	}
-
 	delete default_shader;
 	delete terrain_shader;
 	delete fps_counter;
@@ -63,6 +54,7 @@ void MasterRenderer::add_textured_model(std::string model_name, std::string text
 
 void MasterRenderer::add_terrain(Terrain* terrain)
 {
+	terrain->setup(terrain_shader);
 	terrains.push_back(terrain);
 }
 
@@ -76,12 +68,10 @@ void MasterRenderer::setup()
 	for(int i = 0; i < models.size(); i++)
 	{
 		models[i]->set_meshes();
-		models[i]->set_shader(default_shader);
 	}
 	for(int i = 0; i < terrains.size(); i++) 
 	{
 		terrains[i]->set_meshes();
-		terrains[i]->set_shader(terrain_shader);
 	}
 	fps_counter = new FpsCounter();
 }

@@ -3,12 +3,12 @@
 Terrain::Terrain(std::string texture_name)
 {
     this->tex_info.name = texture_name;
-
-    generate_terrain();
-    load_texture(tex_info);
 }
 
-Terrain::~Terrain() {}
+Terrain::~Terrain() 
+{
+    glDeleteTextures(1, &tex_info.id);
+}
 
 /*=================
     PRIVATE METHODS    
@@ -76,7 +76,7 @@ void Terrain::generate_terrain()
         }
     }
     Mesh terrain_mesh(verts, norms, uvs, indices);
-                std::cout << "wtf" << terrain_mesh.get_verts_size() << std::endl;
+   //             std::cout << "wtf" << terrain_mesh.get_verts_size() << std::endl;
     this->add_mesh(terrain_mesh);
 }
 
@@ -143,4 +143,21 @@ void Terrain::render(Camera* camera)
     glBindTexture(GL_TEXTURE_2D, 0);
 
 	shader->unbind();
+}
+
+/*=================
+    PRIVATE METHODS    
+/==================
+
+/*
+
+*/
+
+
+void Terrain::setup(Shader* shader)
+{
+    this->shader = shader;
+
+    generate_terrain();
+    load_texture(tex_info);
 }

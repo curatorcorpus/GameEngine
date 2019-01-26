@@ -22,7 +22,7 @@
 #include <model.hpp>
 #include <shader.hpp>
 #include <terrain.hpp>
-#include <textured_model.hpp>
+#include <object.hpp>
 
 /*
 	External Libraries
@@ -37,7 +37,7 @@ class MasterRenderer {
 
 private:
 
-	std::vector<Model*> models;
+	std::vector<Object*> models;
 	std::vector<Terrain*> terrains;
 
 	FpsCounter* fps_counter;

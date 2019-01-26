@@ -11,7 +11,7 @@
 
 #include <mesh.hpp>
 #include <model.hpp>
-#include <textured_model.hpp>
+#include <object.hpp>
 
 class Loader {
 
