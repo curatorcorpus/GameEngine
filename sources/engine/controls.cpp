@@ -12,6 +12,7 @@ Controls::Controls(Camera *camera, GLFWwindow* window) {
 
 	//glfwSetInputMode(this->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);  // Hide the mouse and enable unlimited mouvement
 	glfwGetWindowSize(window, &this->width, &this->height);
+	glfwSetKeyCallback(this->window, key_callback);
 }
 
 Controls::~Controls() {
@@ -53,8 +54,9 @@ void Controls::update() {
 	glm::vec3 curr_pos = camera->get_pos();
 	glm::vec3 up = glm::cross(right, direction);
 
+	// poll real-time inputs.
 	float fov = camera->get_fov();
-bool f = false;
+	bool f = false;
 	if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) 
 	{
 		curr_pos += direction * delta * key_speed;
