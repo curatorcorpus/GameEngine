@@ -17,7 +17,7 @@ private:
 
     Loader::texture_info tex_info;
 
-    void generate_terrain(bool origin_at_center);
+    void generate_terrain();
     void load_texture();
 
 public: 
