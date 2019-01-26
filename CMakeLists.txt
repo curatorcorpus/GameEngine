@@ -56,6 +56,7 @@ SET(SRC_CODE
   	sources/engine/display.cpp
     sources/engine/master_renderer.cpp
     sources/engine/loader.cpp
+    sources/engine/img_writer.cpp
 
     sources/entities/camera.cpp
     sources/entities/light.cpp
