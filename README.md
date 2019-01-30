@@ -12,7 +12,7 @@ glew 1.13 At Least
 
 sudo apt-get install freeglut3-dev
 libvulkan-dev
-libpng16-dev
+libpng16-dev (version 1.6.34)
 
 Installation:
 

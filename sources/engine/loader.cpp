@@ -69,6 +69,12 @@ void Loader::load_obj(std::string name, Model* model)
 	std::cerr << "[DEBUG::LOADER] Finished loading an obj file" << std::endl;
 }
 
+/*
+	Method for loading PNG image files to be used as textures. 
+	Using LibPNG manuals:
+	http://www.libpng.org/pub/png/libpng-manual.txt
+	http://www.libpng.org/pub/png/libpng-1.2.5-manual.html
+ */
 void Loader::load_PNG(texture_info* tex_info)
 {
     unsigned int sig_read = 0;
