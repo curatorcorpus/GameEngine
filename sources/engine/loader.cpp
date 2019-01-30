@@ -134,7 +134,8 @@ void Loader::load_PNG(texture_info* tex_info)
     // into the info structure with this call.
     // PNG_TRANSFORM_STRIP_16 | PNG_TRANSFORM_PACKING  forces 8 bit PNG_TRANSFORM_EXPAND forces to
     // expand a palette into RGB.
-    png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_16|PNG_TRANSFORM_PACKING|PNG_TRANSFORM_EXPAND, NULL);
+	// ADDING PNG_TRANSFORM_STRIP_ALPHA WORKS FOR GRASS TEXTURES WHY??? 
+    png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_16|PNG_TRANSFORM_PACKING|PNG_TRANSFORM_EXPAND|PNG_TRANSFORM_STRIP_ALPHA, NULL);
     png_get_IHDR(png_ptr, info_ptr, &tex_info->width, &tex_info->height, &bit_depth, &color_type, &interlace_type, NULL, NULL);
  
    	unsigned int row_bytes = png_get_rowbytes(png_ptr, info_ptr);

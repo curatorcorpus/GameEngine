@@ -47,11 +47,7 @@ int main(int argc, char *argv[])
 	// Master renderer settings.
 	Object kat("katarina","katarina_base_diffuse");
 	renderer.add_object(&kat);
-	Object ciri("torus", "BlueMarbleSlabs");
-	renderer.add_object(&ciri);
-	Object stall("stall","stallTexture");
-	renderer.add_object(&stall);
-	Terrain terrain("grassFlowers");
+	Terrain terrain("grasss");
 	renderer.add_terrain(&terrain);
 
 	renderer.set_light(&light);
