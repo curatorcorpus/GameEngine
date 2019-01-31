@@ -5,7 +5,7 @@ Controls::Controls(Camera *camera, GLFWwindow* window) {
 	this->camera = camera;
 	this->window = window;
 
-	this->key_speed = 5.0f;
+	this->key_speed = 10.0f;
 	this->mouse_speed = 0.0018f;
 	this->horizontal_angle = 3.14f;
 	this->vertical_angle = 0.0f;

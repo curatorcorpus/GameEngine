@@ -18,11 +18,10 @@ void Model::render(Camera* camera)
 {	
 	shader->bind();
 
-	//glm::mat4 model = this->get_transform();
+	//glm::mat4 model = this->transform;
 	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
 	shader->update_mvp(mvp);
 	shader->update_cam_pos(camera->get_pos());
-
 	for(int i = 0; i < meshes.size(); i++) 
 	{
 		meshes[i].render();

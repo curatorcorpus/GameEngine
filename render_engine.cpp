@@ -42,21 +42,41 @@ int main(int argc, char *argv[])
 	GLFWwindow* window = display.get_window();
 	Controls controls(&camera, window);
 	MasterRenderer renderer;
-	Light light(glm::vec3(0.0f, 100.0f, 0.0f));
+	Light light(glm::vec3(0.0f, 100000.0f, 0.0f));
 
 	// Master renderer settings.
 	Object kat("katarina","katarina_base_diffuse");
-	renderer.add_object(&kat);
+	//Object katx("katarina","katarina_base_diffuse");
+	// katy("katarina","katarina_base_diffuse");
+	//Object katz("katarina","katarina_base_diffuse");
+	//Object kat_x("katarina","katarina_base_diffuse");
+	//Object kat_y("katarina","katarina_base_diffuse");
+	//Object kat_z("katarina","katarina_base_diffuse");
 	Terrain terrain("grasss");
+
+	renderer.add_object(&kat);
+	//renderer.add_object(&katx);
+	///renderer.add_object(&katy);
+	//renderer.add_object(&katz);
+	//renderer.add_object(&kat_x);
+	//renderer.add_object(&kat_y);
+	//renderer.add_object(&kat_z);
+
+	//katx.translate(glm::vec3(5.0,0,0));
+	//katy.translate(glm::vec3(0,5.0,0));
+	//katz.translate(glm::vec3(0,0,5.0));
+
+	//kat_x.translate(glm::vec3(-5.0,0,0));
+	//kat_y.translate(glm::vec3(0,-5.0,0));
+	//kat_z.translate(glm::vec3(0,0,-5.0));
+
 	renderer.add_terrain(&terrain);
 
 	renderer.set_light(&light);
 
 	// setup engine properties.
 	renderer.setup();
-	GLint t;
-	glGetIntegerv(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &t);
-	std::cerr<< t<<std::endl;
+
 	// main engine loop.
 	while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))
 	{

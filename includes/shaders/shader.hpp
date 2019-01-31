@@ -26,7 +26,8 @@ protected:
 	GLuint      compile(std::string& file_name, const char* code);
 	std::string open_file(std::string& shader_path);
 	GLuint 		link_shaders(GLuint& vert_id, GLuint& frag_id);
-	void        setup(std::string& vert, std::string& frag);
+	
+	virtual void setup(std::string& vert, std::string& frag);
 
 public:
 

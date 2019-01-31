@@ -6,6 +6,7 @@
 #include <camera.hpp>
 #include <loader.hpp>
 #include <model.hpp>
+#include <terrain_shader.hpp>
 
 class Terrain : public Model {
 
@@ -16,6 +17,7 @@ private:
     static const int        VERTICES_NO = 128;
 
     Loader::texture_info tex_info;
+    TerrainShader* t_shader;
 
     void generate_terrain();
     void load_texture();
@@ -26,7 +28,9 @@ public:
     ~Terrain();
 
     void render(Camera* camera);
-    void setup(Shader* shader);
+    void setup(TerrainShader* shader);
+
+    void set_meshes();
 };
 
 #endif

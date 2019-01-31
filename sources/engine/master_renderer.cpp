@@ -5,20 +5,20 @@ MasterRenderer::MasterRenderer()
 	this->objects.clear();
 	
 	// construct shaders.
-	this->default_shader = new Shader("default");
-	this->terrain_shader = new Shader("terrain");
+	this->object_shader = new ObjectShader();
+	this->terrain_shader = new TerrainShader();
 }
 
 MasterRenderer::~MasterRenderer()
 {
-	delete default_shader;
+	delete object_shader;
 	delete terrain_shader;
 	delete fps_counter;
 }
 
 void MasterRenderer::add_object(Object* object) 
 {
-	object->setup(default_shader);
+	object->setup(object_shader);
 	objects.push_back(object);
 }
 
@@ -51,7 +51,6 @@ void MasterRenderer::update(GLFWwindow* window, Camera* camera)
 	fps_counter->update();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	for(int i = 0; i < objects.size(); i++) 
 	{
 		objects[i]->render(camera);

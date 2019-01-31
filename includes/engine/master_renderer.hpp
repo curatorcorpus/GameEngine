@@ -19,9 +19,10 @@
 #include <camera.hpp>
 #include <light.hpp>
 #include <loader.hpp>
-#include <shader.hpp>
-#include <terrain.hpp>
 #include <object.hpp>
+#include <object_shader.hpp>
+#include <terrain.hpp>
+#include <terrain_shader.hpp>
 
 /*
 	External Libraries
@@ -35,27 +36,31 @@
 class MasterRenderer {
 
 private:
-
+	
+	// DATA FIELDS
 	std::vector<Object*> objects;
 	std::vector<Terrain*> terrains;
 
 	FpsCounter* fps_counter;
 	Light* light;
-	Shader* default_shader;
-	Shader* terrain_shader;
+	ObjectShader* object_shader;
+	TerrainShader* terrain_shader;
 
 public:
 	MasterRenderer();
 	~MasterRenderer();
 
-	// setters and getters
-
 	void add_model(std::string model_name);
 	void add_object(Object* object);
 	void add_terrain(Terrain* terrain);
-	void set_light(Light* light);
 	void setup();
 	void update(GLFWwindow* window, Camera* camera);
+
+	// GETTERS
+	
+
+	// SETTERS
+	void set_light(Light* light);
 };
 
 #endif

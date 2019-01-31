@@ -34,7 +34,7 @@ void Terrain::generate_terrain()
             // generate vertex
             float x = (float) x_idx / ((float) (VERTICES_NO/2) - 1) * SIZE;
             float z = (float) z_idx / ((float) (VERTICES_NO/2) - 1) * SIZE;
-            y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/10)); // pseudo random terrain genration [basic]
+           // y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/10)); // pseudo random terrain genration [basic]
             // generate norm (flat terrain)
             glm::vec3 norm(0.0f, 1.0f, 0.0f);
 
@@ -85,7 +85,7 @@ void Terrain::load_texture()
 	glGenTextures(1, &tex_info.id);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex_info.id);
-   // std::cerr << "[DEBUG::TEXTURED_MODEL::TextureID] " << texture_id << std::endl; 
+
     // Set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -107,10 +107,7 @@ void Terrain::load_texture()
 	}
 
 	// Set uniform variable name for shader program.
-   // std::cerr << "[DEBUG::TEXTURED_MODEL::SHADER_ID]" << shader->get_prog_id() << std::endl;
-    
-    GLuint shader_id = this->shader->get_prog_id();
-    glUniform1i(glGetUniformLocation(shader_id, "_texture"), GL_TEXTURE0); // gets uniform location in shader to update texture values. 
+    glUniform1i(this->t_shader->get_texuniloc(), GL_TEXTURE0); // gets uniform location in shader to update texture values. 
 
     // unbind
     glBindTexture(GL_TEXTURE_2D, 0);
@@ -121,7 +118,7 @@ void Terrain::load_texture()
 
 void Terrain::render(Camera* camera)
 {
-	shader->bind(); // could be bound in master renderer for terrains.
+	this->t_shader->bind(); // could be bound in master renderer for terrains.
 
     // activate binded texture.
     glActiveTexture(GL_TEXTURE0);
@@ -132,8 +129,8 @@ void Terrain::render(Camera* camera)
 	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
 
     // update MVP and camera pos in bound shader.
-	shader->update_mvp(mvp);
-	shader->update_cam_pos(camera->get_pos());
+	this->t_shader->update_mvp(mvp);
+	this->t_shader->update_cam_pos(camera->get_pos());
 
 	for(int i = 0; i < meshes.size(); i++) 
 	{
@@ -142,7 +139,16 @@ void Terrain::render(Camera* camera)
 
     glBindTexture(GL_TEXTURE_2D, 0);
 
-	shader->unbind();
+	this->t_shader->unbind();
+}
+
+void Terrain::set_meshes() 
+{
+	for(int i = 0; i < meshes.size(); i++) 
+	{	
+		std::cerr << "[Terrain::SETUP_MESHES] " << this->t_shader->get_prog_id() << std::endl;
+		meshes[i].setup();
+	}
 }
 
 /*=================
@@ -152,11 +158,9 @@ void Terrain::render(Camera* camera)
 /*
 
 */
-
-
-void Terrain::setup(Shader* shader)
+void Terrain::setup(TerrainShader* t_shader)
 {
-    this->shader = shader;
+    this->t_shader = t_shader;
 
     generate_terrain();
     load_texture();
