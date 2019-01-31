@@ -43,6 +43,7 @@ INCLUDE_DIRECTORIES(
     ${GLEW_INCLUDE_DIRS}
     ${PNG_INCLUDE_DIR}
 
+    includes/cubemap
     includes/engine
     includes/entities
     includes/shaders
@@ -51,6 +52,8 @@ INCLUDE_DIRECTORIES(
 )
 
 SET(SRC_CODE
+
+    sources/cubemap/cubemap.cpp
 
     sources/engine/controls.cpp
   	sources/engine/display.cpp

@@ -16,6 +16,7 @@
 /*
 
 */
+#include <cubemap.hpp>
 #include <camera.hpp>
 #include <light.hpp>
 #include <loader.hpp>
