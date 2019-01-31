@@ -42,6 +42,7 @@ private:
 	std::vector<Object*> objects;
 	std::vector<Terrain*> terrains;
 
+	CubeMap* cubemap;
 	FpsCounter* fps_counter;
 	Light* light;
 	ObjectShader* object_shader;

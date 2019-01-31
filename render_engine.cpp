@@ -19,7 +19,6 @@
 /*
 	Internal Headers
 */
-#include <cubemap.hpp>
 #include <camera.hpp>
 #include <controls.hpp>
 #include <display.hpp>
@@ -44,10 +43,9 @@ int main(int argc, char *argv[])
 	Controls controls(&camera, window);
 	MasterRenderer renderer;
 	Light light(glm::vec3(0.0f, 100000.0f, 0.0f));
-	CubeMap cubemap("cloudy_skies");
-	return 0; 
+
 	// Master renderer settings.
-	/*Object kat("katarina","katarina_base_diffuse");
+	Object kat("katarina","katarina_base_diffuse");
 	//Object katx("katarina","katarina_base_diffuse");
 	// katy("katarina","katarina_base_diffuse");
 	//Object katz("katarina","katarina_base_diffuse");
@@ -88,5 +86,5 @@ int main(int argc, char *argv[])
 		renderer.update(window, &camera); 
 	}
 
-	return EXIT_SUCCESS;*/
+	return EXIT_SUCCESS;
 }

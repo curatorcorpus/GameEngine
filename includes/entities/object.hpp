@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include <camera.hpp>
+#include <cubemap.hpp>
 #include <loader.hpp>
 #include <model.hpp>
 #include <object_shader.hpp>

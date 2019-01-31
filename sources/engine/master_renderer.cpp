@@ -7,13 +7,20 @@ MasterRenderer::MasterRenderer()
 	// construct shaders.
 	this->object_shader = new ObjectShader();
 	this->terrain_shader = new TerrainShader();
+
+	// load skybox components.
+	this->cubemap = new CubeMap("cloudy_skies");
+
+	// load diagnostics.
+	this->fps_counter = new FpsCounter();
 }
 
 MasterRenderer::~MasterRenderer()
 {
+	delete cubemap;
+	delete fps_counter;
 	delete object_shader;
 	delete terrain_shader;
-	delete fps_counter;
 }
 
 void MasterRenderer::add_object(Object* object) 
@@ -43,7 +50,6 @@ void MasterRenderer::setup()
 	{
 		terrains[i]->set_meshes();
 	}
-	fps_counter = new FpsCounter();
 }
 
 void MasterRenderer::update(GLFWwindow* window, Camera* camera) 
