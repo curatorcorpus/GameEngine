@@ -1,0 +1,40 @@
+#ifndef CLASS_NAME _HPP_
+#define CLASS_NAME _HPP_
+
+class CLASS_NAME {
+
+private:
+    // DATAFIELDS
+    
+
+    // OVERRIDE-ABLE METHODS
+
+
+	// METHODS
+
+
+    // GETTERS
+
+
+    // SETTERS
+
+
+public:
+
+    // CONSTRUCTORS
+
+
+   	// OVERRIDE-ABLE METHODS
+
+
+	// METHODS
+
+
+    // GETTERS
+
+
+    // SETTERS
+
+};
+
+#endif
