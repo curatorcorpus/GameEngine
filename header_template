@@ -1,6 +1,21 @@
 #ifndef CLASS_NAME _HPP_
 #define CLASS_NAME _HPP_
 
+/*
+    C Includes.
+*/
+
+
+/*
+    C++ Includes.
+*/
+
+
+/*
+    Project Includes.
+*/
+
+
 class CLASS_NAME {
 
 private:

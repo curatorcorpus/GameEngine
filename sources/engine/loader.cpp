@@ -83,7 +83,22 @@ void Loader::load_PNG(texture_info* tex_info)
 	png_structp png_ptr;
 	png_infop 	info_ptr;
 
-	std::string file_name = Texture_Path + tex_info->name + PNG_Suffix;
+	std::string file_name;
+	
+	size_t prefix_pos = tex_info->name.find("../");
+	size_t suffix_pos = tex_info->name.find(PNG_Suffix);
+
+	// If no prefix or suffix filepath indicators. [Very hacky, but good for now]. 
+	if(prefix_pos == std::string::npos && suffix_pos == std::string::npos)
+	{
+		file_name = Texture_Path + tex_info->name + PNG_Suffix;
+	}
+	else
+	{
+		file_name = tex_info->name;
+	}
+
+	std::cerr << "[LOADER::LOAD_PNG] Reading from: " << file_name << std::endl;
 
 	FILE *fp;
 

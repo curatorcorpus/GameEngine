@@ -47,6 +47,8 @@
         "fstream": "cpp",
         "optional": "cpp",
         "string_view": "cpp",
-        "__config": "cpp"
+        "__config": "cpp",
+        "codecvt": "cpp",
+        "filesystem": "cpp"
     }
 }
