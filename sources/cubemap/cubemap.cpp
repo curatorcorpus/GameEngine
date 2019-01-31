@@ -44,7 +44,6 @@ void CubeMap::load_cubemap()
         if(tex_info.is_loaded) 
         {
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, tex_info.width, tex_info.height, 0, GL_RGB, GL_UNSIGNED_BYTE, tex_info.data);
-            glGenerateMipmap(GL_TEXTURE_2D);
             std::cerr << "[CUBEMAP:LOAD_CUBEMAP]" << " Texture " << tex_info.name << " loaded!" << std::endl;
         }
         else 
