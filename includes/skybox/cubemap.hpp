@@ -17,6 +17,7 @@
     Project Includes.
 */
 #include <loader.hpp>
+#include <skybox_shader.hpp>
 
 class CubeMap {
 
@@ -31,9 +32,8 @@ private:
 
 
 	// METHODS
-    void load_cubemap();
+    void load_cubemap(SkyboxShader* sky_shader);
     void read_directory();
-    void setup();
 
     // GETTERS
 
@@ -45,16 +45,18 @@ public:
 
     // CONSTRUCTORS
     CubeMap(std::string name);
+
+    // DECONSTRUCTOR
     ~CubeMap();
 
    	// OVERRIDE-ABLE METHODS
 
 
 	// METHODS
-
+    void setup(SkyboxShader* sky_shader);
 
     // GETTERS
-
+    GLuint get_tex_id();
 
     // SETTERS
 

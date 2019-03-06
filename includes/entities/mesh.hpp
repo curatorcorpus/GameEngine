@@ -33,6 +33,7 @@ private:
 public:
 
 	Mesh();
+	Mesh(std::vector<glm::vec3>& verts);
 	Mesh(std::vector<glm::vec3>& verts, std::vector<glm::vec3>& norm, 
 		 std::vector<glm::vec2>& uvs,   std::vector<unsigned short>& indices);
 	~Mesh();

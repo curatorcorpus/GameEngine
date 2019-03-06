@@ -16,17 +16,23 @@ void Model::add_mesh(Mesh mesh)
 
 void Model::render(Camera* camera) 
 {	
+	// Activate shader for rendering.
 	shader->bind();
 
 	//glm::mat4 model = this->transform;
+	
+	// Update transform.
 	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
 	shader->update_mvp(mvp);
 	shader->update_cam_pos(camera->get_pos());
+	
+	// Render mesh.
 	for(int i = 0; i < meshes.size(); i++) 
 	{
 		meshes[i].render();
 	}
 
+	// Deactivate shader.
 	shader->unbind();
 }
 

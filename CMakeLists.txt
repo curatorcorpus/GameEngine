@@ -43,17 +43,15 @@ INCLUDE_DIRECTORIES(
     ${GLEW_INCLUDE_DIRS}
     ${PNG_INCLUDE_DIR}
 
-    includes/cubemap
     includes/engine
     includes/entities
     includes/shaders
+    includes/skybox
     includes/terrains
     includes/textures
 )
 
 SET(SRC_CODE
-
-    sources/cubemap/cubemap.cpp
 
     sources/engine/controls.cpp
   	sources/engine/display.cpp
@@ -69,7 +67,11 @@ SET(SRC_CODE
 
     sources/shaders/shader.cpp
     sources/shaders/object_shader.cpp
+    sources/shaders/skybox_shader.cpp
     sources/shaders/terrain_shader.cpp
+
+    sources/skybox/cubemap.cpp
+    sources/skybox/skybox.cpp
 
     sources/terrains/terrain.cpp
 

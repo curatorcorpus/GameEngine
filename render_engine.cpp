@@ -41,11 +41,11 @@ int main(int argc, char *argv[])
 	Camera camera;
 	GLFWwindow* window = display.get_window();
 	Controls controls(&camera, window);
-	MasterRenderer renderer;
+	MasterRenderer renderer(&camera);
 	Light light(glm::vec3(0.0f, 100000.0f, 0.0f));
 
 	// Master renderer settings.
-	Object kat("katarina","katarina_base_diffuse");
+	//Object kat("katarina","katarina_base_diffuse");
 	//Object katx("katarina","katarina_base_diffuse");
 	// katy("katarina","katarina_base_diffuse");
 	//Object katz("katarina","katarina_base_diffuse");
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 	//Object kat_z("katarina","katarina_base_diffuse");
 	Terrain terrain("grasss");
 
-	renderer.add_object(&kat);
+	//renderer.add_object(&kat);
 	//renderer.add_object(&katx);
 	///renderer.add_object(&katy);
 	//renderer.add_object(&katz);
@@ -71,19 +71,18 @@ int main(int argc, char *argv[])
 	//kat_z.translate(glm::vec3(0,0,-5.0));
 
 	renderer.add_terrain(&terrain);
-
 	renderer.set_light(&light);
 
 	// setup engine properties.
 	renderer.setup();
-
+	//glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 	// main engine loop.
 	while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))
 	{
 		if(!display.get_focus_status()) glfwWaitEvents();glfwPostEmptyEvent();
 
 		controls.update();
-		renderer.update(window, &camera); 
+		renderer.update(window); 
 	}
 
 	return EXIT_SUCCESS;

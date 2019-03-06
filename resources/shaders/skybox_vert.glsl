@@ -1,18 +1,13 @@
 #version 330 core
 
 layout(location = 0) in vec3 vertices;
-layout(location = 1) in vec3 normals;
-layout(location = 2) in vec2 uvs;
+out vec3 texture_coords;
 
-uniform mat4 MVP;
-uniform mat4 M;
 uniform mat4 V;
-
-out vec3 pos;
+uniform mat4 P;
 
 void main() 
 {
-	pos = vertices;
-
-	gl_Position = MVP * vec4(vertices, 1.0f); 
+	texture_coords = vertices;
+	gl_Position = P * V * vec4(vertices, 1.0f);
 }

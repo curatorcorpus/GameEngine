@@ -50,6 +50,7 @@ void Shader::setup(std::string& vert_path, std::string& frag_path)
 	this->mvp_id = glGetUniformLocation(prog_id, "MVP");
 	this->m_id   = glGetUniformLocation(prog_id, "M");
 	this->v_id   = glGetUniformLocation(prog_id, "V");
+	this->p_id   = glGetUniformLocation(prog_id, "P");
 
 	this->cam_pos_id = glGetUniformLocation(prog_id, "cam_pos");
 }
@@ -199,6 +200,17 @@ void Shader::update_cam_pos(glm::vec3 position) {
 	glUniform3f(cam_pos_id, position.x, position.y, position.z);
 }
 
+void Shader::update_view_matrix(glm::mat4& v)
+{
+	glUniformMatrix4fv(v_id,   1, GL_FALSE, &v[0][0]);	
+}
+
+void Shader::update_matrices(glm::mat4& m, glm::mat4& v)
+{
+	glUniformMatrix4fv(m_id,   1, GL_FALSE, &m[0][0]);
+	glUniformMatrix4fv(v_id,   1, GL_FALSE, &v[0][0]);	
+}
+
 void Shader::update_matrices(glm::mat4& m, glm::mat4& v, glm::mat4& mvp) 
 {
 	glUniformMatrix4fv(mvp_id, 1, GL_FALSE, &mvp[0][0]);
@@ -214,4 +226,9 @@ void Shader::update_mvp(glm::mat4& mvp)
 GLuint Shader::get_prog_id() 
 {
 	return prog_id;
+}
+
+void Shader::set_proj_matrix(glm::mat4& p)
+{
+	glUniformMatrix4fv(p_id,   1, GL_FALSE, &p[0][0]);	
 }

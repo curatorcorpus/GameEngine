@@ -3,8 +3,6 @@
 CubeMap::CubeMap(std::string name) 
 {
     this->directory += name + "/";
-
-    setup();
 }
 
 CubeMap::~CubeMap() 
@@ -19,19 +17,19 @@ CubeMap::~CubeMap()
 /*
 
 */
-void CubeMap::setup()
+void CubeMap::setup(SkyboxShader* sky_shader)
 {
     read_directory();
-    load_cubemap();
+    load_cubemap(sky_shader);
 }
 
 /*
 
 */
-void CubeMap::load_cubemap()
+void CubeMap::load_cubemap(SkyboxShader* sky_shader)
 {
     glGenTextures(1, &this->id);
-    glActiveTexture(GL_TEXTURE0);
+   // glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, this->id);
 
     int size = filenames.size();
@@ -58,7 +56,14 @@ void CubeMap::load_cubemap()
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+    // Set wrapping settings.
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+   	// Set uniform variable name for shader program.
+    glUniform1i(sky_shader->get_texuniloc(), GL_TEXTURE0); // gets uniform location in shader to update texture values.
+    //glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 }
 
 /*
@@ -96,4 +101,9 @@ void CubeMap::read_directory()
         return;
     }
     closedir(dir);
+}
+
+GLuint CubeMap::get_tex_id() 
+{
+    return this->id;
 }

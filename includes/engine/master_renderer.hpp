@@ -22,6 +22,8 @@
 #include <loader.hpp>
 #include <object.hpp>
 #include <object_shader.hpp>
+#include <skybox.hpp>
+#include <skybox_shader.hpp>
 #include <terrain.hpp>
 #include <terrain_shader.hpp>
 
@@ -42,21 +44,24 @@ private:
 	std::vector<Object*> objects;
 	std::vector<Terrain*> terrains;
 
+	Camera* camera;
 	CubeMap* cubemap;
 	FpsCounter* fps_counter;
 	Light* light;
 	ObjectShader* object_shader;
+	Skybox*	skybox;
+	SkyboxShader* skybox_shader;
 	TerrainShader* terrain_shader;
 
 public:
-	MasterRenderer();
+	MasterRenderer(Camera* camera);
 	~MasterRenderer();
 
 	void add_model(std::string model_name);
 	void add_object(Object* object);
 	void add_terrain(Terrain* terrain);
 	void setup();
-	void update(GLFWwindow* window, Camera* camera);
+	void update(GLFWwindow* window);
 
 	// GETTERS
 	

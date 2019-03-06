@@ -4,6 +4,11 @@ Mesh::Mesh() {
 
 }
 
+Mesh::Mesh(std::vector<glm::vec3>& verts)
+{
+	set_vertices(verts);
+}
+
 Mesh::Mesh(std::vector<glm::vec3>& verts, std::vector<glm::vec3>& norms,
 	 	   std::vector<glm::vec2>& uvs,   std::vector<unsigned short>& indices) 
 {
@@ -15,10 +20,10 @@ Mesh::Mesh(std::vector<glm::vec3>& verts, std::vector<glm::vec3>& norms,
 
 Mesh::~Mesh() {
 
-	glDeleteBuffers(1, &vert_buff_id);
-	glDeleteBuffers(1, &norm_buff_id);
-	glDeleteBuffers(1, &uvs_buff_id);
-	glDeleteBuffers(1, &indices_buff_id);
+	if(verts.size() != 0) 	glDeleteBuffers(1, &vert_buff_id);
+	if(norms.size() != 0) 	glDeleteBuffers(1, &norm_buff_id);
+	if(uvs.size() != 0) 	glDeleteBuffers(1, &uvs_buff_id);
+	if(indices.size() != 0) glDeleteBuffers(1, &indices_buff_id);
 
 	glDeleteVertexArrays(1, &vao);
 }
@@ -28,68 +33,81 @@ void Mesh::setup() {
 	// create VAO.
 	glGenVertexArrays(1, &vao); // generate a VAO.
 	glBindVertexArray(vao);	    // prepare vao, any subsequent vertex pointer calls will be stored in VAO.
-	std::cout << "[MESH::SETUP] Vert count: " << (this->verts.size()) << std::endl;
+
 	// create and obtain reference to buffer objects.
-	glGenBuffers(1, &vert_buff_id);
-	glBindBuffer(GL_ARRAY_BUFFER, vert_buff_id);
-	glBufferData(GL_ARRAY_BUFFER, verts.size() * sizeof(glm::vec3), &verts[0], GL_STATIC_DRAW);
-	glVertexAttribPointer( // verts
-							0,        // attribute
-                            3,        // size
-                            GL_FLOAT, // type
-                            GL_FALSE, // normalized?
-                            0,        // stride
-                            (void*)0  // array buffer offset
-                        );	
-	glBindBuffer(1, 0);
+	if(verts.size() != 0)
+	{
+		glGenBuffers(1, &vert_buff_id);
+		glBindBuffer(GL_ARRAY_BUFFER, vert_buff_id);
+		glBufferData(GL_ARRAY_BUFFER, verts.size() * sizeof(glm::vec3), &verts[0], GL_STATIC_DRAW);
+		glVertexAttribPointer( // verts
+								0,        // attribute
+								3,        // size
+								GL_FLOAT, // type
+								GL_FALSE, // normalized?
+								0,        // stride
+								(void*)0  // array buffer offset
+							);	
+		glBindBuffer(1, 0);
 
-	glGenBuffers(1, &norm_buff_id);
-	glBindBuffer(GL_ARRAY_BUFFER, norm_buff_id);
-	glBufferData(GL_ARRAY_BUFFER, norms.size() * sizeof(glm::vec3), &norms[0], GL_STATIC_DRAW);
-	glVertexAttribPointer( // norms
-							1,        // attribute
-                            3,        // size
-                            GL_FLOAT, // type
-                            GL_FALSE, // normalized?
-                            0,        // stride
-                            (void*)0  // array buffer offset
-                        );
-	glBindBuffer(1, 0);
-
-	glGenBuffers(1, &uvs_buff_id);
-	glBindBuffer(GL_ARRAY_BUFFER, uvs_buff_id);
-	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
-	glVertexAttribPointer( // uvs
-							2,        // attribute
-                            2,        // size
-                            GL_FLOAT, // type
-                            GL_FALSE, // normalized?
-                            0,        // stride
-                            (void*)0  // array buffer offset
-                        );
-	glBindBuffer(1, 0);
-
-	glGenBuffers(1, &indices_buff_id);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indices_buff_id);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), &indices[0], GL_STATIC_DRAW);
-	glVertexAttribPointer( // indices
-							3,                 // attribute
-                            3,                 // size
-                            GL_UNSIGNED_SHORT, // type
-                            GL_FALSE,          // normalized?
-                            0,                 // stride
-                            (void*)0           // array buffer offset
-                        );	
-	glBindBuffer(1, 0);
-	// enable VAO attributes
-	// specifies how the vertex buffer object data should be handled.
+		std::cerr << "[MESH::SETUP] " << verts.size() << std::endl << std::endl;
+	}
+	if(norms.size() != 0)
+	{
+		glGenBuffers(1, &norm_buff_id);
+		glBindBuffer(GL_ARRAY_BUFFER, norm_buff_id);
+		glBufferData(GL_ARRAY_BUFFER, norms.size() * sizeof(glm::vec3), &norms[0], GL_STATIC_DRAW);
+		glVertexAttribPointer( // norms
+								1,        // attribute
+								3,        // size
+								GL_FLOAT, // type
+								GL_FALSE, // normalized?
+								0,        // stride
+								(void*)0  // array buffer offset
+							);
+		glBindBuffer(1, 0);
+	}
+	if(uvs.size() != 0)
+	{
+		glGenBuffers(1, &uvs_buff_id);
+		glBindBuffer(GL_ARRAY_BUFFER, uvs_buff_id);
+		glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+		glVertexAttribPointer( // uvs
+								2,        // attribute
+								2,        // size
+								GL_FLOAT, // type
+								GL_FALSE, // normalized?
+								0,        // stride
+								(void*)0  // array buffer offset
+							);
+		glBindBuffer(1, 0);
+	}
+	if(indices.size() != 0)
+	{
+		glGenBuffers(1, &indices_buff_id);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indices_buff_id);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), &indices[0], GL_STATIC_DRAW);
+		glVertexAttribPointer( // indices
+								3,                 // attribute
+								3,                 // size
+								GL_UNSIGNED_SHORT, // type
+								GL_FALSE,          // normalized?
+								0,                 // stride
+								(void*)0           // array buffer offset
+							);	
+		glBindBuffer(1, 0);
+		// enable VAO attributes
+		// specifies how the vertex buffer object data should be handled.
+	}
 
 	glBindVertexArray(0);
 }
+
 int Mesh::get_verts_size()
 {
 	return verts.size();
 }
+
 void Mesh::set_vertices(std::vector<glm::vec3> verts) {
 
 	this->verts.clear();
@@ -143,8 +161,8 @@ void Mesh::render()
         glEnableVertexAttribArray(2);
         glBindBuffer(GL_ARRAY_BUFFER, norm_buff_id);
     }
-    if(indices.size() == 0) 
-    {
+    if(indices.size() <= 0) 
+    { 
         glDrawArrays(GL_TRIANGLES, 0, verts.size());
     } 
     else 
@@ -157,5 +175,5 @@ void Mesh::render()
     glDisableVertexAttribArray(0);
     if(uvs.size()	!= 0) glDisableVertexAttribArray(1);
     if(norms.size() != 0) glDisableVertexAttribArray(2);
-    glDisableVertexAttribArray(3);
+    if(norms.size() != 0) glDisableVertexAttribArray(3);
 }
