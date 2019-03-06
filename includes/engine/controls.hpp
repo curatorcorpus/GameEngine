@@ -26,6 +26,7 @@ class Controls {
 
 private:
 
+	// DATAFIELDS
 	Camera* camera;
 	GLFWwindow* window;
 
@@ -36,15 +37,34 @@ private:
 	float horizontal_angle;
 	float vertical_angle;
 
+	// CALLBACKS
+	
 	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		Controls* test = static_cast<Controls*>(glfwGetWindowUserPointer(window));
 		test->key_callback(key, scancode, action, mods);
 	}
 
+    // OVERRIDE-ABLE METHODS
+
+
+	// METHODS
+
+
+    // GETTERS
+
+
+    // SETTERS
+
 public:
-	Controls(Camera* camera, GLFWwindow* window);
+
+    // CONSTRUCTORS
+    Controls(Camera* camera, GLFWwindow* window);
+
+	// DECONSTRUCTOR
 	~Controls();
+
+	// CALLBACKS
 
 	// Used more for an interrupt event.
 	void key_callback(int key, int scancode, int action, int mods)
@@ -65,7 +85,13 @@ public:
 		}
 	}
 
+	// METHODS
 	void update();
+
+	// GETTERS
+
+
+    // SETTERS
 };
 
 #endif

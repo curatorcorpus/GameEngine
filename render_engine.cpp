@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	Light light(glm::vec3(0.0f, 100000.0f, 0.0f));
 
 	// Master renderer settings.
-	//Object kat("katarina","katarina_base_diffuse");
+	Object kat("katarina","katarina_base_diffuse");
 	//Object katx("katarina","katarina_base_diffuse");
 	// katy("katarina","katarina_base_diffuse");
 	//Object katz("katarina","katarina_base_diffuse");
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 	//Object kat_z("katarina","katarina_base_diffuse");
 	Terrain terrain("grasss");
 
-	//renderer.add_object(&kat);
+	renderer.add_object(&kat);
 	//renderer.add_object(&katx);
 	///renderer.add_object(&katy);
 	//renderer.add_object(&katz);

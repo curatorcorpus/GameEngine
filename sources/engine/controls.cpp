@@ -36,6 +36,16 @@ void Controls::update() {
 	horizontal_angle += mouse_speed * float(width/2 - xpos );
 	vertical_angle   += mouse_speed * float(height/2 - ypos );
 
+	// Limit vertical rotation.
+	if(vertical_angle > 1.5f) 
+	{
+		vertical_angle = 1.5f;
+	}
+	else if(vertical_angle < -1.5f)
+	{
+		vertical_angle = -1.5f;
+	}
+
 	// Direction : Spherical coordinates to Cartesian coordinates conversion
 	glm::vec3 direction(
 		glm::cos(vertical_angle) * glm::sin(horizontal_angle), 
