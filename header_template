@@ -19,6 +19,10 @@
 class CLASS_NAME {
 
 private:
+
+    // CONSTANTS
+
+
     // DATAFIELDS
     
 
@@ -38,6 +42,7 @@ public:
 
     // CONSTRUCTORS
 
+    // DECONSTRUCTORS
 
    	// OVERRIDE-ABLE METHODS
 

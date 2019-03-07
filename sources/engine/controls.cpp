@@ -1,26 +1,30 @@
 #include <controls.hpp>
 
-Controls::Controls(Camera *camera, GLFWwindow* window) {
+// STATIC DEFINITIONS.
+float Controls::AWSD_SPEED = AWSD_LOWER_LIMIT;
 
+Controls::Controls(Camera *camera, GLFWwindow* window) 
+{
 	this->camera = camera;
 	this->window = window;
 
-	this->key_speed = 10.0f;
-	this->mouse_speed = 0.0018f;
+	this->mouseRot_speed = 0.0018f;
 	this->horizontal_angle = 3.14f;
 	this->vertical_angle = 0.0f;
 
+	// GLFW input settings.
 	//glfwSetInputMode(this->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);  // Hide the mouse and enable unlimited mouvement
 	glfwGetWindowSize(window, &this->width, &this->height);
 	glfwSetKeyCallback(this->window, key_callback);
+	glfwSetScrollCallback(this->window, scroll_callback);
 }
 
-Controls::~Controls() {
-
+Controls::~Controls() 
+{
 }
 
-void Controls::update() {
-	
+void Controls::update() 
+{
 	static double last_time = glfwGetTime();
 
 	double current_time = glfwGetTime();
@@ -33,18 +37,14 @@ void Controls::update() {
 	glfwSetCursorPos(window, width/2, height/2);
 
 	// Compute new orientation
-	horizontal_angle += mouse_speed * float(width/2 - xpos );
-	vertical_angle   += mouse_speed * float(height/2 - ypos );
+	horizontal_angle += mouseRot_speed * float(width/2 - xpos );
+	vertical_angle   += mouseRot_speed * float(height/2 - ypos );
 
 	// Limit vertical rotation.
-	if(vertical_angle > 1.5f) 
-	{
-		vertical_angle = 1.5f;
-	}
-	else if(vertical_angle < -1.5f)
-	{
-		vertical_angle = -1.5f;
-	}
+	if(vertical_angle > ROT_LIMIT) 
+		vertical_angle = ROT_LIMIT;
+	else if(vertical_angle < -ROT_LIMIT)
+		vertical_angle = -ROT_LIMIT;
 
 	// Direction : Spherical coordinates to Cartesian coordinates conversion
 	glm::vec3 direction(
@@ -69,25 +69,25 @@ void Controls::update() {
 	bool f = false;
 	if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) 
 	{
-		curr_pos += direction * delta * key_speed;
+		curr_pos += direction * delta * Controls::AWSD_SPEED;
 		f =true;
 	}
 	// Move backward
 	if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) 
 	{
-		curr_pos -= direction * delta * key_speed;
+		curr_pos -= direction * delta * Controls::AWSD_SPEED;
 		f =true;
 	}
 	// Strafe right
 	if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) 
 	{
-		curr_pos += right * delta * key_speed;
+		curr_pos += right * delta * Controls::AWSD_SPEED;
 		f =true;
 	}
 	// Strafe left
 	if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) 
 	{
-		curr_pos -= right * delta * key_speed;
+		curr_pos -= right * delta * Controls::AWSD_SPEED;
 		f =true;
 	}
 	if(glfwGetKey(window, GLFW_KEY_KP_ADD) == GLFW_PRESS) 
@@ -107,6 +107,6 @@ void Controls::update() {
 	camera->set_lookat(curr_pos, curr_pos + direction, up);
 
 	//if(f) std::cout << curr_pos.x << " " << curr_pos.y << " " << curr_pos.z << std::endl;
-
+		//std::cerr << key_speed << std::endl;
 	last_time = current_time;
 }

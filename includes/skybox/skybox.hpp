@@ -24,7 +24,7 @@ class Skybox : public Model {
 
 private:
     // DATAFIELDS
-    static constexpr float SIZE = 500.0f;    
+    static constexpr float SIZE = 300.0f;    
 
     std::vector<glm::vec3> cubemesh {
 		// FRONT        
