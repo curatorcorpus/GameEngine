@@ -26,7 +26,8 @@ private:
     // DATAFIELDS
     static constexpr float SIZE = 500.0f;    
 
-    std::vector<glm::vec3> cubemesh {        
+    std::vector<glm::vec3> cubemesh {
+		// FRONT        
 	    glm::vec3(-SIZE,  SIZE, -SIZE),
 	    glm::vec3(-SIZE, -SIZE, -SIZE),
 	    glm::vec3(SIZE, -SIZE, -SIZE),
@@ -34,6 +35,7 @@ private:
 	    glm::vec3(SIZE,  SIZE, -SIZE),
 	    glm::vec3(-SIZE,  SIZE, -SIZE),
 
+		// LEFT
 	    glm::vec3(-SIZE, -SIZE,  SIZE),
 	    glm::vec3(-SIZE, -SIZE, -SIZE),
 	    glm::vec3(-SIZE,  SIZE, -SIZE),
@@ -41,6 +43,7 @@ private:
 	    glm::vec3(-SIZE,  SIZE,  SIZE),
 	    glm::vec3(-SIZE, -SIZE,  SIZE),
 
+		// RIGHT
 	    glm::vec3(SIZE, -SIZE, -SIZE),
 	    glm::vec3(SIZE, -SIZE,  SIZE),
 	    glm::vec3(SIZE,  SIZE,  SIZE),
@@ -48,6 +51,7 @@ private:
 	    glm::vec3(SIZE,  SIZE, -SIZE),
 	    glm::vec3(SIZE, -SIZE, -SIZE),
 
+		// BACK 
 	    glm::vec3(-SIZE, -SIZE,  SIZE),
 	    glm::vec3(-SIZE,  SIZE,  SIZE),
 	    glm::vec3(SIZE,  SIZE,  SIZE),
@@ -55,6 +59,7 @@ private:
 	    glm::vec3(SIZE, -SIZE,  SIZE),
 	    glm::vec3(-SIZE, -SIZE,  SIZE),
 
+		// TOP
 	    glm::vec3(-SIZE,  SIZE, -SIZE),
 	    glm::vec3(SIZE,  SIZE, -SIZE),
 	    glm::vec3(SIZE,  SIZE,  SIZE),
@@ -62,6 +67,7 @@ private:
 	    glm::vec3(-SIZE,  SIZE,  SIZE),
         glm::vec3(-SIZE,  SIZE, -SIZE),
 
+		// BOTTOM
 	    glm::vec3(-SIZE, -SIZE, -SIZE),
 	    glm::vec3(-SIZE, -SIZE,  SIZE),
 	    glm::vec3(SIZE, -SIZE, -SIZE),

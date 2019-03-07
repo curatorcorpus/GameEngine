@@ -33,15 +33,33 @@ void CubeMap::load_cubemap(SkyboxShader* sky_shader)
     glBindTexture(GL_TEXTURE_CUBE_MAP, this->id);
 
     int size = filenames.size();
+    //sort(filenames.begin(), filenames.end());
+
     for(int i = 0; i < size; i++) 
     {
-        Loader::texture_info tex_info;   
-        tex_info.name = directory + filenames[i];
+        Loader::texture_info tex_info; 
+        std::string filename = filenames[i];
+        tex_info.name = directory + filename;
 
         Loader::load_PNG(&tex_info);
         if(tex_info.is_loaded) 
         {
-            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, tex_info.width, tex_info.height, 0, GL_RGB, GL_UNSIGNED_BYTE, tex_info.data);
+            GLenum cubeMapPosition; 
+
+            if(filename.find("back") != std::string::npos)
+                cubeMapPosition = GL_TEXTURE_CUBE_MAP_POSITIVE_Z;
+            else if(filename.find("bottom") != std::string::npos)
+                cubeMapPosition = GL_TEXTURE_CUBE_MAP_NEGATIVE_Y;
+            else if(filename.find("front") != std::string::npos)
+                cubeMapPosition = GL_TEXTURE_CUBE_MAP_NEGATIVE_Z;
+            else if(filename.find("left") != std::string::npos)
+                cubeMapPosition = GL_TEXTURE_CUBE_MAP_NEGATIVE_X;
+            else if(filename.find("right") != std::string::npos)
+                cubeMapPosition = GL_TEXTURE_CUBE_MAP_POSITIVE_X;
+            else if(filename.find("top") != std::string::npos)
+                cubeMapPosition = GL_TEXTURE_CUBE_MAP_POSITIVE_Y;
+                
+            glTexImage2D(cubeMapPosition, 0, GL_RGB, tex_info.width, tex_info.height, 0, GL_RGB, GL_UNSIGNED_BYTE, tex_info.data);
             std::cerr << "[CUBEMAP:LOAD_CUBEMAP]" << " Texture " << tex_info.name << " loaded!" << std::endl;
         }
         else 

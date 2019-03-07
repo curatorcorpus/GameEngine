@@ -8,5 +8,5 @@ uniform samplerCube cubemap;
 
 void main() 
 {
-	color = vec4(1.0f);//texture(cubemap, texture_coords);
+	color = texture(cubemap, texture_coords);
 };

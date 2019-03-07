@@ -32,8 +32,16 @@ void Skybox::setup(SkyboxShader* sky_shader, glm::mat4 proj_matrix)
 
 void Skybox::render(Camera* camera)
 {
+
+    glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
     glDepthMask(GL_FALSE);
     glm::mat4 view_mat = camera->get_view_mat();
+
+    // prevent skybox front translating, follow the camera.
+    view_mat[3][0] = 0.0f;
+    view_mat[3][1] = 0.0f;
+    view_mat[3][2] = 0.0f;
+
     this->sky_shader->bind();
     this->sky_shader->update_view_matrix(view_mat);
 
@@ -52,4 +60,5 @@ void Skybox::render(Camera* camera)
 
     this->sky_shader->unbind();
     glDepthMask(GL_TRUE);
+    glDisable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 }

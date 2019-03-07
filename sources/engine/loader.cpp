@@ -165,7 +165,7 @@ void Loader::load_PNG(texture_info* tex_info)
     png_bytepp row_pointers = png_get_rows(png_ptr, info_ptr);
  
     for (int i = 0; i < tex_info->height; i++) 
-    {
+	{
         // note that png is ordered top to
         // bottom, but OpenGL expect it bottom to top
         // so the order or swapped
