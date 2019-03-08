@@ -13,7 +13,7 @@ class Terrain : public Model {
 private:
 
     // CONSTANTS
-    static constexpr float  TILE_MULTIPILER = 200.0f; // Used for multiplying normalized uv coordinates. OpenGL automatically tiles texture.
+    static constexpr float  TILE_MULTIPILER = 100.0f; // Used for multiplying normalized uv coordinates. OpenGL automatically tiles texture.
     static const int        SIZE = 800;
     static const int        VERTICES_NO = 128;
 
@@ -27,7 +27,7 @@ private:
     void load_texture();
 
     // GETTERS
-    
+
 
     // SETTERS
     void set_meshes();

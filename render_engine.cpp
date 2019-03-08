@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	// initialize engine components.
 	HRSTimer timer;
 	timer.init();
-	Display display("Game Engine", W_WIDTH, W_HEIGHT, false, false);
+	Display display("Game Engine", W_WIDTH, W_HEIGHT, false, true);
 	Camera camera;
 	GLFWwindow* window = display.get_window();
 	Controls controls(&camera, window);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	// Master renderer settings.
 	Object kat("katarina","katarina_base_diffuse");
 	//Object katx("katarina","katarina_base_diffuse");
-	// katy("katarina","katarina_base_diffuse");
+	//Object katy("katarina","katarina_base_diffuse");
 	//Object katz("katarina","katarina_base_diffuse");
 	//Object kat_x("katarina","katarina_base_diffuse");
 	//Object kat_y("katarina","katarina_base_diffuse");

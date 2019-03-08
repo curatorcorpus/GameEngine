@@ -94,18 +94,16 @@ void MasterRenderer::update(GLFWwindow* window)
 	glm::mat4 vp = camera->get_view_proj_mat();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears main frame buffer.
+	
+	object_shader->bind();
 	for(int i = 0; i < objects.size(); i++) 			// Update objects.
-	{
-		object_shader->bind();
 		objects[i]->render(this->camera, vp);
-		object_shader->unbind();
-	}
+	object_shader->unbind();
+
+	terrain_shader->bind();
 	for(int i = 0; i < terrains.size(); i++) 			// Update terrains.
-	{
-		terrain_shader->bind();
 		terrains[i]->render(this->camera, vp);
-		terrain_shader->unbind();
-	}
+	terrain_shader->unbind();
 
 	skybox->render(this->camera);						// Update skybox.
 
