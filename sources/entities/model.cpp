@@ -19,14 +19,6 @@ Model::~Model() {}
 // PUBLIC METHODS
 
 /*
-	Method for adding associated meshes for this 3D model to be rendered.
-*/
-void Model::add_mesh(Mesh mesh) 
-{
-	meshes.push_back(mesh);
-}
-
-/*
 	Method for setting up model for rendering with basic shaders.
 */
 void Model::setup(Shader* shader)
@@ -56,6 +48,22 @@ void Model::render(Camera* camera, glm::mat4& vp)
 	// Render mesh.
 	for(int i = 0; i < meshes.size(); i++) 
 		meshes[i].render();
+}
+
+/*
+	Method for adding associated meshes for this 3D model to be rendered.
+*/
+void Model::add_mesh(Mesh mesh) 
+{
+	meshes.push_back(mesh);
+}
+
+/*
+	Method for obtaining current tranformation matrix.
+*/
+glm::mat4 Model::get_transform()
+{
+	return transform;
 }
 
 /*

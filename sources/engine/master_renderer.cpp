@@ -74,13 +74,13 @@ void MasterRenderer::setup()
 	// Setup Skybox.
 	this->skybox->setup(skybox_shader, camera->get_proj_mat());
 
+	// Setup objects.
 	for(int i = 0; i < objects.size(); i++)
 		objects[i]->setup(object_shader);
 		
+	// Setup terrains.
 	for(int i = 0; i < terrains.size(); i++) 
-	{
-		terrains[i]->set_meshes();
-	}
+		terrains[i]->setup(terrain_shader);
 }
 
 /*
@@ -102,8 +102,9 @@ void MasterRenderer::update(GLFWwindow* window)
 	}
 	for(int i = 0; i < terrains.size(); i++) 			// Update terrains.
 	{
-
-		terrains[i]->render(this->camera);
+		terrain_shader->bind();
+		terrains[i]->render(this->camera, vp);
+		terrain_shader->unbind();
 	}
 
 	skybox->render(this->camera);						// Update skybox.

@@ -5,13 +5,14 @@
 #include <vector>
 
 #include <camera.hpp>
-#include <shader.hpp>
 #include <GL/glew.h>
 #include <glm/gtx/string_cast.hpp>
 
 class Mesh {
 
 private:
+
+	// DATAFIELDS.
 
 	GLuint vao;
 
@@ -25,32 +26,31 @@ private:
 	std::vector<glm::vec2>		uvs;
 	std::vector<unsigned short> indices;
 
-	Shader* shader;
-
-	void bind_shader();
-	void unbind_shader();
+	// METHODS
 
 public:
 
+	// CONSTRUCTORS
 	Mesh();
 	Mesh(std::vector<glm::vec3>& verts);
 	Mesh(std::vector<glm::vec3>& verts, std::vector<glm::vec3>& norm, 
 		 std::vector<glm::vec2>& uvs,   std::vector<unsigned short>& indices);
+
+	// DESTRUCTORS
 	~Mesh();
 
-	void apply_transform(glm::mat4 transform);
+	// METHODS
+	void render();
+	void setup();
 
+	// GETTERS
 	int get_verts_size();
 
+	// SETTERS
 	void set_vertices(std::vector<glm::vec3> verts); // 3D pos x,y,z.
 	void set_normals(std::vector<glm::vec3> norms);	 // 
 	void set_uvs(std::vector<glm::vec2> uvs);		 // texture 2D coordinates.
-	void set_indices(std::vector<unsigned short> indices);   // face indicies.
-
-	void set_shader(Shader* shader);
-
-	void render();
-	void setup();
+	void set_indices(std::vector<unsigned short> indices);   // face indicies
 };
 
 #endif

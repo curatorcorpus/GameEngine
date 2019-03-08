@@ -26,6 +26,12 @@ private:
     void generate_terrain();
     void load_texture();
 
+    // GETTERS
+    
+
+    // SETTERS
+    void set_meshes();
+
 public: 
     // CONSTRUCTORS
     Terrain(std::string texture_name);
@@ -34,15 +40,13 @@ public:
     ~Terrain();
 
     // METHODS
-    void render(Camera* camera);
+    void render(Camera* camera, glm::mat4& vp);
     void setup(TerrainShader* shader);
 
     // GETTERS
 
 
     // SETTERS
-
-    void set_meshes();
 };
 
 #endif

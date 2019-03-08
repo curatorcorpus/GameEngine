@@ -11,6 +11,42 @@ Terrain::~Terrain()
 }
 
 /*=================
+    PUBLIC METHODS    
+/==================
+
+/*
+
+*/
+void Terrain::setup(TerrainShader* t_shader)
+{
+    this->t_shader = t_shader;
+
+    generate_terrain();
+    load_texture();
+    set_meshes();
+}
+
+void Terrain::render(Camera* camera, glm::mat4& vp)
+{
+    // Activate binded texture.
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex_info.id);
+
+    // obtain current MVP and model transform.
+	glm::mat4 mvp = vp * this->transform;
+
+    // update MVP and camera pos in bound shader.
+	this->t_shader->update_mvp(mvp);
+	this->t_shader->update_cam_pos(camera->get_pos());
+
+	for(int i = 0; i < meshes.size(); i++)
+		meshes[i].render();
+
+    // Deactivate bound texture.
+    glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+/*=================
     PRIVATE METHODS    
 /==================
 
@@ -116,52 +152,8 @@ void Terrain::load_texture()
     free(tex_info.data);
 }
 
-void Terrain::render(Camera* camera)
-{
-	this->t_shader->bind(); // could be bound in master renderer for terrains.
-
-    // activate binded texture.
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, tex_info.id);
-
-    // obtain current MVP and model transform.
-	//glm::mat4 model = this->get_transform();
-	glm::mat4 mvp = camera->get_view_proj_mat();// * model;
-
-    // update MVP and camera pos in bound shader.
-	this->t_shader->update_mvp(mvp);
-	this->t_shader->update_cam_pos(camera->get_pos());
-
-	for(int i = 0; i < meshes.size(); i++) 
-	{
-		meshes[i].render();
-	}
-
-    glBindTexture(GL_TEXTURE_2D, 0);
-
-	this->t_shader->unbind();
-}
-
 void Terrain::set_meshes() 
 {
 	for(int i = 0; i < meshes.size(); i++) 
-	{	
-		std::cerr << "[Terrain::SETUP_MESHES] " << this->t_shader->get_prog_id() << std::endl;
 		meshes[i].setup();
-	}
-}
-
-/*=================
-    PRIVATE METHODS    
-/==================
-
-/*
-
-*/
-void Terrain::setup(TerrainShader* t_shader)
-{
-    this->t_shader = t_shader;
-
-    generate_terrain();
-    load_texture();
 }

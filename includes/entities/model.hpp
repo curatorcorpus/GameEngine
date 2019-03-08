@@ -51,7 +51,7 @@ public:
 
 	// GETTERS
 	std::string get_name();// TODO
-	glm::mat4 get_transform();// TODO
+	glm::mat4 get_transform();
 
 	// SETTERS
 	void set_transform(glm::mat4 transform);

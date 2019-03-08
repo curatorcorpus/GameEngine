@@ -28,6 +28,8 @@ Mesh::~Mesh() {
 	glDeleteVertexArrays(1, &vao);
 }
 
+// PUBLIC METHODS
+
 void Mesh::setup() {
 
 	// create VAO.
