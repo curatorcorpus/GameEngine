@@ -7,6 +7,13 @@ Model::Model()
 	this->transform = glm::mat4(1.0f);
 }
 
+Model::Model(std::string name)
+{
+	this->name = name;
+	this->meshes.clear();
+	this->transform = glm::mat4(1.0f);
+}
+
 Model::~Model() {}
 
 void Model::add_mesh(Mesh mesh) 
@@ -14,11 +21,20 @@ void Model::add_mesh(Mesh mesh)
 	meshes.push_back(mesh);
 }
 
+void Model::setup(Shader* shader)
+{
+	if(shader == nullptr) 
+    {
+		std::cerr << "[DEBUG::MESH] " + name + "failed to reference shader!" << std::endl;
+		return; 
+	}
+	this->shader = shader;
+
+	set_meshes();
+}
+
 void Model::render(Camera* camera) 
 {	
-	// Activate shader for rendering.
-	shader->bind();
-
 	//glm::mat4 model = this->transform;
 	
 	// Update transform.
@@ -31,18 +47,12 @@ void Model::render(Camera* camera)
 	{
 		meshes[i].render();
 	}
-
-	// Deactivate shader.
-	shader->unbind();
 }
 
 void Model::set_meshes() 
 {
 	for(int i = 0; i < meshes.size(); i++) 
-	{	
-		std::cerr << "[Model::SETUP_MESHES] " << shader->get_prog_id() << std::endl;
 		meshes[i].setup();
-	}
 }
 
 void Model::set_shader(Shader* shader)

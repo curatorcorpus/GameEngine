@@ -20,16 +20,23 @@ protected:
 	std::vector<Mesh> meshes;
 	Shader* shader;
 
+	// OVERRIDE-ABLE METHODS
+
+	// METHODS
+	void set_meshes();
+
 public:
 
 	// CONSTRUCTORS
 	Model();
 	Model(std::string name);
+
+	// DESTRUCTOR
 	~Model();
 	
 	// OVERRIDE-ABLE METHODS
 	virtual void render(Camera* camera);
-	virtual void set_meshes();
+	virtual void setup(Shader* shader);
 
 	// METHODS
 	void add_mesh(Mesh mesh);
@@ -44,9 +51,7 @@ public:
 	glm::mat4 get_transform();
 
 	// SETTERS
-
 	void set_shader(Shader* shader);
-	void set_texture();
 	void set_transform(glm::mat4 transform);
 };
 

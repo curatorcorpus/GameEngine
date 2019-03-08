@@ -6,7 +6,7 @@
 */
 #include <iostream>
 #include <vector>
-
+#include <chrono>
 /*
 	C Libraries
 */
@@ -16,6 +16,8 @@
 /*
 
 */
+#include <hrs_timer.hpp>
+
 #include <cubemap.hpp>
 #include <camera.hpp>
 #include <light.hpp>
@@ -43,12 +45,15 @@ private:
 	// DATA FIELDS
 	bool fps_on;
 
+	int ct = 0;
+	int avg = 0;
 	std::vector<Object*> objects;
 	std::vector<Terrain*> terrains;
 
 	Camera* camera;
 	CubeMap* cubemap;
 	FpsCounter* fps_counter;
+	HRSTimer* hrs_timer;
 	Light* light;
 	ObjectShader* object_shader;
 	Skybox*	skybox;

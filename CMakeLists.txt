@@ -43,6 +43,7 @@ INCLUDE_DIRECTORIES(
     ${GLEW_INCLUDE_DIRS}
     ${PNG_INCLUDE_DIR}
 
+    includes/diagnostics
     includes/engine
     includes/entities
     includes/shaders
@@ -52,6 +53,8 @@ INCLUDE_DIRECTORIES(
 )
 
 SET(SRC_CODE
+
+    sources/diagnostics/hrs_timer.cpp
 
     sources/engine/controls.cpp
   	sources/engine/display.cpp

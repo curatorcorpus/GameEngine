@@ -20,6 +20,7 @@ MasterRenderer::MasterRenderer(Camera* camera)
 	this->skybox = new Skybox();
 
 	// Load diagnostics.
+	this->hrs_timer = new HRSTimer();
 	this->fps_counter = new FpsCounter();
 }
 
@@ -28,7 +29,10 @@ MasterRenderer::MasterRenderer(Camera* camera)
 */
 MasterRenderer::~MasterRenderer()
 {
+	delete hrs_timer;
 	delete fps_counter;
+
+
 	delete skybox;
 
 	// delete shaders.
@@ -42,7 +46,6 @@ MasterRenderer::~MasterRenderer()
 */
 void MasterRenderer::add_object(Object* object) 
 {
-	object->setup(object_shader);
 	objects.push_back(object);
 }
 
@@ -72,9 +75,8 @@ void MasterRenderer::setup()
 	this->skybox->setup(skybox_shader, camera->get_proj_mat());
 
 	for(int i = 0; i < objects.size(); i++)
-	{
-		objects[i]->set_meshes();
-	}
+		objects[i]->setup(object_shader);
+		
 	for(int i = 0; i < terrains.size(); i++) 
 	{
 		terrains[i]->set_meshes();
@@ -92,13 +94,30 @@ void MasterRenderer::update(GLFWwindow* window)
 	// Clears main frame buffer.
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	glm::mat4 mvp = camera->get_view_proj_mat();
+
 	// Update objects.
 	for(int i = 0; i < objects.size(); i++) 
-		objects[i]->render(this->camera);
+	{
+		object_shader->bind();
+		hrs_timer->init();
+		objects[i]->render(this->camera, mvp);
+		hrs_timer->end();
+
+		hrs_timer->print_nano();
+		hrs_timer->print_micro();
+		hrs_timer->print_milli();
+		hrs_timer->print_secs();
+		
+		object_shader->unbind();
+	}
 
 	// Update terrains.
 	for(int i = 0; i < terrains.size(); i++)
+	{
+
 		terrains[i]->render(this->camera);
+	}
 
 	// Update skybox.
 	skybox->render(this->camera);
