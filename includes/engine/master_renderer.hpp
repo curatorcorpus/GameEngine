@@ -53,7 +53,7 @@ private:
 	Camera* camera;
 	CubeMap* cubemap;
 	FpsCounter* fps_counter;
-	HRSTimer* hrs_timer;
+	//HRSTimer* hrs_timer;
 	Light* light;
 	ObjectShader* object_shader;
 	Skybox*	skybox;

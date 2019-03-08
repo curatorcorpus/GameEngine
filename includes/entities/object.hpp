@@ -32,7 +32,7 @@ public:
 
 	// METHODS
 	void setup(ObjectShader* o_shader);
-	void render(Camera* camera, glm::mat4& mvp);
+	void render(Camera* camera, glm::mat4& vp);
 
 	// GETTERS
 

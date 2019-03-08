@@ -91,31 +91,25 @@ void MasterRenderer::update(GLFWwindow* window)
 	if(fps_on)
 		fps_counter->update();
 
-	// Clears main frame buffer.
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glm::mat4 vp = camera->get_view_proj_mat();
 
-	glm::mat4 mvp = camera->get_view_proj_mat();
-
-	// Update objects.
-	for(int i = 0; i < objects.size(); i++) 
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears main frame buffer.
+	for(int i = 0; i < objects.size(); i++) 			// Update objects.
 	{
 		object_shader->bind();
-		objects[i]->render(this->camera, mvp);
+		objects[i]->render(this->camera, vp);
 		object_shader->unbind();
 	}
-
-	// Update terrains.
-	for(int i = 0; i < terrains.size(); i++)
+	for(int i = 0; i < terrains.size(); i++) 			// Update terrains.
 	{
 
 		terrains[i]->render(this->camera);
 	}
 
-	// Update skybox.
-	skybox->render(this->camera);
+	skybox->render(this->camera);						// Update skybox.
 
-	glfwPollEvents();		 // Process all events.
-	glfwSwapBuffers(window); // Swap between front and back buffer.
+	glfwPollEvents();		 							// Process all events.
+	glfwSwapBuffers(window); 							// Swap between front and back buffer.
 
 	if(fps_on)
 		fps_counter->count_fps();

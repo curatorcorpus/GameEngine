@@ -49,9 +49,7 @@ void Skybox::render(Camera* camera)
     glBindTexture(GL_TEXTURE_CUBE_MAP, cubemap->get_tex_id());
 
 	for(int i = 0; i < meshes.size(); i++) 
-	{
 		meshes[i].render();
-	}
 
     glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 

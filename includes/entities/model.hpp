@@ -35,23 +35,25 @@ public:
 	~Model();
 	
 	// OVERRIDE-ABLE METHODS
-	virtual void render(Camera* camera);
+	virtual void render(Camera* camera, glm::mat4& vp);
 	virtual void setup(Shader* shader);
 
 	// METHODS
 	void add_mesh(Mesh mesh);
-	void reserve_list(int size);	
+	void reserve_list(int size);// TODO
 	void translate(glm::vec3 translation);
-	void rotate();
-	void scale();
+	void rotate(float angle); // TODO
+	void rotate_x(float angle); // TODO
+	void rotate_y(float angle); // TODO
+	void rotate_z(float angle); // TODO
+	void scale(); // TODO
 	void reset_transform();
 
 	// GETTERS
-	std::string get_name();
-	glm::mat4 get_transform();
+	std::string get_name();// TODO
+	glm::mat4 get_transform();// TODO
 
 	// SETTERS
-	void set_shader(Shader* shader);
 	void set_transform(glm::mat4 transform);
 };
 

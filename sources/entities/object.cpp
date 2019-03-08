@@ -25,34 +25,32 @@ void Object::setup(ObjectShader* o_shader)
 	}
 	this->o_shader = o_shader;
 
-	// load 3D file and assign geometry to this class instance.
- 	Loader::load_obj(name, this);
-
-	load_texture();
-	set_meshes();
+ 	Loader::load_obj(name, this); // Load 3D file and assign geometry to this class instance.
+	load_texture();				  // Load associated texture.0
+	set_meshes();				  // 
 }
 
 /* 
-
+	Method for rendering object to camera. More specifically the method for 
+	rendering associated meshes.
 */
-void Object::render(Camera* camera, glm::mat4& mvp) 
+void Object::render(Camera* camera, glm::mat4& vp) 
 {
     // Activate associated texture.
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, this->tex_info.id);
 
     // Obtain current MVP and model transform.
-	glm::mat4 model = this->transform;
+	glm::mat4 mvp = vp * this->transform;
 
     // Update MVP and camera pos in bound shader.
 	o_shader->update_mvp(mvp);
 	o_shader->update_cam_pos(camera->get_pos());
 
 	for(int i = 0; i < meshes.size(); i++) 
-	{
 		meshes[i].render();
-	}
 
+	// unbind current texture.
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
