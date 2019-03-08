@@ -50,6 +50,7 @@ INCLUDE_DIRECTORIES(
     includes/skybox
     includes/terrains
     includes/textures
+    includes/utilities
 )
 
 SET(SRC_CODE
@@ -77,6 +78,8 @@ SET(SRC_CODE
     sources/skybox/skybox.cpp
 
     sources/terrains/terrain.cpp
+
+    sources/utilities/perlin_noise.cpp
 
   	render_engine.cpp
 )
