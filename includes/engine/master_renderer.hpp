@@ -41,6 +41,8 @@ class MasterRenderer {
 private:
 	
 	// DATA FIELDS
+	bool fps_on;
+
 	std::vector<Object*> objects;
 	std::vector<Terrain*> terrains;
 
@@ -54,14 +56,20 @@ private:
 	TerrainShader* terrain_shader;
 
 public:
+
+	// CONSTRUCTORS
 	MasterRenderer(Camera* camera);
+
+	// DESTRUCTORS
 	~MasterRenderer();
 
+	// METHODS
 	void add_model(std::string model_name);
 	void add_object(Object* object);
 	void add_terrain(Terrain* terrain);
 	void setup();
 	void update(GLFWwindow* window);
+	void toggle_fps();
 
 	// GETTERS
 	

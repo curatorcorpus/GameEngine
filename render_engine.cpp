@@ -76,8 +76,8 @@ int main(int argc, char *argv[])
 	// setup engine properties.
 	renderer.setup();
 	//glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-	
-	// main engine loop.
+
+	// MAIN GAME LOOP.
 	while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))
 	{
 		if(!display.get_focus_status()) glfwWaitEvents();glfwPostEmptyEvent();

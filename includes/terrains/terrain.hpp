@@ -30,7 +30,7 @@ public:
     // CONSTRUCTORS
     Terrain(std::string texture_name);
 
-    // DECONSTRUCTORS
+    // DESTRUCTORS
     ~Terrain();
 
     // METHODS
