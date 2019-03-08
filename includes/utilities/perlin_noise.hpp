@@ -43,7 +43,7 @@ public:
     // CONSTRUCTORS
     PerlinNoise();
 
-    // DESTRUCTORS
+    // DESTRUCTOR
     ~PerlinNoise();
 
    	// OVERRIDE-ABLE METHODS
