@@ -20,7 +20,7 @@ MasterRenderer::MasterRenderer(Camera* camera)
 	this->skybox = new Skybox();
 
 	// Load diagnostics.
-	this->hrs_timer = new HRSTimer();
+	//this->hrs_timer = new HRSTimer();
 	this->fps_counter = new FpsCounter();
 }
 
@@ -29,7 +29,7 @@ MasterRenderer::MasterRenderer(Camera* camera)
 */
 MasterRenderer::~MasterRenderer()
 {
-	delete hrs_timer;
+	//delete hrs_timer;
 	delete fps_counter;
 
 
@@ -100,15 +100,7 @@ void MasterRenderer::update(GLFWwindow* window)
 	for(int i = 0; i < objects.size(); i++) 
 	{
 		object_shader->bind();
-		hrs_timer->init();
 		objects[i]->render(this->camera, mvp);
-		hrs_timer->end();
-
-		hrs_timer->print_nano();
-		hrs_timer->print_micro();
-		hrs_timer->print_milli();
-		hrs_timer->print_secs();
-		
 		object_shader->unbind();
 	}
 

@@ -22,6 +22,7 @@
 #include <camera.hpp>
 #include <controls.hpp>
 #include <display.hpp>
+#include <hrs_timer.hpp>
 #include <master_renderer.hpp>
 #include <model.hpp>
 #include <shader.hpp>
@@ -37,6 +38,8 @@ static const int W_HEIGHT = 1080;
 int main(int argc, char *argv[]) 
 {
 	// initialize engine components.
+	HRSTimer timer;
+	timer.init();
 	Display display("Game Engine", W_WIDTH, W_HEIGHT, false, false);
 	Camera camera;
 	GLFWwindow* window = display.get_window();
@@ -76,6 +79,9 @@ int main(int argc, char *argv[])
 	// setup engine properties.
 	renderer.setup();
 	//glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+
+	timer.end();
+	timer.print_milli("[Main::Load_Time]:");
 
 	// MAIN GAME LOOP.
 	while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))

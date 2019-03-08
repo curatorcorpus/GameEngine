@@ -16,7 +16,7 @@
 /*
 
 */
-#include <hrs_timer.hpp>
+//#include <hrs_timer.hpp>
 
 #include <cubemap.hpp>
 #include <camera.hpp>
