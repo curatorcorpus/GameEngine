@@ -6,28 +6,30 @@
 /*
 	C Libraries
 */
-//#include <stdlib.h>
-//#include <stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 /*
 	External Libraries
 */
-#include <GL/glew.h>
+//#include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
+//#include <glm/glm.hpp>
 
 /*
 	Internal Headers
 */
-#include <camera.hpp>
-#include <controls.hpp>
+//#include "entities/camera.hpp"
+
+//#include "engine/controls.hpp"
+/*
 #include <display.hpp>
 #include <hrs_timer.hpp>
 #include <master_renderer.hpp>
 #include <model.hpp>
 #include <shader.hpp>
 #include <terrain.hpp>
-#include <light.hpp>
+#include <light.hpp>*/
 
 /*
 	Gloabl Variables
@@ -37,9 +39,42 @@ static const int W_HEIGHT = 1080;
 
 int main(int argc, char *argv[]) 
 {
+
+	GLFWwindow* window;
+
+	/* Initialize the library */
+	if (!glfwInit())
+		return -1;
+
+	/* Create a windowed mode window and its OpenGL context */
+	window = glfwCreateWindow(W_WIDTH, W_HEIGHT, "GameEngine", NULL, NULL);
+	if (!window)
+	{
+		glfwTerminate();
+		return -1;
+	}
+
+	/* Make the window's context current */
+	glfwMakeContextCurrent(window);
+
+	/* Loop until the user closes the window */
+	while (!glfwWindowShouldClose(window))
+	{
+		/* Render here */
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		/* Swap front and back buffers */
+		glfwSwapBuffers(window);
+
+		/* Poll for and process events */
+		glfwPollEvents();
+	}
+
+	glfwTerminate();
+	/*
 	// initialize engine components.
-	HRSTimer timer;
-	timer.init();
+	//HRSTimer timer;
+	//timer.init();
 	Display display("Game Engine", W_WIDTH, W_HEIGHT, false, true);
 	Camera camera;
 	GLFWwindow* window = display.get_window();
@@ -91,6 +126,6 @@ int main(int argc, char *argv[])
 		controls.update();
 		renderer.update(window); 
 	}
-
+	*/
 	return EXIT_SUCCESS;
 }
